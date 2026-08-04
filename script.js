@@ -1,13 +1,40 @@
 /* =========================================================
-   LAWXYGEN NAVBAR, SEARCH MODAL AND LOGIN MODAL
+   LAWXYGEN NAVBAR, SEARCH AND LOGIN
    Basic Vanilla JavaScript
    ========================================================= */
 
 
-/* ========================= MOBILE NAVBAR ========================= */
+/* ------------------------- ELEMENTS ------------------------- */
 
-const mobileMenuButton = document.getElementById("mobileMenuButton");
-const mainNavigation = document.getElementById("mainNavigation");
+const mobileMenuButton =
+    document.getElementById("mobileMenuButton");
+
+const mainNavigation =
+    document.getElementById("mainNavigation");
+
+const dropdownButtons =
+    document.querySelectorAll(".dropdown-button");
+
+const searchModal =
+    document.getElementById("searchModal");
+
+const loginModal =
+    document.getElementById("loginModal");
+
+const modalServiceSearch =
+    document.getElementById("modalServiceSearch");
+
+const modalServicesContainer =
+    document.getElementById("modalServicesContainer");
+
+const modalNoResults =
+    document.getElementById("modalNoResults");
+
+const serviceResultCount =
+    document.getElementById("serviceResultCount");
+
+
+/* ------------------------- MOBILE MENU ------------------------- */
 
 mobileMenuButton.addEventListener("click", function () {
     const menuIsOpen =
@@ -22,36 +49,37 @@ mobileMenuButton.addEventListener("click", function () {
 });
 
 
-/* ========================= NAVBAR DROPDOWNS ========================= */
-
-const dropdownButtons =
-    document.querySelectorAll(".dropdown-button");
+/* ------------------------- DROPDOWNS ------------------------- */
 
 function closeAllDropdowns() {
-    const openedDropdowns =
+    const openItems =
         document.querySelectorAll(
             ".navigation-item.dropdown-open"
         );
 
-    openedDropdowns.forEach(function (dropdownItem) {
-        dropdownItem.classList.remove("dropdown-open");
+    openItems.forEach(function (item) {
+        item.classList.remove("dropdown-open");
     });
 }
 
-dropdownButtons.forEach(function (dropdownButton) {
-    dropdownButton.addEventListener("click", function (event) {
+dropdownButtons.forEach(function (button) {
+    button.addEventListener("click", function (event) {
         event.stopPropagation();
 
         const navigationItem =
-            dropdownButton.closest(".navigation-item");
+            button.closest(".navigation-item");
 
         const dropdownWasOpen =
-            navigationItem.classList.contains("dropdown-open");
+            navigationItem.classList.contains(
+                "dropdown-open"
+            );
 
         closeAllDropdowns();
 
         if (!dropdownWasOpen) {
-            navigationItem.classList.add("dropdown-open");
+            navigationItem.classList.add(
+                "dropdown-open"
+            );
         }
     });
 });
@@ -67,79 +95,64 @@ document.addEventListener("click", function () {
 });
 
 
-/* ========================= MODAL FUNCTIONS ========================= */
+/* ------------------------- MODALS ------------------------- */
 
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-
-    if (!modal) {
+function openModal(modalElement) {
+    if (!modalElement) {
         return;
     }
 
-    modal.classList.add("modal-visible");
-    modal.setAttribute("aria-hidden", "false");
+    modalElement.classList.add("modal-visible");
+    modalElement.setAttribute("aria-hidden", "false");
 
     document.body.classList.add("modal-open");
 }
 
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-
-    if (!modal) {
+function closeModal(modalElement) {
+    if (!modalElement) {
         return;
     }
 
-    modal.classList.remove("modal-visible");
-    modal.setAttribute("aria-hidden", "true");
+    modalElement.classList.remove("modal-visible");
+    modalElement.setAttribute("aria-hidden", "true");
 
     document.body.classList.remove("modal-open");
 }
 
+document
+    .querySelectorAll("[data-close-modal]")
+    .forEach(function (button) {
+        button.addEventListener("click", function () {
+            const modalId =
+                button.getAttribute("data-close-modal");
 
-/* ========================= SEARCH MODAL ========================= */
+            closeModal(
+                document.getElementById(modalId)
+            );
+        });
+    });
 
-const openSearchModalButton =
-    document.getElementById("openSearchModal");
+document
+    .querySelectorAll(".modal-overlay")
+    .forEach(function (overlay) {
+        overlay.addEventListener("click", function (event) {
+            if (event.target === overlay) {
+                closeModal(overlay);
+            }
+        });
+    });
 
-const openMobileSearchModalButton =
-    document.getElementById("openMobileSearchModal");
-
-const modalServiceSearch =
-    document.getElementById("modalServiceSearch");
-
-/* =========================================================
-   COMPLETE SERVICE SEARCH
-   Reads every service from services-data.js
-   ========================================================= */
-
-const openSearchModalButton =
-    document.getElementById("openSearchModal");
-
-const openMobileSearchModalButton =
-    document.getElementById("openMobileSearchModal");
-
-const openAllServicesModalButton =
-    document.getElementById("openAllServicesModal");
-
-const modalServiceSearch =
-    document.getElementById("modalServiceSearch");
-
-const modalServicesContainer =
-    document.getElementById("modalServicesContainer");
-
-const modalNoResults =
-    document.getElementById("modalNoResults");
-
-const serviceResultCount =
-    document.getElementById("serviceResultCount");
-
-const quickSearchButtons =
-    document.querySelectorAll("[data-quick-search]");
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeModal(searchModal);
+        closeModal(loginModal);
+    }
+});
 
 
-/* Category display order */
+/* ------------------------- SERVICE SEARCH ------------------------- */
 
-const serviceCategoryOrder = [
+const categoryOrder = [
     "Business Setup",
     "Tax & Compliance",
     "Intellectual Property",
@@ -151,19 +164,6 @@ const serviceCategoryOrder = [
     "Talk to a CS",
     "Talk to an IP Lawyer"
 ];
-
-
-/* Convert category name into a simple CSS class */
-
-function createCategoryClass(categoryName) {
-    return categoryName
-        .toLowerCase()
-        .replaceAll("&", "and")
-        .replaceAll(" ", "-");
-}
-
-
-/* Display services inside modal */
 
 function displayServices(searchText) {
     const cleanSearchText =
@@ -183,14 +183,8 @@ function displayServices(searchText) {
             );
         });
 
-
-    /* Update result number */
-
     serviceResultCount.textContent =
         matchingServices.length;
-
-
-    /* No results */
 
     if (matchingServices.length === 0) {
         modalServicesContainer.innerHTML = "";
@@ -200,12 +194,9 @@ function displayServices(searchText) {
 
     modalNoResults.classList.remove("show");
 
+    let completeHtml = "";
 
-    /* Create category sections */
-
-    let completeServicesHtml = "";
-
-    serviceCategoryOrder.forEach(function (categoryName) {
+    categoryOrder.forEach(function (categoryName) {
         const categoryServices =
             matchingServices.filter(function (service) {
                 return service.category === categoryName;
@@ -215,9 +206,6 @@ function displayServices(searchText) {
             return;
         }
 
-        const categoryClass =
-            createCategoryClass(categoryName);
-
         let serviceLinksHtml = "";
 
         categoryServices.forEach(function (service) {
@@ -226,34 +214,23 @@ function displayServices(searchText) {
                     href="${service.url}"
                     class="complete-service-link"
                 >
-                    <span class="service-link-text">
-                        ${service.name}
-                    </span>
-
-                    <span class="service-link-arrow">
-                        →
-                    </span>
+                    <span>${service.name}</span>
+                    <span class="service-link-arrow">→</span>
                 </a>
             `;
         });
 
-        completeServicesHtml += `
-            <section
-                class="modal-service-group ${categoryClass}"
-            >
+        completeHtml += `
+            <section class="modal-service-group">
 
                 <div class="modal-service-group-heading">
-
                     <span class="service-category-dot"></span>
 
-                    <h3>
-                        ${categoryName}
-                    </h3>
+                    <h3>${categoryName}</h3>
 
                     <span class="category-service-number">
                         ${categoryServices.length}
                     </span>
-
                 </div>
 
                 <div class="modal-service-links">
@@ -265,18 +242,26 @@ function displayServices(searchText) {
     });
 
     modalServicesContainer.innerHTML =
-        completeServicesHtml;
+        completeHtml;
 }
 
+function openServiceSearch(searchText) {
+    closeAllDropdowns();
 
-/* Open complete search */
+    mainNavigation.classList.remove(
+        "mobile-menu-open"
+    );
 
-function showCompleteServiceSearch() {
-    openModal("searchModal");
+    mobileMenuButton.classList.remove(
+        "menu-open"
+    );
 
-    modalServiceSearch.value = "";
+    openModal(searchModal);
 
-    displayServices("");
+    modalServiceSearch.value =
+        searchText || "";
+
+    displayServices(searchText || "");
 
     setTimeout(function () {
         modalServiceSearch.focus();
@@ -284,44 +269,31 @@ function showCompleteServiceSearch() {
 }
 
 
-/* Navbar search icon */
+/* Navbar and hero search buttons */
 
-if (openSearchModalButton) {
-    openSearchModalButton.addEventListener(
-        "click",
-        showCompleteServiceSearch
-    );
-}
+document
+    .getElementById("openSearchModal")
+    .addEventListener("click", function () {
+        openServiceSearch("");
+    });
 
+document
+    .getElementById("openMobileSearchModal")
+    .addEventListener("click", function () {
+        openServiceSearch("");
+    });
 
-/* Mobile search */
+document
+    .getElementById("openAllServicesModal")
+    .addEventListener("click", function () {
+        openServiceSearch("");
+    });
 
-if (openMobileSearchModalButton) {
-    openMobileSearchModalButton.addEventListener(
-        "click",
-        function () {
-            mainNavigation.classList.remove(
-                "mobile-menu-open"
-            );
-
-            mobileMenuButton.classList.remove(
-                "menu-open"
-            );
-
-            showCompleteServiceSearch();
-        }
-    );
-}
-
-
-/* All Services navbar button */
-
-if (openAllServicesModalButton) {
-    openAllServicesModalButton.addEventListener(
-        "click",
-        showCompleteServiceSearch
-    );
-}
+document
+    .getElementById("heroExploreServices")
+    .addEventListener("click", function () {
+        openServiceSearch("");
+    });
 
 
 /* Search while typing */
@@ -336,234 +308,139 @@ modalServiceSearch.addEventListener(
 );
 
 
-/* Quick service search buttons */
+/* Quick search chips */
 
-quickSearchButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        const selectedSearch =
-            button.getAttribute(
-                "data-quick-search"
-            );
+document
+    .querySelectorAll("[data-quick-search]")
+    .forEach(function (button) {
+        button.addEventListener("click", function () {
+            const searchText =
+                button.getAttribute(
+                    "data-quick-search"
+                );
 
-        modalServiceSearch.value =
-            selectedSearch;
+            modalServiceSearch.value =
+                searchText;
 
-        displayServices(selectedSearch);
+            displayServices(searchText);
 
-        modalServiceSearch.focus();
+            modalServiceSearch.focus();
+        });
     });
-});
 
 
-/* Open with keyboard shortcut: Ctrl + K */
+/* Navbar service links */
 
-document.addEventListener(
-    "keydown",
-    function (event) {
-        if (
-            event.ctrlKey &&
-            event.key.toLowerCase() === "k"
-        ) {
+document
+    .querySelectorAll("[data-service-query]")
+    .forEach(function (link) {
+        link.addEventListener("click", function (event) {
             event.preventDefault();
-            showCompleteServiceSearch();
-        }
-    }
-);
-const modalNoResults =
-    document.getElementById("modalNoResults");
 
-function showSearchModal() {
-    openModal("searchModal");
-
-    setTimeout(function () {
-        modalServiceSearch.focus();
-    }, 100);
-}
-
-openSearchModalButton.addEventListener(
-    "click",
-    showSearchModal
-);
-
-openMobileSearchModalButton.addEventListener(
-    "click",
-    function () {
-        mainNavigation.classList.remove("mobile-menu-open");
-
-        mobileMenuButton.classList.remove("menu-open");
-
-        mobileMenuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        showSearchModal();
-    }
-);
-
-
-/* Filter service links */
-
-modalServiceSearch.addEventListener("input", function () {
-    const enteredText =
-        modalServiceSearch.value
-            .trim()
-            .toLowerCase();
-
-    let totalVisibleServices = 0;
-
-    modalServiceLinks.forEach(function (serviceLink) {
-        const serviceText =
-            serviceLink.textContent
-                .trim()
-                .toLowerCase();
-
-        const serviceMatches =
-            serviceText.includes(enteredText);
-
-        serviceLink.classList.toggle(
-            "service-hidden",
-            !serviceMatches
-        );
-
-        if (serviceMatches) {
-            totalVisibleServices += 1;
-        }
-    });
-
-    modalServiceGroups.forEach(function (serviceGroup) {
-        const visibleLinks =
-            serviceGroup.querySelectorAll(
-                "[data-search-service]:not(.service-hidden)"
+            openServiceSearch(
+                link.getAttribute(
+                    "data-service-query"
+                )
             );
-
-        serviceGroup.classList.toggle(
-            "hidden-service-group",
-            visibleLinks.length === 0
-        );
+        });
     });
 
-    modalNoResults.classList.toggle(
-        "show",
-        totalVisibleServices === 0
-    );
-});
 
+/* Category buttons */
 
-/* ========================= LOGIN MODAL ========================= */
+document
+    .querySelectorAll("[data-category-query]")
+    .forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
 
-const openLoginModalButton =
-    document.getElementById("openLoginModal");
-
-const openMobileLoginModalButton =
-    document.getElementById("openMobileLoginModal");
-
-const emailLoginForm =
-    document.getElementById("emailLoginForm");
-
-const loginFormMessage =
-    document.getElementById("loginFormMessage");
-
-openLoginModalButton.addEventListener("click", function () {
-    openModal("loginModal");
-});
-
-openMobileLoginModalButton.addEventListener(
-    "click",
-    function () {
-        mainNavigation.classList.remove("mobile-menu-open");
-
-        mobileMenuButton.classList.remove("menu-open");
-
-        mobileMenuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        openModal("loginModal");
-    }
-);
-
-
-/* Temporary frontend form */
-
-emailLoginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const emailInput =
-        document.getElementById("loginEmail");
-
-    const termsCheckbox =
-        document.getElementById("termsCheckbox");
-
-    if (!emailInput.value.trim()) {
-        loginFormMessage.textContent =
-            "Please enter your email address.";
-
-        emailInput.focus();
-        return;
-    }
-
-    if (!termsCheckbox.checked) {
-        loginFormMessage.textContent =
-            "Please accept the Terms of Use and Privacy Policy.";
-
-        return;
-    }
-
-    loginFormMessage.textContent =
-        "Login backend will be connected after the UI is approved.";
-});
-
-
-/* ========================= CLOSE MODALS ========================= */
-
-const modalCloseButtons =
-    document.querySelectorAll("[data-close-modal]");
-
-modalCloseButtons.forEach(function (closeButton) {
-    closeButton.addEventListener("click", function () {
-        const modalId =
-            closeButton.getAttribute("data-close-modal");
-
-        closeModal(modalId);
+            openServiceSearch(
+                button.getAttribute(
+                    "data-category-query"
+                )
+            );
+        });
     });
-});
 
 
-/* Close by clicking dark overlay */
-
-document.querySelectorAll(".modal-overlay").forEach(function (overlay) {
-    overlay.addEventListener("click", function (event) {
-        if (event.target === overlay) {
-            closeModal(overlay.id);
-        }
-    });
-});
-
-
-/* Close using Escape key */
+/* Ctrl + K shortcut */
 
 document.addEventListener("keydown", function (event) {
-    if (event.key !== "Escape") {
-        return;
+    if (
+        event.ctrlKey &&
+        event.key.toLowerCase() === "k"
+    ) {
+        event.preventDefault();
+        openServiceSearch("");
     }
-
-    document
-        .querySelectorAll(".modal-overlay.modal-visible")
-        .forEach(function (visibleModal) {
-            closeModal(visibleModal.id);
-        });
 });
 
 
-/* ========================= WINDOW RESIZE ========================= */
+/* ------------------------- LOGIN MODAL ------------------------- */
+
+document
+    .getElementById("openLoginModal")
+    .addEventListener("click", function () {
+        openModal(loginModal);
+    });
+
+document
+    .getElementById("openMobileLoginModal")
+    .addEventListener("click", function () {
+        mainNavigation.classList.remove(
+            "mobile-menu-open"
+        );
+
+        openModal(loginModal);
+    });
+
+document
+    .getElementById("emailLoginForm")
+    .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email =
+            document
+                .getElementById("loginEmail")
+                .value
+                .trim();
+
+        const termsAccepted =
+            document
+                .getElementById("termsCheckbox")
+                .checked;
+
+        const message =
+            document.getElementById("loginMessage");
+
+        if (email === "") {
+            message.textContent =
+                "Please enter your email address.";
+            return;
+        }
+
+        if (!termsAccepted) {
+            message.textContent =
+                "Please accept the Terms of Use and Privacy Policy.";
+            return;
+        }
+
+        message.textContent =
+            "Login backend will be connected after the UI is approved.";
+    });
+
+
+/* ------------------------- RESIZE ------------------------- */
 
 window.addEventListener("resize", function () {
     if (window.innerWidth > 1020) {
-        mainNavigation.classList.remove("mobile-menu-open");
+        mainNavigation.classList.remove(
+            "mobile-menu-open"
+        );
 
-        mobileMenuButton.classList.remove("menu-open");
+        mobileMenuButton.classList.remove(
+            "menu-open"
+        );
 
         mobileMenuButton.setAttribute(
             "aria-expanded",

@@ -3,29 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LAWXYGEN business, legal, tax and compliance services.">
-    <title>LAWXYGEN | Business, Legal & Compliance</title>
 
-    <!-- Fonts: Lora gives the editorial serif look; Inter keeps navbar and body clean. -->
+    <title>LAWXYGEN | Business, Legal & Compliance Services</title>
+    <meta
+        name="description"
+        content="LAWXYGEN provides business setup, tax, compliance, intellectual property, documentation and expert consultation services."
+    >
+
+    <!-- Clean editorial heading + simple navbar/body font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ========================= NAVBAR START ========================= -->
+    <!-- =====================================================
+         NAVBAR START
+         ===================================================== -->
     <header class="site-header">
         <div class="navbar-container">
 
             <!-- Logo -->
-            <a href="index.html" class="brand-logo" aria-label="LAWXYGEN homepage">
-                <img src="images/LAWXYGEN-LOGO.jpeg" alt="LAWXYGEN logo">
+            <a class="brand-logo" href="index.html" aria-label="LAWXYGEN home">
+                <img src="images/LAWXYGEN-LOGO.jpeg" alt="LAWXYGEN">
             </a>
 
             <!-- Mobile menu button -->
-            <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation" aria-expanded="false">
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -33,9 +48,10 @@
 
             <!-- Main navigation -->
             <nav class="main-navigation" id="mainNavigation" aria-label="Main navigation">
+
                 <ul class="navigation-list">
 
-                    <!-- Business Setup Dropdown -->
+                    <!-- Business Setup -->
                     <li class="navigation-item has-dropdown">
                         <button class="navigation-link dropdown-button" type="button">
                             Business Setup
@@ -44,73 +60,162 @@
 
                         <div class="dropdown-menu">
                             <p class="dropdown-title">Start a business</p>
-                            <a href="#">Private Limited Company Registration</a>
-                            <a href="#">One Person Company (OPC) Registration</a>
-                            <a href="#">Limited Liability Partnership Registration</a>
-                            <a href="#">General Partnership Firm Registration</a>
-                            <a href="#">Sole Proprietorship Registration</a>
-                            <a href="#">Section 8 Company Registration</a>
-                            <a href="#" class="view-all-link">View all Business Setup services →</a>
+
+                            <a href="#" data-service-query="Private Limited Company Registration">
+                                Private Limited Company
+                            </a>
+                            <a href="#" data-service-query="Limited Liability Partnership (LLP) Registration">
+                                LLP Registration
+                            </a>
+                            <a href="#" data-service-query="One Person Company (OPC) Registration">
+                                One Person Company
+                            </a>
+                            <a href="#" data-service-query="General Partnership Firm Registration">
+                                Partnership Firm
+                            </a>
+                            <a href="#" data-service-query="Sole Proprietorship Registration">
+                                Sole Proprietorship
+                            </a>
+                            <a href="#" data-service-query="Section 8 Company Registration">
+                                Section 8 Company
+                            </a>
+
+                            <button
+                                class="dropdown-view-all"
+                                type="button"
+                                data-category-query="Business Setup"
+                            >
+                                View all Business Setup services
+                                <span>→</span>
+                            </button>
                         </div>
                     </li>
 
-                    <!-- Tax & Compliance Dropdown -->
+                    <!-- Tax & Compliance -->
                     <li class="navigation-item has-dropdown">
                         <button class="navigation-link dropdown-button" type="button">
-                            Tax & Compliance
+                            Tax &amp; Compliance
                             <span class="dropdown-arrow" aria-hidden="true"></span>
                         </button>
 
-                        <div class="dropdown-menu wide-dropdown">
+                        <div class="dropdown-menu dropdown-menu-wide">
                             <div class="dropdown-column">
-                                <p class="dropdown-title">GST & Income Tax</p>
-                                <a href="#">New GST Registration</a>
-                                <a href="#">GST Return Filing</a>
-                                <a href="#">Income Tax Return Filing – Individuals</a>
-                                <a href="#">Income Tax Return Filing – Businesses</a>
-                                <a href="#">TDS Return Filing</a>
+                                <p class="dropdown-title">Tax services</p>
+
+                                <a href="#" data-service-query="New GST Registration">
+                                    GST Registration
+                                </a>
+                                <a href="#" data-service-query="GST Return Filing">
+                                    GST Return Filing
+                                </a>
+                                <a href="#" data-service-query="Income Tax Return Filing">
+                                    Income Tax Return
+                                </a>
+                                <a href="#" data-service-query="TDS Return Filing">
+                                    TDS Return Filing
+                                </a>
+                                <a href="#" data-service-query="Professional Tax Registration">
+                                    Professional Tax
+                                </a>
                             </div>
 
                             <div class="dropdown-column">
-                                <p class="dropdown-title">ROC & Accounts</p>
-                                <a href="#">ROC Annual Filing</a>
-                                <a href="#">Director KYC</a>
-                                <a href="#">Monthly Bookkeeping & Accounting</a>
-                                <a href="#">Payroll Processing</a>
-                                <a href="#" class="view-all-link">View all Tax services →</a>
+                                <p class="dropdown-title">Ongoing compliance</p>
+
+                                <a href="#" data-service-query="ROC Annual Filing">
+                                    ROC Annual Filing
+                                </a>
+                                <a href="#" data-service-query="Director KYC">
+                                    Director KYC
+                                </a>
+                                <a href="#" data-service-query="Bookkeeping">
+                                    Bookkeeping &amp; Accounting
+                                </a>
+                                <a href="#" data-service-query="Payroll">
+                                    Payroll Compliance
+                                </a>
+
+                                <button
+                                    class="dropdown-view-all"
+                                    type="button"
+                                    data-category-query="Tax & Compliance"
+                                >
+                                    View all Tax &amp; Compliance
+                                    <span>→</span>
+                                </button>
                             </div>
                         </div>
                     </li>
 
-                    <!-- IP & Documents Dropdown -->
+                    <!-- IP & Documents -->
                     <li class="navigation-item has-dropdown">
                         <button class="navigation-link dropdown-button" type="button">
-                            IP & Documents
+                            IP &amp; Documents
                             <span class="dropdown-arrow" aria-hidden="true"></span>
                         </button>
 
-                        <div class="dropdown-menu wide-dropdown">
+                        <div class="dropdown-menu dropdown-menu-wide">
                             <div class="dropdown-column">
                                 <p class="dropdown-title">Intellectual Property</p>
-                                <a href="#">Trademark Registration (Indian)</a>
-                                <a href="#">Trademark Search</a>
-                                <a href="#">Trademark Objection Reply</a>
-                                <a href="#">Copyright Registration</a>
-                                <a href="#">Provisional Patent Application</a>
+
+                                <a href="#" data-service-query="Trademark Registration">
+                                    Trademark Registration
+                                </a>
+                                <a href="#" data-service-query="Trademark Search">
+                                    Trademark Search
+                                </a>
+                                <a href="#" data-service-query="Trademark Objection">
+                                    Trademark Objection Reply
+                                </a>
+                                <a href="#" data-service-query="Copyright Registration">
+                                    Copyright Registration
+                                </a>
+                                <a href="#" data-service-query="Patent">
+                                    Patent Services
+                                </a>
+
+                                <button
+                                    class="dropdown-view-all"
+                                    type="button"
+                                    data-category-query="Intellectual Property"
+                                >
+                                    View all IP services
+                                    <span>→</span>
+                                </button>
                             </div>
 
                             <div class="dropdown-column">
                                 <p class="dropdown-title">Legal Documents</p>
-                                <a href="#">Non-Disclosure Agreement (NDA)</a>
-                                <a href="#">Founder Agreement</a>
-                                <a href="#">Employment Agreement</a>
-                                <a href="#">Shareholders Agreement</a>
-                                <a href="#" class="view-all-link">View all Documents →</a>
+
+                                <a href="#" data-service-query="Non-Disclosure Agreement">
+                                    Non-Disclosure Agreement
+                                </a>
+                                <a href="#" data-service-query="Founder Agreement">
+                                    Founder Agreement
+                                </a>
+                                <a href="#" data-service-query="Employment Agreement">
+                                    Employment Agreement
+                                </a>
+                                <a href="#" data-service-query="Shareholders Agreement">
+                                    Shareholders Agreement
+                                </a>
+                                <a href="#" data-service-query="Privacy Policy">
+                                    Website Terms &amp; Privacy
+                                </a>
+
+                                <button
+                                    class="dropdown-view-all"
+                                    type="button"
+                                    data-category-query="Documentation"
+                                >
+                                    View all Documents
+                                    <span>→</span>
+                                </button>
                             </div>
                         </div>
                     </li>
 
-                    <!-- Licences Dropdown -->
+                    <!-- Licences -->
                     <li class="navigation-item has-dropdown">
                         <button class="navigation-link dropdown-button" type="button">
                             Licences
@@ -118,18 +223,39 @@
                         </button>
 
                         <div class="dropdown-menu">
-                            <p class="dropdown-title">Licences & Certifications</p>
-                            <a href="#">FSSAI Food License Registration</a>
-                            <a href="#">Import Export Code Registration</a>
-                            <a href="#">MSME / Udyog Aadhaar Registration</a>
-                            <a href="#">Shop & Establishment Registration</a>
-                            <a href="#">ISO Certification</a>
-                            <a href="#">Trade License</a>
-                            <a href="#" class="view-all-link">View all Licences →</a>
+                            <p class="dropdown-title">Licences &amp; Certifications</p>
+
+                            <a href="#" data-service-query="FSSAI">
+                                FSSAI Registration
+                            </a>
+                            <a href="#" data-service-query="Import Export Code">
+                                Import Export Code
+                            </a>
+                            <a href="#" data-service-query="MSME">
+                                MSME Registration
+                            </a>
+                            <a href="#" data-service-query="Shop and Establishment">
+                                Shop &amp; Establishment
+                            </a>
+                            <a href="#" data-service-query="ISO Certification">
+                                ISO Certification
+                            </a>
+                            <a href="#" data-service-query="Trade License">
+                                Trade Licence
+                            </a>
+
+                            <button
+                                class="dropdown-view-all"
+                                type="button"
+                                data-category-query="Certifications"
+                            >
+                                View all Licences
+                                <span>→</span>
+                            </button>
                         </div>
                     </li>
 
-                    <!-- Expert Consultation Dropdown -->
+                    <!-- Consult Experts -->
                     <li class="navigation-item has-dropdown">
                         <button class="navigation-link dropdown-button" type="button">
                             Consult Experts
@@ -138,382 +264,357 @@
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <p class="dropdown-title">Professional Consultation</p>
-                            <a href="#">Online Lawyer Consultation</a>
-                            <a href="#">CA Consultation – Accounting & Taxation</a>
-                            <a href="#">Company Secretary Consultation</a>
-                            <a href="#">IP Lawyer Consultation</a>
-                            <a href="#">Startup & Corporate Legal Advisory</a>
+
+                            <a href="#" data-category-query="Talk to a Lawyer">
+                                Talk to a Lawyer
+                            </a>
+                            <a href="#" data-category-query="Talk to a CA">
+                                Talk to a CA
+                            </a>
+                            <a href="#" data-category-query="Talk to a CS">
+                                Talk to a CS
+                            </a>
+                            <a href="#" data-category-query="Talk to an IP Lawyer">
+                                Talk to an IP Lawyer
+                            </a>
+                            <a href="#" data-service-query="Startup">
+                                Startup Legal Advisory
+                            </a>
                         </div>
                     </li>
 
+                    <!-- All Services -->
                     <li class="navigation-item">
                         <button
-    class="all-services-navigation-button"
-    id="openAllServicesModal"
-    type="button"
->
-    All Services
-</button>
+                            class="navigation-link all-services-button"
+                            id="openAllServicesModal"
+                            type="button"
+                        >
+                            All Services
+                        </button>
                     </li>
                 </ul>
-<!-- Mobile navbar actions -->
-<div class="mobile-navigation-actions">
 
-    <button
-        class="mobile-action-button"
-        id="openMobileSearchModal"
-        type="button"
-    >
-        Search Services
-    </button>
+                <!-- Mobile-only buttons -->
+                <div class="mobile-navigation-actions">
+                    <button id="openMobileSearchModal" type="button">
+                        Search Services
+                    </button>
+                    <button id="openMobileLoginModal" type="button">
+                        Login
+                    </button>
+                    <a href="#" class="primary-button mobile-consultation-button">
+                        Book Consultation
+                    </a>
+                </div>
+            </nav>
 
-    <button
-        class="mobile-action-button"
-        id="openMobileLoginModal"
-        type="button"
-    >
-        Login
-    </button>
+            <!-- Desktop actions -->
+            <div class="navbar-actions">
 
-    <a href="#" class="primary-button mobile-consultation-button">
-        Book Consultation
-    </a>
-</div>
+                <button
+                    class="navbar-search-button"
+                    id="openSearchModal"
+                    type="button"
+                    aria-label="Search services"
+                >
+                    <span class="search-icon" aria-hidden="true"></span>
+                </button>
 
-<!-- Desktop navbar actions -->
-<div class="navbar-actions">
+                <button
+                    class="login-button"
+                    id="openLoginModal"
+                    type="button"
+                >
+                    Login
+                </button>
 
-    <!-- Search button -->
-    <button
-        class="navbar-icon-button"
-        id="openSearchModal"
-        type="button"
-        aria-label="Search services"
-    >
-        <span class="navbar-search-icon"></span>
-    </button>
-
-    <!-- Login button -->
-    <button
-        class="login-link login-button"
-        id="openLoginModal"
-        type="button"
-    >
-        Login
-    </button>
-
-    <a href="#" class="primary-button small-button">
-        Book Consultation
-    </a>
-</div>
+                <a href="#" class="primary-button navbar-consultation-button">
+                    Book Consultation
+                </a>
+            </div>
         </div>
     </header>
-    <!-- ========================== NAVBAR END ========================== -->
+    <!-- =====================================================
+         NAVBAR END
+         ===================================================== -->
 
 
     <main>
-        <!-- ========================== HERO START ========================== -->
+
+        <!-- =================================================
+             HERO START
+             ================================================= -->
         <section class="hero-section">
-            <div class="hero-background-glow hero-glow-one"></div>
-            <div class="hero-background-glow hero-glow-two"></div>
+            <div class="hero-container">
 
-            <!-- Hero content -->
-<div class="hero-content">
+                <!-- Hero text -->
+                <div class="hero-content">
 
-    <p class="hero-label">
-        BUSINESS, LEGAL &amp; COMPLIANCE SERVICES
-    </p>
+                    <p class="hero-label">
+                        BUSINESS, LEGAL &amp; COMPLIANCE SERVICES
+                    </p>
 
-    <h1>
-        Clear legal support for every
-        <span>stage of your business.</span>
-    </h1>
+                    <h1>
+                        Build with clarity.
+                        <span>Stay ready for what comes next.</span>
+                    </h1>
 
-    <p class="hero-description">
-        Start, manage and protect your business with guided registrations,
-        tax compliance, legal documentation and professional consultation.
-    </p>
+                    <p class="hero-description">
+                        Start, manage and protect your business through guided
+                        registrations, tax support, legal documentation and
+                        professional consultation.
+                    </p>
 
-    <div class="hero-actions">
-        <a href="#" class="primary-button">
-            Explore All Services
-        </a>
+                    <div class="hero-actions">
+                        <button
+                            class="primary-button"
+                            id="heroExploreServices"
+                            type="button"
+                        >
+                            Explore All Services
+                        </button>
 
-        <a href="#" class="secondary-button">
-            Talk to an Expert
-            <span class="button-arrow">→</span>
-        </a>
-    </div>
-    <!-- Clean crystal visual -->
-<div class="hero-visual" aria-label="LAWXYGEN legal services illustration">
+                        <a href="#" class="secondary-button">
+                            Talk to an Expert
+                            <span>→</span>
+                        </a>
+                    </div>
 
-    <div class="clean-crystal-stage">
+                    <!-- Small service paths -->
+                    <div class="hero-service-paths">
+                        <button type="button" data-category-query="Business Setup">
+                            <span>01</span>
+                            Start a business
+                        </button>
+                        <button type="button" data-category-query="Tax & Compliance">
+                            <span>02</span>
+                            Manage compliance
+                        </button>
+                        <button type="button" data-category-query="Intellectual Property">
+                            <span>03</span>
+                            Protect your work
+                        </button>
+                    </div>
+                </div>
 
-        <!-- Soft background rings -->
-        <div class="crystal-halo crystal-halo-one"></div>
-        <div class="crystal-halo crystal-halo-two"></div>
+                <!-- Original crystal visual -->
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="crystal-scene">
 
-        <!-- Soft background light -->
-        <div class="clean-crystal-light"></div>
+                        <div class="scene-orbit scene-orbit-one"></div>
+                        <div class="scene-orbit scene-orbit-two"></div>
 
-        <!-- Main crystal -->
-        <div class="clean-crystal">
+                        <div class="crystal-glow"></div>
 
-            <span class="clean-crystal-face crystal-face-one"></span>
-            <span class="clean-crystal-face crystal-face-two"></span>
-            <span class="clean-crystal-face crystal-face-three"></span>
-            <span class="clean-crystal-face crystal-face-four"></span>
+                        <div class="main-crystal">
+                            <span class="crystal-side crystal-side-one"></span>
+                            <span class="crystal-side crystal-side-two"></span>
+                            <span class="crystal-side crystal-side-three"></span>
+                            <span class="crystal-side crystal-side-four"></span>
+                            <span class="crystal-shine"></span>
 
-            <!-- Moving light reflection -->
-            <span class="crystal-reflection"></span>
+                            <div class="crystal-symbol">⚖</div>
+                        </div>
 
-            <div class="clean-crystal-symbol">
-                ⚖
+                        <div class="crystal-note crystal-note-top">
+                            <span>Setup</span>
+                            Business registration
+                        </div>
+
+                        <div class="crystal-note crystal-note-bottom">
+                            <span>Compliance</span>
+                            Tax and filings
+                        </div>
+
+                        <div class="crystal-shadow"></div>
+                    </div>
+                </div>
             </div>
-
-        </div>
-
-        <!-- Small information line -->
-        <div class="crystal-information">
-            <span class="crystal-information-dot"></span>
-
-            <p>
-                Setup
-                <span>•</span>
-                Compliance
-                <span>•</span>
-                Protection
-            </p>
-        </div>
-
-        <div class="clean-crystal-shadow"></div>
-
-    </div>
-
-</div>
-
-</div>
         </section>
-        <!-- =========================== HERO END =========================== -->
+        <!-- =================================================
+             HERO END
+             ================================================= -->
+
     </main>
 
-<!-- ===================== SERVICE SEARCH MODAL START ===================== -->
 
-<div class="modal-overlay" id="searchModal" aria-hidden="true">
+    <!-- =====================================================
+         SERVICE SEARCH MODAL START
+         ===================================================== -->
+    <div class="modal-overlay" id="searchModal" aria-hidden="true">
+        <div
+            class="search-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="searchModalHeading"
+        >
+            <div class="search-modal-header">
 
-    <div
-        class="search-modal-card"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="searchModalHeading"
-    >
+                <div class="modal-search-field">
+                    <span class="search-icon" aria-hidden="true"></span>
 
-        <!-- Search header -->
-        <div class="search-modal-header">
+                    <input
+                        type="search"
+                        id="modalServiceSearch"
+                        placeholder="Search GST, trademark, company registration..."
+                        autocomplete="off"
+                    >
+                </div>
 
-            <div class="modal-search-field">
-
-                <span class="modal-search-icon"></span>
-
-                <input
-                    type="search"
-                    id="modalServiceSearch"
-                    placeholder="Search company, GST, trademark, tax, documents..."
-                    autocomplete="off"
+                <button
+                    class="modal-close-button"
+                    type="button"
+                    data-close-modal="searchModal"
+                    aria-label="Close search"
                 >
-
+                    ×
+                </button>
             </div>
 
+            <div class="search-modal-content">
+
+                <div class="search-modal-title-row">
+                    <div>
+                        <p class="modal-eyebrow">LAWXYGEN SERVICES</p>
+                        <h2 id="searchModalHeading">Find the service you need</h2>
+                    </div>
+
+                    <p class="service-result-count">
+                        <strong id="serviceResultCount">0</strong>
+                        services
+                    </p>
+                </div>
+
+                <div class="quick-search-list">
+                    <button type="button" data-quick-search="Private Limited Company">
+                        Private Limited Company
+                    </button>
+                    <button type="button" data-quick-search="GST">
+                        GST Services
+                    </button>
+                    <button type="button" data-quick-search="Trademark">
+                        Trademark
+                    </button>
+                    <button type="button" data-quick-search="Income Tax">
+                        Income Tax
+                    </button>
+                    <button type="button" data-quick-search="Consultation">
+                        Consultation
+                    </button>
+                </div>
+
+                <!-- JS inserts all Excel services here -->
+                <div
+                    class="modal-services-container"
+                    id="modalServicesContainer"
+                ></div>
+
+                <p class="modal-no-results" id="modalNoResults">
+                    No matching service found. Try another name.
+                </p>
+            </div>
+
+            <div class="search-modal-footer">
+                <img src="images/lawxygen-logo.png" alt="LAWXYGEN">
+                <p>Press <kbd>Esc</kbd> to close</p>
+            </div>
+        </div>
+    </div>
+    <!-- =====================================================
+         SERVICE SEARCH MODAL END
+         ===================================================== -->
+
+
+    <!-- =====================================================
+         LOGIN MODAL START
+         ===================================================== -->
+    <div class="modal-overlay" id="loginModal" aria-hidden="true">
+        <div
+            class="login-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="loginModalHeading"
+        >
             <button
-                class="modal-close-button"
+                class="login-modal-close"
                 type="button"
-                data-close-modal="searchModal"
-                aria-label="Close service search"
+                data-close-modal="loginModal"
+                aria-label="Close login"
             >
                 ×
             </button>
 
-        </div>
+            <h2 id="loginModalHeading">Log in or sign up</h2>
 
-        <!-- Search body -->
-        <div class="search-modal-content">
+            <p class="login-description">
+                Continue to manage your LAWXYGEN services.
+            </p>
 
-            <div class="search-modal-title-row">
+            <div class="social-login-list">
+                <button type="button">
+                    <span class="social-mark google-mark">G</span>
+                    Continue with Google
+                </button>
 
-                <div>
-                    <p class="modal-small-heading">
-                        LAWXYGEN SERVICES
-                    </p>
+                <button type="button">
+                    <span class="social-mark apple-mark">●</span>
+                    Continue with Apple
+                </button>
 
-                    <h2 id="searchModalHeading">
-                        Find the service you need
-                    </h2>
+                <button type="button">
+                    <span class="social-mark facebook-mark">f</span>
+                    Continue with Facebook
+                </button>
+            </div>
+
+            <div class="login-divider">
+                <span></span>
+                <p>OR</p>
+                <span></span>
+            </div>
+
+            <form id="emailLoginForm">
+
+                <label for="loginEmail">Email</label>
+
+                <div class="login-email-field">
+                    <span>✉</span>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email address"
+                        required
+                    >
                 </div>
 
-                <p class="service-result-count">
-                    <strong id="serviceResultCount">0</strong>
-                    services
-                </p>
-
-            </div>
-
-            <!-- Quick search buttons -->
-            <div class="popular-service-chips">
-
-                <button type="button" data-quick-search="Private Limited Company">
-                    Private Limited Company
+                <button class="login-continue-button" type="submit">
+                    Continue
                 </button>
 
-                <button type="button" data-quick-search="GST">
-                    GST Services
-                </button>
+                <label class="terms-checkbox">
+                    <input type="checkbox" id="termsCheckbox">
+                    <span>
+                        I agree to the
+                        <a href="#">Terms of Use</a>
+                        and
+                        <a href="#">Privacy Policy</a>
+                    </span>
+                </label>
 
-                <button type="button" data-quick-search="Trademark">
-                    Trademark
-                </button>
-
-                <button type="button" data-quick-search="Income Tax">
-                    Income Tax
-                </button>
-
-                <button type="button" data-quick-search="Consultation">
-                    Consultation
-                </button>
-
-            </div>
-
-            <div class="modal-divider"></div>
-
-            <!-- All services are inserted here using services-data.js -->
-            <div
-                class="modal-services-container"
-                id="modalServicesContainer"
-            ></div>
-
-            <p class="modal-no-results" id="modalNoResults">
-                No matching service found. Try another service name.
-            </p>
-
+                <p class="login-message" id="loginMessage"></p>
+            </form>
         </div>
-
-        <!-- Search footer -->
-        <div class="search-modal-footer">
-
-            <img
-                src="images/lawxygen-logo.png"
-                alt="LAWXYGEN"
-            >
-
-            <p>
-                Press <kbd>Esc</kbd> to close
-            </p>
-
-        </div>
-
     </div>
+    <!-- =====================================================
+         LOGIN MODAL END
+         ===================================================== -->
 
-</div>
 
-<!-- ====================== SERVICE SEARCH MODAL END ====================== -->
+    <!-- Complete services from the uploaded Excel workbook -->
+    <script src="services-data.js"></script>
 
-
-<!-- ========================= LOGIN MODAL START ========================= -->
-
-<div class="modal-overlay" id="loginModal" aria-hidden="true">
-
-    <div
-        class="login-modal-card"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="loginModalTitle"
-    >
-
-        <button
-            class="login-modal-close"
-            type="button"
-            data-close-modal="loginModal"
-            aria-label="Close login"
-        >
-            ×
-        </button>
-
-        <h2 id="loginModalTitle">
-            Log in or sign up
-        </h2>
-
-        <p class="login-modal-description">
-            Continue to manage your LAWXYGEN services.
-        </p>
-
-        <div class="social-login-list">
-
-            <button type="button" class="social-login-button">
-                <span class="social-login-mark google-mark">G</span>
-                Continue with Google
-            </button>
-
-            <button type="button" class="social-login-button">
-                <span class="social-login-mark apple-mark">●</span>
-                Continue with Apple
-            </button>
-
-            <button type="button" class="social-login-button">
-                <span class="social-login-mark facebook-mark">f</span>
-                Continue with Facebook
-            </button>
-
-        </div>
-
-        <div class="login-divider">
-            <span></span>
-            <p>OR</p>
-            <span></span>
-        </div>
-
-        <form class="email-login-form" id="emailLoginForm">
-
-            <label for="loginEmail">
-                Email
-            </label>
-
-            <div class="login-email-field">
-                <span class="email-field-icon">✉</span>
-
-                <input
-                    type="email"
-                    id="loginEmail"
-                    placeholder="Enter your email address"
-                    required
-                >
-            </div>
-
-            <button type="submit" class="login-continue-button">
-                Continue
-            </button>
-
-            <label class="terms-checkbox">
-                <input type="checkbox" id="termsCheckbox" required>
-
-                <span>
-                    I agree to the
-                    <a href="#">Terms of Use</a>
-                    and
-                    <a href="#">Privacy Policy</a>
-                </span>
-            </label>
-
-            <p class="login-form-message" id="loginFormMessage"></p>
-
-        </form>
-
-    </div>
-
-</div>
-
-<script src="services-data.js"></script>
-
-<!-- ========================== LOGIN MODAL END ========================== -->
-
+    <!-- Navbar, modal and search functions -->
     <script src="script.js"></script>
 </body>
 </html>
