@@ -1714,3 +1714,964 @@ button {
         animation: none;
     }
 }
+
+/* =========================================================
+   FINAL LAWXYGEN HERO DESIGN
+   Paste this complete section at the bottom of style.css
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   UPDATED COLOUR SYSTEM
+   --------------------------------------------------------- */
+
+:root {
+    --lawxygen-navy: #102a43;
+    --lawxygen-deep-blue: #135c9e;
+    --lawxygen-blue: #2586c8;
+    --lawxygen-sky: #72bce7;
+
+    --lawxygen-green: #3b8b6f;
+    --lawxygen-mint: #edf8f3;
+
+    --lawxygen-orange: #ed9a4a;
+    --lawxygen-cream: #fff6e8;
+
+    --lawxygen-purple: #756fc4;
+    --lawxygen-lavender: #f1efff;
+
+    --lawxygen-white: #ffffff;
+    --lawxygen-text: #607286;
+    --lawxygen-border: #d9e5ed;
+}
+
+
+/* ---------------------------------------------------------
+   NAVBAR COLOUR DETAILS
+   --------------------------------------------------------- */
+
+.site-header {
+    position: relative;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #dde7ee;
+    box-shadow: 0 5px 24px rgba(24, 59, 91, 0.05);
+    backdrop-filter: blur(16px);
+}
+
+.site-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        var(--lawxygen-deep-blue) 0%,
+        var(--lawxygen-blue) 40%,
+        var(--lawxygen-green) 72%,
+        var(--lawxygen-orange) 100%
+    );
+}
+
+.navigation-link,
+.login-button,
+.all-services-navigation-button {
+    color: var(--lawxygen-navy);
+}
+
+.navigation-link:hover,
+.login-button:hover,
+.all-services-navigation-button:hover {
+    color: var(--lawxygen-deep-blue);
+}
+
+.navbar-icon-button:hover {
+    color: var(--lawxygen-deep-blue);
+    background: var(--lawxygen-mint);
+    border-color: #cfe6da;
+}
+
+.navbar-consultation-button {
+    background: linear-gradient(
+        110deg,
+        #123f71,
+        var(--lawxygen-deep-blue),
+        var(--lawxygen-blue)
+    );
+
+    box-shadow: 0 10px 25px rgba(22, 98, 163, 0.18);
+}
+
+
+/* ---------------------------------------------------------
+   HERO BACKGROUND
+   --------------------------------------------------------- */
+
+.hero-section {
+    position: relative;
+    min-height: calc(100vh - 84px);
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            125deg,
+            #fffdf9 0%,
+            #f8fbff 29%,
+            #eef7fc 56%,
+            #eff8f3 78%,
+            #fff7ec 100%
+        );
+
+    border-bottom: 1px solid #e2eaf0;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    top: -290px;
+    right: 3%;
+
+    background: radial-gradient(
+        circle,
+        rgba(74, 166, 221, 0.28),
+        rgba(74, 166, 221, 0) 68%
+    );
+
+    border-radius: 50%;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    left: -230px;
+    bottom: -270px;
+
+    background: radial-gradient(
+        circle,
+        rgba(59, 139, 111, 0.17),
+        rgba(59, 139, 111, 0) 70%
+    );
+
+    border-radius: 50%;
+}
+
+
+/* ---------------------------------------------------------
+   HERO CONTAINER
+   Fixes content going outside the screen
+   --------------------------------------------------------- */
+
+.hero-section .hero-container {
+    position: relative;
+    z-index: 2;
+
+    width: min(1280px, calc(100% - 64px));
+    min-height: calc(100vh - 84px);
+    margin: 0 auto;
+    padding: 74px 0 70px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.02fr)
+        minmax(440px, 0.98fr);
+
+    align-items: center;
+    gap: 72px;
+}
+
+.hero-section .hero-content {
+    width: 100%;
+    max-width: 680px;
+    min-width: 0;
+}
+
+
+/* ---------------------------------------------------------
+   INDIAFILINGS-STYLE EDITORIAL HEADING
+   DM Serif Display is already loaded in index.html
+   --------------------------------------------------------- */
+
+.hero-section .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--lawxygen-deep-blue);
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+}
+
+.hero-section .hero-label::before {
+    content: "";
+
+    width: 9px;
+    height: 9px;
+    flex: 0 0 auto;
+
+    background: linear-gradient(
+        135deg,
+        var(--lawxygen-green),
+        var(--lawxygen-blue)
+    );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 5px rgba(59, 139, 111, 0.09);
+}
+
+.hero-section .hero-content h1 {
+    max-width: 680px;
+    margin-top: 22px;
+
+    color: var(--lawxygen-navy);
+
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(46px, 4.25vw, 64px);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+}
+
+.hero-section .hero-content h1 span {
+    display: block;
+
+    background: linear-gradient(
+        100deg,
+        #174f86 0%,
+        var(--lawxygen-blue) 55%,
+        #4ba5dc 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-section .hero-description {
+    max-width: 620px;
+    margin-top: 24px;
+
+    color: var(--lawxygen-text);
+
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+.hero-section .hero-actions {
+    margin-top: 31px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-section .primary-button {
+    background: linear-gradient(
+        110deg,
+        #123f71,
+        var(--lawxygen-deep-blue),
+        var(--lawxygen-blue)
+    );
+
+    box-shadow: 0 13px 28px rgba(24, 102, 170, 0.19);
+}
+
+.hero-section .secondary-button {
+    color: var(--lawxygen-navy);
+
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--lawxygen-border);
+
+    box-shadow: 0 8px 25px rgba(25, 66, 102, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+.hero-section .secondary-button:hover {
+    color: var(--lawxygen-deep-blue);
+    background: var(--lawxygen-white);
+    border-color: #bad5e6;
+}
+
+
+/* =========================================================
+   NEW RIGHT-SIDE SERVICE MAP
+   ========================================================= */
+
+.hero-section .hero-visual {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-map {
+    position: relative;
+
+    width: min(100%, 530px);
+    height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Main soft panel */
+
+.service-map::before {
+    content: "";
+    position: absolute;
+    inset: 48px 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.88),
+            rgba(235, 246, 254, 0.78),
+            rgba(238, 248, 243, 0.70)
+        );
+
+    border: 1px solid rgba(200, 219, 232, 0.78);
+    border-radius: 38px;
+
+    box-shadow:
+        0 35px 80px rgba(27, 81, 124, 0.12);
+
+    transform: rotate(-3deg);
+    backdrop-filter: blur(18px);
+}
+
+
+/* Subtle grid inside panel */
+
+.service-map::after {
+    content: "";
+    position: absolute;
+    inset: 72px 62px;
+
+    opacity: 0.34;
+
+    background-image:
+        linear-gradient(
+            rgba(32, 112, 171, 0.10) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(32, 112, 171, 0.10) 1px,
+            transparent 1px
+        );
+
+    background-size: 32px 32px;
+    border-radius: 28px;
+}
+
+
+/* Decorative colour lights */
+
+.service-map-orb {
+    position: absolute;
+    z-index: 1;
+
+    display: block;
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    animation: serviceMapGlow 7s ease-in-out infinite;
+}
+
+.service-map-orb-blue {
+    width: 170px;
+    height: 170px;
+    top: 38px;
+    right: 24px;
+
+    background: radial-gradient(
+        circle,
+        rgba(72, 165, 222, 0.28),
+        transparent 70%
+    );
+}
+
+.service-map-orb-green {
+    width: 150px;
+    height: 150px;
+    bottom: 30px;
+    left: 24px;
+
+    background: radial-gradient(
+        circle,
+        rgba(59, 139, 111, 0.22),
+        transparent 70%
+    );
+
+    animation-delay: -2s;
+}
+
+.service-map-orb-orange {
+    width: 120px;
+    height: 120px;
+    right: 40px;
+    bottom: 48px;
+
+    background: radial-gradient(
+        circle,
+        rgba(237, 154, 74, 0.22),
+        transparent 70%
+    );
+
+    animation-delay: -4s;
+}
+
+
+/* Centre card */
+
+.service-map-centre {
+    position: relative;
+    z-index: 5;
+
+    width: 220px;
+    min-height: 205px;
+    padding: 25px 23px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.97),
+            rgba(244, 250, 255, 0.92)
+        );
+
+    border: 1px solid rgba(190, 215, 232, 0.90);
+    border-radius: 27px;
+
+    box-shadow:
+        0 28px 55px rgba(22, 76, 118, 0.15);
+
+    text-align: center;
+
+    animation: serviceCentreFloat 6s ease-in-out infinite;
+}
+
+.service-map-small-label {
+    color: var(--lawxygen-deep-blue);
+
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.service-map-centre img {
+    width: 112px;
+    height: 68px;
+    margin: 10px auto 7px;
+
+    display: block;
+    object-fit: contain;
+}
+
+.service-map-centre p {
+    color: var(--lawxygen-text);
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.service-map-status {
+    margin-top: 13px;
+    padding: 7px 11px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--lawxygen-navy);
+
+    background: var(--lawxygen-mint);
+    border: 1px solid #cee5d9;
+    border-radius: 999px;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.service-map-status span {
+    width: 7px;
+    height: 7px;
+
+    background: var(--lawxygen-green);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 4px rgba(59, 139, 111, 0.10);
+}
+
+
+/* Service cards */
+
+.service-map-card {
+    position: absolute;
+    z-index: 6;
+
+    width: 195px;
+    min-height: 78px;
+    padding: 12px 13px;
+
+    display: grid;
+    grid-template-columns: 34px 1fr 18px;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--lawxygen-navy);
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--lawxygen-border);
+    border-radius: 17px;
+
+    box-shadow:
+        0 16px 34px rgba(24, 73, 112, 0.11);
+
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+
+    backdrop-filter: blur(15px);
+}
+
+.service-map-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #b7d2e4;
+
+    box-shadow:
+        0 22px 42px rgba(24, 73, 112, 0.15);
+}
+
+.service-map-card-number {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.service-map-card-text {
+    min-width: 0;
+}
+
+.service-map-card-text strong,
+.service-map-card-text small {
+    display: block;
+}
+
+.service-map-card-text strong {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.service-map-card-text small {
+    margin-top: 4px;
+
+    color: #738499;
+
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+.service-map-card-arrow {
+    color: #7894aa;
+    font-size: 15px;
+}
+
+
+/* Card locations */
+
+.service-map-business {
+    top: 22px;
+    left: 0;
+
+    animation: serviceCardFloatOne 7s ease-in-out infinite;
+}
+
+.service-map-tax {
+    top: 40px;
+    right: 0;
+
+    animation: serviceCardFloatTwo 7.5s ease-in-out infinite;
+}
+
+.service-map-ip {
+    bottom: 27px;
+    left: 2px;
+
+    animation: serviceCardFloatTwo 8s ease-in-out infinite;
+}
+
+.service-map-experts {
+    right: 1px;
+    bottom: 40px;
+
+    animation: serviceCardFloatOne 7.4s ease-in-out infinite;
+}
+
+
+/* Individual card colours */
+
+.service-map-business .service-map-card-number {
+    color: var(--lawxygen-deep-blue);
+    background: #e6f3fc;
+}
+
+.service-map-business {
+    border-top: 3px solid var(--lawxygen-blue);
+}
+
+.service-map-tax .service-map-card-number {
+    color: var(--lawxygen-green);
+    background: var(--lawxygen-mint);
+}
+
+.service-map-tax {
+    border-top: 3px solid var(--lawxygen-green);
+}
+
+.service-map-ip .service-map-card-number {
+    color: #a85f1c;
+    background: var(--lawxygen-cream);
+}
+
+.service-map-ip {
+    border-top: 3px solid var(--lawxygen-orange);
+}
+
+.service-map-experts .service-map-card-number {
+    color: var(--lawxygen-purple);
+    background: var(--lawxygen-lavender);
+}
+
+.service-map-experts {
+    border-top: 3px solid var(--lawxygen-purple);
+}
+
+
+/* Connecting lines */
+
+.service-map-line {
+    position: absolute;
+    z-index: 3;
+
+    width: 125px;
+    height: 1px;
+
+    opacity: 0.45;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--lawxygen-blue)
+    );
+
+    transform-origin: center;
+}
+
+.service-map-line-one {
+    top: 155px;
+    left: 115px;
+    transform: rotate(31deg);
+}
+
+.service-map-line-two {
+    top: 164px;
+    right: 113px;
+
+    background: linear-gradient(
+        90deg,
+        var(--lawxygen-green),
+        transparent
+    );
+
+    transform: rotate(-28deg);
+}
+
+.service-map-line-three {
+    left: 112px;
+    bottom: 151px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--lawxygen-orange)
+    );
+
+    transform: rotate(-30deg);
+}
+
+.service-map-line-four {
+    right: 112px;
+    bottom: 153px;
+
+    background: linear-gradient(
+        90deg,
+        var(--lawxygen-purple),
+        transparent
+    );
+
+    transform: rotate(29deg);
+}
+
+
+/* Clean animations */
+
+@keyframes serviceCentreFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes serviceCardFloatOne {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -4px;
+    }
+}
+
+@keyframes serviceCardFloatTwo {
+    0%,
+    100% {
+        translate: 0 -3px;
+    }
+
+    50% {
+        translate: 0 2px;
+    }
+}
+
+@keyframes serviceMapGlow {
+    0%,
+    100% {
+        opacity: 0.68;
+        transform: scale(0.98);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+
+/* =========================================================
+   HERO RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .hero-section .hero-container {
+        width: min(100% - 44px, 1100px);
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(390px, 0.86fr);
+
+        gap: 36px;
+    }
+
+    .hero-section .hero-content h1 {
+        font-size: clamp(43px, 5vw, 57px);
+    }
+
+    .service-map {
+        transform: scale(0.90);
+    }
+}
+
+
+@media (max-width: 920px) {
+    .hero-section {
+        min-height: auto;
+    }
+
+    .hero-section .hero-container {
+        min-height: auto;
+        padding: 64px 0 58px;
+
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .hero-section .hero-content {
+        max-width: 720px;
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .hero-section .hero-label {
+        justify-content: center;
+    }
+
+    .hero-section .hero-content h1,
+    .hero-section .hero-description {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .hero-section .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-section .hero-visual {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    .service-map {
+        transform: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .hero-section .hero-container {
+        width: calc(100% - 30px);
+        padding: 52px 0 42px;
+    }
+
+    .hero-section .hero-content h1 {
+        font-size: clamp(38px, 11vw, 48px);
+        line-height: 1.06;
+    }
+
+    .hero-section .hero-description {
+        font-size: 14.5px;
+    }
+
+    .hero-section .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section .hero-actions .primary-button,
+    .hero-section .hero-actions .secondary-button {
+        width: 100%;
+    }
+
+    .service-map {
+        width: 100%;
+        height: 455px;
+    }
+
+    .service-map::before {
+        inset: 48px 8px;
+        border-radius: 28px;
+    }
+
+    .service-map::after {
+        inset: 70px 25px;
+    }
+
+    .service-map-centre {
+        width: 178px;
+        min-height: 175px;
+        padding: 20px 16px;
+    }
+
+    .service-map-centre img {
+        width: 90px;
+        height: 55px;
+    }
+
+    .service-map-card {
+        width: 152px;
+        min-height: 69px;
+        padding: 9px;
+
+        grid-template-columns: 29px 1fr;
+        gap: 7px;
+    }
+
+    .service-map-card-number {
+        width: 29px;
+        height: 29px;
+    }
+
+    .service-map-card-arrow {
+        display: none;
+    }
+
+    .service-map-card-text strong {
+        font-size: 9.5px;
+    }
+
+    .service-map-card-text small {
+        font-size: 8px;
+    }
+
+    .service-map-business {
+        top: 16px;
+        left: 0;
+    }
+
+    .service-map-tax {
+        top: 29px;
+        right: 0;
+    }
+
+    .service-map-ip {
+        bottom: 20px;
+        left: 0;
+    }
+
+    .service-map-experts {
+        right: 0;
+        bottom: 32px;
+    }
+
+    .service-map-line {
+        display: none;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .service-map-centre,
+    .service-map-card,
+    .service-map-orb {
+        animation: none;
+    }
+}
