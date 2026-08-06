@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="LAWXYGEN business, legal, tax and compliance services."
+    >
+
+    <title>LAWXYGEN — Legal Clarity for Business</title>
+
+    <!-- Professional fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HERO SECTION
+         ===================================================== -->
+
+    <section class="hero-section" id="home">
+
+        <!-- Live animated VFX background -->
+        <canvas
+            class="hero-canvas"
+            id="heroCanvas"
+            aria-hidden="true"
+        ></canvas>
+
+        <!-- Static texture layers -->
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-noise" aria-hidden="true"></div>
+        <div class="hero-blue-glow" aria-hidden="true"></div>
+        <div class="hero-orange-glow" aria-hidden="true"></div>
+
+
+        <!-- =================================================
+             TEMPORARY NAVBAR
+             Final dropdown navbar hero approve hone ke baad
+             ================================================= -->
+
+        <header class="site-header">
+
+            <div class="navbar-container">
+
+                <!-- Logo -->
+                <a href="index.html" class="navbar-logo">
+
+                    <img
+                        src="images/lawxygen-logo.png"
+                        alt="LAWXYGEN"
+                    >
+
+                </a>
+
+
+                <!-- Desktop navigation -->
+                <nav
+                    class="desktop-navigation"
+                    aria-label="Main navigation"
+                >
+
+                    <a href="#home" class="active">
+                        Home
+                    </a>
+
+                    <a href="#services">
+                        Services
+                    </a>
+
+                    <a href="#business">
+                        Business Setup
+                    </a>
+
+                    <a href="#experts">
+                        Consult Experts
+                    </a>
+
+                </nav>
+
+
+                <!-- Desktop actions -->
+                <div class="navbar-actions">
+
+                    <button
+                        class="navbar-search-button"
+                        id="openHeroSearch"
+                        type="button"
+                        aria-label="Search LAWXYGEN services"
+                    >
+                        <span class="search-icon"></span>
+                    </button>
+
+                    <button
+                        class="navbar-login-button"
+                        type="button"
+                    >
+                        Login
+                    </button>
+
+                    <a
+                        href="#experts"
+                        class="navbar-consultation-button"
+                    >
+                        Book Consultation
+                    </a>
+
+                </div>
+
+
+                <!-- Mobile menu -->
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+
+            <!-- Mobile navigation -->
+            <div
+                class="mobile-navigation"
+                id="mobileNavigation"
+            >
+
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#business">Business Setup</a>
+                <a href="#experts">Consult Experts</a>
+
+                <button type="button">
+                    Search Services
+                </button>
+
+                <button type="button">
+                    Login
+                </button>
+
+                <a
+                    href="#experts"
+                    class="mobile-consultation-link"
+                >
+                    Book Consultation
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             HERO MAIN CONTENT
+             ================================================= -->
+
+        <div class="hero-container">
+
+            <!-- Left content -->
+            <div class="hero-content">
+
+                <div class="hero-kicker">
+
+                    <span class="kicker-line"></span>
+
+                    <span>
+                        BUSINESS • LEGAL • TAX • COMPLIANCE
+                    </span>
+
+                </div>
+
+                <h1>
+                    <span class="heading-white">
+                        Legal clarity.
+                    </span>
+
+                    <span class="heading-orange">
+                        Delivered
+                    </span>
+
+                    <span class="heading-italic">
+                        for business.
+                    </span>
+                </h1>
+
+                <p class="hero-description">
+                    Start, manage and protect your business through
+                    structured registrations, legal documentation,
+                    tax compliance and professional consultation.
+                </p>
+
+                <div class="hero-actions">
+
+                    <button
+                        class="primary-hero-button"
+                        id="exploreServicesButton"
+                        type="button"
+                    >
+                        Explore all services
+
+                        <span>→</span>
+                    </button>
+
+                    <button
+                        class="secondary-hero-button"
+                        type="button"
+                    >
+                        Talk to an expert
+                    </button>
+
+                </div>
+
+
+                <!-- Quick service buttons -->
+                <div class="hero-quick-services">
+
+                    <button
+                        type="button"
+                        data-quick-category="business"
+                    >
+                        Company Registration
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="tax"
+                    >
+                        GST &amp; Tax
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="ip"
+                    >
+                        Trademark
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="documents"
+                    >
+                        Legal Documents
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 RIGHT-SIDE SERVICE EXPLORER
+                 ================================================= -->
+
+            <div class="service-explorer" id="services">
+
+                <div class="service-explorer-top">
+
+                    <div>
+
+                        <span class="explorer-eyebrow">
+                            LAWXYGEN SERVICES
+                        </span>
+
+                        <h2>
+                            Find the right support
+                        </h2>
+
+                    </div>
+
+                    <button
+                        class="browse-all-button"
+                        id="browseAllButton"
+                        type="button"
+                    >
+                        Browse all
+                    </button>
+
+                </div>
+
+
+                <!-- Categories -->
+                <div
+                    class="service-categories"
+                    role="tablist"
+                    aria-label="LAWXYGEN service categories"
+                >
+
+                    <button
+                        class="service-category active"
+                        type="button"
+                        data-category="business"
+                        role="tab"
+                        aria-selected="true"
+                    >
+                        Business Setup
+                    </button>
+
+                    <button
+                        class="service-category"
+                        type="button"
+                        data-category="tax"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Tax &amp; Compliance
+                    </button>
+
+                    <button
+                        class="service-category"
+                        type="button"
+                        data-category="ip"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Trademark &amp; IP
+                    </button>
+
+                    <button
+                        class="service-category"
+                        type="button"
+                        data-category="documents"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Legal Documents
+                    </button>
+
+                    <button
+                        class="service-category"
+                        type="button"
+                        data-category="licences"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Licences
+                    </button>
+
+                    <button
+                        class="service-category"
+                        type="button"
+                        data-category="experts"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Consult Experts
+                    </button>
+
+                </div>
+
+
+                <!-- Active service presentation -->
+                <div class="service-presentation">
+
+                    <!-- Service number -->
+                    <div class="service-index">
+
+                        <span id="serviceNumber">
+                            01
+                        </span>
+
+                        <small>
+                            Selected service
+                        </small>
+
+                    </div>
+
+
+                    <!-- Service information -->
+                    <article class="service-information">
+
+                        <div class="service-heading-row">
+
+                            <div>
+
+                                <span
+                                    class="service-type"
+                                    id="serviceType"
+                                >
+                                    BUSINESS SETUP
+                                </span>
+
+                                <h3 id="serviceTitle">
+                                    Private Limited Company Registration
+                                </h3>
+
+                            </div>
+
+                            <span
+                                class="service-status"
+                                id="serviceStatus"
+                            >
+                                Popular
+                            </span>
+
+                        </div>
+
+                        <p id="serviceDescription">
+                            Complete incorporation support including
+                            name approval, documentation and company
+                            registration guidance.
+                        </p>
+
+
+                        <!-- Included points -->
+                        <div
+                            class="service-includes"
+                            id="serviceIncludes"
+                        >
+
+                            <span>
+                                Name approval support
+                            </span>
+
+                            <span>
+                                Incorporation documents
+                            </span>
+
+                            <span>
+                                Filing assistance
+                            </span>
+
+                        </div>
+
+
+                        <!-- Bottom action -->
+                        <div class="service-information-footer">
+
+                            <button
+                                class="view-service-button"
+                                type="button"
+                            >
+                                Explore service
+                                <span>→</span>
+                            </button>
+
+                            <span class="service-reference">
+                                LAWXYGEN / 001
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Service list preview -->
+                <div class="service-preview-list">
+
+                    <button
+                        class="service-preview-item active"
+                        type="button"
+                        data-service-index="0"
+                    >
+                        <span>01</span>
+
+                        <div>
+                            <strong id="previewTitleOne">
+                                Private Limited Company
+                            </strong>
+
+                            <small>
+                                Incorporation
+                            </small>
+                        </div>
+                    </button>
+
+                    <button
+                        class="service-preview-item"
+                        type="button"
+                        data-service-index="1"
+                    >
+                        <span>02</span>
+
+                        <div>
+                            <strong id="previewTitleTwo">
+                                LLP Registration
+                            </strong>
+
+                            <small>
+                                Business structure
+                            </small>
+                        </div>
+                    </button>
+
+                    <button
+                        class="service-preview-item"
+                        type="button"
+                        data-service-index="2"
+                    >
+                        <span>03</span>
+
+                        <div>
+                            <strong id="previewTitleThree">
+                                OPC Registration
+                            </strong>
+
+                            <small>
+                                Single founder
+                            </small>
+                        </div>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BOTTOM HERO SERVICE STRIP
+             ================================================= -->
+
+        <div class="hero-service-strip">
+
+            <div class="hero-service-strip-container">
+
+                <span class="strip-label">
+                    Popular services
+                </span>
+
+                <div class="strip-services">
+
+                    <button
+                        type="button"
+                        data-quick-category="business"
+                    >
+                        Private Limited Company
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="tax"
+                    >
+                        GST Registration
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="ip"
+                    >
+                        Trademark Registration
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="documents"
+                    >
+                        Business Agreements
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="licences"
+                    >
+                        FSSAI Licence
+                    </button>
+
+                    <button
+                        type="button"
+                        data-quick-category="experts"
+                    >
+                        Lawyer Consultation
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SIMPLE SERVICE SEARCH MODAL
+             ================================================= -->
+
+        <div
+            class="service-search-modal"
+            id="serviceSearchModal"
+            aria-hidden="true"
+        >
+
+            <div class="search-modal-panel">
+
+                <div class="search-modal-header">
+
+                    <div>
+
+                        <span>LAWXYGEN SERVICES</span>
+
+                        <h2>
+                            Search services
+                        </h2>
+
+                    </div>
+
+                    <button
+                        class="close-search-modal"
+                        id="closeSearchModal"
+                        type="button"
+                        aria-label="Close service search"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="search-field">
+
+                    <span class="search-icon"></span>
+
+                    <input
+                        id="serviceSearchInput"
+                        type="search"
+                        placeholder="Search GST, company, trademark, documents..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+                <div
+                    class="search-results"
+                    id="searchResults"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
