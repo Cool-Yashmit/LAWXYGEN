@@ -660,27 +660,12 @@ showService("business", 0);
    Later Excel list will replace/extend this array
    ========================================================= */
 
-const searchableServices = [];
+/* Complete Excel service list */
 
-Object.values(serviceCategories).forEach(
-    function (category) {
-
-        category.services.forEach(
-            function (service) {
-
-                searchableServices.push({
-                    category:
-                        category.categoryLabel,
-
-                    title:
-                        service.title
-                });
-
-            }
-        );
-
-    }
-);
+const searchableServices =
+    Array.isArray(window.LAWXYGEN_SERVICES)
+        ? window.LAWXYGEN_SERVICES
+        : [];
 
 
 /* =========================================================
@@ -713,24 +698,40 @@ function renderSearchResults(searchValue) {
     const cleanSearchValue =
         searchValue.trim().toLowerCase();
 
+
     const matchingServices =
         searchableServices.filter(
             function (service) {
 
-                return (
-                    service.title
-                        .toLowerCase()
-                        .includes(cleanSearchValue) ||
+                const serviceName =
+                    service.name.toLowerCase();
 
-                    service.category
-                        .toLowerCase()
-                        .includes(cleanSearchValue)
+                const serviceCategory =
+                    service.category.toLowerCase();
+
+                return (
+                    serviceName.includes(cleanSearchValue) ||
+                    serviceCategory.includes(cleanSearchValue)
                 );
 
             }
         );
 
+
     searchResults.innerHTML = "";
+
+
+    if (matchingServices.length === 0) {
+
+        searchResults.innerHTML = `
+            <p class="no-search-results">
+                No matching service found.
+            </p>
+        `;
+
+        return;
+    }
+
 
     matchingServices.forEach(
         function (service) {
@@ -745,8 +746,16 @@ function renderSearchResults(searchValue) {
                 "search-result-button";
 
             resultButton.innerHTML = `
-                <div>
-                    ${service.title}
+                <div class="search-result-copy">
+
+                    <strong>
+                        ${service.name}
+                    </strong>
+
+                    <small>
+                        ${service.category}
+                    </small>
+
                 </div>
 
                 <span>→</span>
@@ -760,7 +769,6 @@ function renderSearchResults(searchValue) {
     );
 
 }
-
 
 /* Open modal */
 
@@ -1294,3 +1302,60 @@ if (canvas && context) {
         );
 
 }
+
+/* =========================================================
+   OPEN SEARCH FROM NAVBAR AND CATEGORY CARDS
+   ========================================================= */
+
+const searchQueryButtons =
+    document.querySelectorAll(
+        "[data-search-query]"
+    );
+
+
+searchQueryButtons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                const selectedQuery =
+                    button.dataset.searchQuery || "";
+
+                openSearchModal();
+
+
+                setTimeout(
+                    function () {
+
+                        serviceSearchInput.value =
+                            selectedQuery;
+
+                        renderSearchResults(
+                            selectedQuery
+                        );
+
+                    },
+                    40
+                );
+
+
+                mobileNavigation.classList.remove(
+                    "open"
+                );
+
+                mobileMenuButton.classList.remove(
+                    "open"
+                );
+
+                mobileMenuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
+
+    }
+);

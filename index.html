@@ -60,128 +60,205 @@
              Final dropdown navbar hero approve hone ke baad
              ================================================= -->
 
-        <header class="site-header">
+       <header class="site-header">
 
-            <div class="navbar-container">
+    <div class="navbar-container">
 
-               <a
-    href="index.html"
-    class="navbar-brand"
-    aria-label="LAWXYGEN Home"
->
-    <img
-        src="images/LAWXYGEN.jpeg"
-        alt="LAWXYGEN — Breathe Legal Ease"
-        class="navbar-brand-logo"
-    >
-</a>
-
-
-                <!-- Desktop navigation -->
-              <nav
-    class="desktop-navigation"
-    aria-label="Main navigation"
->
-    <a href="#home" class="active">
-        Home
-    </a>
-
-    <a href="#services">
-        Business Setup
-    </a>
-
-    <a href="#services">
-        Tax &amp; Compliance
-    </a>
-
-    <a href="#services">
-        Trademark &amp; IP
-    </a>
-
-    <a href="#services">
-        Legal Documents
-    </a>
-
-    <a href="#experts">
-        Consult Experts
-    </a>
-</nav>
-
-
-                <!-- Desktop actions -->
-                <div class="navbar-actions">
-
-                    <button
-                        class="navbar-search-button"
-                        id="openHeroSearch"
-                        type="button"
-                        aria-label="Search LAWXYGEN services"
-                    >
-                        <span class="search-icon"></span>
-                    </button>
-
-                    <button
-                        class="navbar-login-button"
-                        type="button"
-                    >
-                        Login
-                    </button>
-
-                    <a
-                        href="#experts"
-                        class="navbar-consultation-button"
-                    >
-                        Book Consultation
-                    </a>
-
-                </div>
-
-
-                <!-- Mobile menu -->
-                <button
-                    class="mobile-menu-button"
-                    id="mobileMenuButton"
-                    type="button"
-                    aria-label="Open menu"
-                    aria-expanded="false"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-            </div>
-
-
-            <!-- Mobile navigation -->
-            <div
-                class="mobile-navigation"
-                id="mobileNavigation"
+        <!-- Original LAWXYGEN logo -->
+        <a
+            href="#home"
+            class="navbar-brand"
+            aria-label="LAWXYGEN Home"
+        >
+            <img
+                src="images/LAWXYGEN.jpeg"
+                alt="LAWXYGEN — Breathe Legal Ease"
             >
+        </a>
 
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#business">Business Setup</a>
-                <a href="#experts">Consult Experts</a>
 
-                <button type="button">
-                    Search Services
-                </button>
+        <!-- Desktop service navigation -->
+        <nav
+            class="desktop-navigation"
+            aria-label="Main navigation"
+        >
+            <a href="#home" class="active">
+                Home
+            </a>
 
-                <button type="button">
-                    Login
-                </button>
+            <button
+                class="nav-service-link"
+                type="button"
+                data-search-query="Business Setup"
+            >
+                Business Setup
+            </button>
 
-                <a
-                    href="#experts"
-                    class="mobile-consultation-link"
-                >
-                    Book Consultation
-                </a>
+            <button
+                class="nav-service-link"
+                type="button"
+                data-search-query="Tax & Compliance"
+            >
+                Tax &amp; Compliance
+            </button>
 
-            </div>
+            <button
+                class="nav-service-link"
+                type="button"
+                data-search-query="Intellectual Property"
+            >
+                Trademark &amp; IP
+            </button>
 
-        </header>
+            <button
+                class="nav-service-link"
+                type="button"
+                data-search-query="Documentation"
+            >
+                Legal Documents
+            </button>
+
+            <button
+                class="nav-service-link"
+                type="button"
+                data-search-query="Certifications"
+            >
+                Licences
+            </button>
+
+            <button
+                class="nav-service-link"
+                type="button"
+                data-search-query="Talk to"
+            >
+                Consult Experts
+            </button>
+        </nav>
+
+
+        <!-- Desktop actions -->
+        <div class="navbar-actions">
+
+            <button
+                class="navbar-search-button"
+                id="openHeroSearch"
+                type="button"
+                aria-label="Search all services"
+            >
+                <span class="search-icon"></span>
+            </button>
+
+            <button
+                class="navbar-login-button"
+                type="button"
+            >
+                Login
+            </button>
+
+            <a
+                href="#experts"
+                class="navbar-consultation-button"
+            >
+                Book Consultation
+            </a>
+
+        </div>
+
+
+        <!-- Mobile toggle -->
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+
+    <!-- Mobile navigation -->
+    <div
+        class="mobile-navigation"
+        id="mobileNavigation"
+    >
+        <a href="#home">
+            Home
+        </a>
+
+        <button
+            type="button"
+            data-search-query="Business Setup"
+        >
+            Business Setup
+        </button>
+
+        <button
+            type="button"
+            data-search-query="Tax & Compliance"
+        >
+            Tax &amp; Compliance
+        </button>
+
+        <button
+            type="button"
+            data-search-query="Intellectual Property"
+        >
+            Trademark &amp; Intellectual Property
+        </button>
+
+        <button
+            type="button"
+            data-search-query="Documentation"
+        >
+            Legal Documents
+        </button>
+
+        <button
+            type="button"
+            data-search-query="Certifications"
+        >
+            Licences &amp; Certifications
+        </button>
+
+        <button
+            type="button"
+            data-search-query="Specialized Services"
+        >
+            Specialized Services
+        </button>
+
+        <button
+            type="button"
+            data-search-query="Talk to"
+        >
+            Consult Experts
+        </button>
+
+        <button
+            type="button"
+            data-search-query=""
+        >
+            View All Services
+        </button>
+
+        <button type="button">
+            Login
+        </button>
+
+        <a
+            href="#experts"
+            class="mobile-consultation-link"
+        >
+            Book Consultation
+        </a>
+    </div>
+
+</header>
 
 
         <!-- =================================================
@@ -663,9 +740,243 @@
         </div>
 
     </section>
+    <!-- =====================================================
+     EVERY LEGAL NEED SECTION
+     ===================================================== -->
+
+<section class="coverage-section" id="business">
+
+    <div class="coverage-container">
+
+        <div class="coverage-heading">
+
+            <div>
+
+                <span class="section-kicker">
+                    COMPLETE LEGAL ECOSYSTEM
+                </span>
+
+                <h2>
+                    Every legal need,
+                    <em>covered.</em>
+                </h2>
+
+            </div>
+
+            <p>
+                From starting a company to protecting intellectual
+                property and managing ongoing compliance, explore
+                structured support across every business stage.
+            </p>
+
+        </div>
+
+
+        <div class="coverage-grid">
+
+            <!-- Business Setup -->
+            <button
+                class="coverage-card coverage-blue"
+                type="button"
+                data-search-query="Business Setup"
+            >
+                <div class="coverage-card-top">
+                    <span>01</span>
+                    <small>32 services</small>
+                </div>
+
+                <h3>Business Setup</h3>
+
+                <ul>
+                    <li>Private Limited Company</li>
+                    <li>LLP &amp; OPC Registration</li>
+                    <li>Startup India Recognition</li>
+                </ul>
+
+                <div class="coverage-card-footer">
+                    Explore services
+                    <span>→</span>
+                </div>
+            </button>
+
+
+            <!-- Tax -->
+            <button
+                class="coverage-card coverage-orange"
+                type="button"
+                data-search-query="Tax & Compliance"
+            >
+                <div class="coverage-card-top">
+                    <span>02</span>
+                    <small>70 services</small>
+                </div>
+
+                <h3>Tax &amp; Compliance</h3>
+
+                <ul>
+                    <li>GST Registration &amp; Returns</li>
+                    <li>Income Tax Filing</li>
+                    <li>ROC &amp; Payroll Compliance</li>
+                </ul>
+
+                <div class="coverage-card-footer">
+                    Explore services
+                    <span>→</span>
+                </div>
+            </button>
+
+
+            <!-- IP -->
+            <button
+                class="coverage-card coverage-purple"
+                type="button"
+                data-search-query="Intellectual Property"
+            >
+                <div class="coverage-card-top">
+                    <span>03</span>
+                    <small>24 services</small>
+                </div>
+
+                <h3>Trademark &amp; IP</h3>
+
+                <ul>
+                    <li>Trademark Registration</li>
+                    <li>Copyright Protection</li>
+                    <li>Patent &amp; Design Services</li>
+                </ul>
+
+                <div class="coverage-card-footer">
+                    Explore services
+                    <span>→</span>
+                </div>
+            </button>
+
+
+            <!-- Documents -->
+            <button
+                class="coverage-card coverage-green"
+                type="button"
+                data-search-query="Documentation"
+            >
+                <div class="coverage-card-top">
+                    <span>04</span>
+                    <small>37 services</small>
+                </div>
+
+                <h3>Legal Documents</h3>
+
+                <ul>
+                    <li>Business Agreements</li>
+                    <li>Employment Documents</li>
+                    <li>Property &amp; Personal Drafting</li>
+                </ul>
+
+                <div class="coverage-card-footer">
+                    Explore services
+                    <span>→</span>
+                </div>
+            </button>
+
+
+            <!-- Certifications -->
+            <button
+                class="coverage-card coverage-cyan"
+                type="button"
+                data-search-query="Certifications"
+            >
+                <div class="coverage-card-top">
+                    <span>05</span>
+                    <small>20 services</small>
+                </div>
+
+                <h3>Licences &amp; Certifications</h3>
+
+                <ul>
+                    <li>FSSAI &amp; Trade Licence</li>
+                    <li>IEC &amp; MSME Registration</li>
+                    <li>ISO, BIS &amp; Factory Licence</li>
+                </ul>
+
+                <div class="coverage-card-footer">
+                    Explore services
+                    <span>→</span>
+                </div>
+            </button>
+
+
+            <!-- Specialized -->
+            <button
+                class="coverage-card coverage-red"
+                type="button"
+                data-search-query="Specialized Services"
+            >
+                <div class="coverage-card-top">
+                    <span>06</span>
+                    <small>27 services</small>
+                </div>
+
+                <h3>Specialized Services</h3>
+
+                <ul>
+                    <li>Business Calculators</li>
+                    <li>Fundraising &amp; Investment</li>
+                    <li>Due Diligence Support</li>
+                </ul>
+
+                <div class="coverage-card-footer">
+                    Explore services
+                    <span>→</span>
+                </div>
+            </button>
+
+
+            <!-- Consultation -->
+            <button
+                class="coverage-card coverage-navy coverage-wide"
+                type="button"
+                data-search-query="Talk to"
+            >
+                <div class="coverage-card-top">
+                    <span>07</span>
+                    <small>49 consultation services</small>
+                </div>
+
+                <div class="coverage-wide-content">
+
+                    <div>
+                        <h3>Consult the right professional</h3>
+
+                        <p>
+                            Connect with lawyers, chartered accountants,
+                            company secretaries and intellectual property
+                            professionals.
+                        </p>
+                    </div>
+
+                    <div class="coverage-experts">
+                        <span>LAWYER</span>
+                        <span>CA</span>
+                        <span>CS</span>
+                        <span>IP LAWYER</span>
+                    </div>
+
+                </div>
+
+                <div class="coverage-card-footer">
+                    Explore consultations
+                    <span>→</span>
+                </div>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
 
     <script src="script.js"></script>
+    <script src="services-data.js"></script>
 
 </body>
 
