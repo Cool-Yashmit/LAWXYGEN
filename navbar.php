@@ -1,0 +1,1053 @@
+<header class="site-header">
+
+    <div class="navbar">
+
+        <!-- Logo -->
+        <a href="index.php" class="navbar-logo">
+            <img
+                src="assets/images/lawxygen.jpeg"
+                alt="LAWXYGEN"
+            >
+        </a>
+
+
+        <!-- Navigation -->
+<nav class="nav-menu">
+
+    <!-- =========================
+         BUSINESS SETUP
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            Business Setup
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown">
+
+            <div class="business-dropdown-grid">
+
+                <!-- COLUMN 1 -->
+                <div class="dropdown-column">
+
+                    <h4>Company Setup</h4>
+
+                    <a href="#">Private Limited Company</a>
+                    <a href="#">One Person Company (OPC)</a>
+                    <a href="#">LLP Registration</a>
+                    <a href="#">Partnership Firm</a>
+                    <a href="#">Sole Proprietorship</a>
+                    <a href="#">Nidhi Company</a>
+                    <a href="#">Producer Company</a>
+                    <a href="#">Public Limited Company</a>
+
+                </div>
+
+
+                <!-- COLUMN 2 -->
+                <div class="dropdown-column">
+
+                    <h4>NGO & Startup</h4>
+
+                    <a href="#">Section 8 Company</a>
+                    <a href="#">Trust Registration</a>
+                    <a href="#">Society Registration</a>
+                    <a href="#">NGO Registration</a>
+                    <a href="#">HUF Registration</a>
+                    <a href="#">Startup India Registration</a>
+                    <a href="#">DPIIT Recognition</a>
+
+                </div>
+
+
+                <!-- COLUMN 3 -->
+                <div class="dropdown-column">
+
+                    <h4>Company Essentials</h4>
+
+                    <a href="#">Company Name Search</a>
+                    <a href="#">DIN Registration</a>
+                    <a href="#">Digital Signature Certificate</a>
+                    <a href="#">GeM Registration</a>
+                    <a href="#">NSIC Registration</a>
+                    <a href="#">Startup India Recognition</a>
+
+                </div>
+
+
+                <!-- COLUMN 4 -->
+                <div class="dropdown-column">
+
+                    <h4>Business Support</h4>
+
+                    <a href="#">Web Development Services</a>
+                    <a href="#">Investment Pitch Deck</a>
+                    <a href="#">Startup Fundraising Support</a>
+
+                    <a href="#" class="view-all-service">
+                        View all Business Setup →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+        <!-- =========================
+         TAX & ACCOUNTING
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            Tax & Accounting
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown">
+
+            <div class="business-dropdown-grid">
+
+                <!-- GST -->
+                <div class="dropdown-column">
+
+                    <h4>GST</h4>
+
+                    <a href="#">New GST Registration</a>
+                    <a href="#">GST Return Filing (GSTR-1, GSTR-3B, GSTR-9)</a>
+                    <a href="#">GST Annual Return Filing (GSTR-9C)</a>
+                    <a href="#">GST Cancellation</a>
+                    <a href="#">GST Amendment / Modification</a>
+                    <a href="#">GST Advisory & Consultation</a>
+                    <a href="#">GST Audit Support</a>
+                    <a href="#">GST LUT Filing</a>
+                    <a href="#">GST Revocation</a>
+                    <a href="#">GST Refund Application</a>
+                    <a href="#">Composition Scheme Registration under GST</a>
+                    <a href="#">E-Way Bill Assistance</a>
+                    <a href="#">GST Notice Reply / Scrutiny Assistance</a>
+                    <a href="#">HSN Code Finder Tool</a>
+                    <a href="#">GST Calculator Tool</a>
+
+                </div>
+
+
+                <!-- INCOME TAX -->
+                <div class="dropdown-column">
+
+                    <h4>Income Tax</h4>
+
+                    <a href="#">Income Tax Return (ITR) Filing – Individuals</a>
+                    <a href="#">Income Tax Return (ITR) Filing – Businesses</a>
+                    <a href="#">TDS Return Filing</a>
+                    <a href="#">TDS Certificate (Form 16 / 16A) Generation</a>
+                    <a href="#">Advance Tax Computation & Payment</a>
+                    <a href="#">Tax Planning & Advisory</a>
+                    <a href="#">Income Tax Notice Reply / Assessment Support</a>
+                    <a href="#">Transfer Pricing Documentation</a>
+                    <a href="#">Income Tax Audit (Section 44AB)</a>
+                    <a href="#">PAN Card Application</a>
+                    <a href="#">TAN Application</a>
+                    <a href="#">TDS Calculator Tool</a>
+                    <a href="#">Income Tax Calculator Tool</a>
+
+                </div>
+
+
+                <!-- ACCOUNTING -->
+                <div class="dropdown-column">
+
+                    <h4>Accounting & Books</h4>
+
+                    <a href="#">Monthly Bookkeeping & Accounting</a>
+                    <a href="#">Accounting on QuickBooks</a>
+                    <a href="#">Accounting on Zoho Books</a>
+                    <a href="#">Accounting on Tally</a>
+                    <a href="#">Financial Statement Preparation (P&L, Balance Sheet)</a>
+                    <a href="#">Bank Reconciliation</a>
+                    <a href="#">Accounts Payable & Receivable Management</a>
+
+                </div>
+
+
+                <!-- PAYROLL / BILLING -->
+                <div class="dropdown-column">
+
+                    <h4>Payroll & Billing</h4>
+
+                    <a href="#">Payroll Processing</a>
+                    <a href="#">Payroll Compliance (PF, ESIC, PT)</a>
+                    <a href="#">Smart Billing & Invoicing Module</a>
+                    <a href="#">Credit & Debit Notes Management</a>
+                    <a href="#">Vendor & Customer Master Data Management</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         COMPLIANCE
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            Compliance
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown">
+
+            <div class="business-dropdown-grid">
+
+                <!-- ROC -->
+                <div class="dropdown-column">
+
+                    <h4>Annual & ROC Compliance</h4>
+
+                    <a href="#">Annual Compliance Package for Private Limited Company</a>
+                    <a href="#">Annual Compliance Package for LLP</a>
+                    <a href="#">Annual Compliance Package for OPC</a>
+                    <a href="#">ROC Annual Filing (AOC-4, MGT-7)</a>
+                    <a href="#">Board Resolution Drafting</a>
+                    <a href="#">Minutes of Meetings (AGM / EGM)</a>
+                    <a href="#">Director KYC (DIR-3 KYC)</a>
+                    <a href="#">Appointment / Resignation of Director</a>
+                    <a href="#">360 Degree Protection – ROC Compliance + Accounting + Legal</a>
+
+                </div>
+
+
+                <!-- COMPANY CHANGES -->
+                <div class="dropdown-column">
+
+                    <h4>Company Changes</h4>
+
+                    <a href="#">Changes in Private Limited Company (Name, Address, Directors, MOA/AOA)</a>
+                    <a href="#">Changes in LLP (Name, Partners, Registered Office)</a>
+                    <a href="#">Increase in Authorized Share Capital</a>
+                    <a href="#">Change of Registered Office</a>
+                    <a href="#">Change of Business Activity / Object Clause</a>
+                    <a href="#">Conversion of Business Structure</a>
+                    <a href="#">Adding / Removing Directors</a>
+                    <a href="#">Appointment of Statutory Auditor</a>
+
+                </div>
+
+
+                <!-- LABOUR -->
+                <div class="dropdown-column">
+
+                    <h4>Labour & Payroll</h4>
+
+                    <a href="#">Provident Fund (PF) Registration</a>
+                    <a href="#">ESIC Registration</a>
+                    <a href="#">ESI Registration</a>
+                    <a href="#">Professional Tax Registration & Filing</a>
+                    <a href="#">Contract Labour Registration</a>
+                    <a href="#">Shops & Establishment Act Compliance</a>
+                    <a href="#">Labour Law Audit</a>
+                    <a href="#">Gratuity Planning</a>
+
+                </div>
+
+
+                <!-- NGO -->
+                <div class="dropdown-column">
+
+                    <h4>NGO Compliance</h4>
+
+                    <a href="#">12A Registration</a>
+                    <a href="#">80G Registration</a>
+                    <a href="#">12A & 80G Registration for NGOs</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         IP & TRADEMARKS
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            IP & Trademarks
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown">
+
+            <div class="business-dropdown-grid">
+
+                <!-- TRADEMARK -->
+                <div class="dropdown-column">
+
+                    <h4>Trademark</h4>
+
+                    <a href="#">Trademark Registration (Indian)</a>
+                    <a href="#">International Trademark Registration (Madrid Protocol)</a>
+                    <a href="#">Trademark Search</a>
+                    <a href="#">Trademark Objection Reply</a>
+                    <a href="#">Trademark Opposition Reply</a>
+                    <a href="#">Trademark Renewal</a>
+                    <a href="#">Trademark Assignment</a>
+                    <a href="#">Trademark Rectification</a>
+                    <a href="#">Trademark Infringement Advisory</a>
+                    <a href="#">Well-Known Trademark Application</a>
+
+                </div>
+
+
+                <!-- COPYRIGHT -->
+                <div class="dropdown-column">
+
+                    <h4>Copyright</h4>
+
+                    <a href="#">Copyright Registration</a>
+                    <a href="#">Copyright Assignment</a>
+                    <a href="#">Copyright Infringement Advisory</a>
+
+                </div>
+
+
+                <!-- PATENT -->
+                <div class="dropdown-column">
+
+                    <h4>Patent</h4>
+
+                    <a href="#">Provisional Patent Application</a>
+                    <a href="#">Complete Patent Application</a>
+                    <a href="#">Patent Search</a>
+                    <a href="#">Patent Drafting</a>
+                    <a href="#">Patent Assignment</a>
+                    <a href="#">Patent Renewal</a>
+                    <a href="#">Patent Infringement Advisory</a>
+
+                </div>
+
+
+                <!-- DESIGN -->
+                <div class="dropdown-column">
+
+                    <h4>Industrial Design</h4>
+
+                    <a href="#">Industrial Design Registration</a>
+                    <a href="#">Design Search</a>
+                    <a href="#">Design Renewal</a>
+                    <a href="#">Design Infringement Advisory</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         LEGAL DOCUMENTS
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            Legal Docs
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown">
+
+            <div class="business-dropdown-grid">
+
+                <!-- BUSINESS -->
+                <div class="dropdown-column">
+
+                    <h4>Business Agreements</h4>
+
+                    <a href="#">Franchisee Agreement</a>
+                    <a href="#">Founder Agreement</a>
+                    <a href="#">Vendor Agreement</a>
+                    <a href="#">Shareholders Agreement</a>
+                    <a href="#">Joint Venture Agreement</a>
+                    <a href="#">Non-Disclosure Agreement (NDA)</a>
+                    <a href="#">Employment Agreement / Offer Letter</a>
+                    <a href="#">Relieving Letter</a>
+                    <a href="#">Service Level Agreement (SLA)</a>
+                    <a href="#">MOU (Memorandum of Understanding)</a>
+                    <a href="#">Business Transfer Agreement</a>
+
+                </div>
+
+
+                <!-- FINANCE / PROPERTY -->
+                <div class="dropdown-column">
+
+                    <h4>Finance & Property</h4>
+
+                    <a href="#">Loan Agreement</a>
+                    <a href="#">Pledge Agreement</a>
+                    <a href="#">Lease Agreement (Commercial Property)</a>
+                    <a href="#">License Agreement</a>
+                    <a href="#">Partnership Deed Drafting</a>
+                    <a href="#">Rental / Lease Agreement (Residential)</a>
+                    <a href="#">Rent Agreement (Individual)</a>
+                    <a href="#">Property Registration Assistance</a>
+                    <a href="#">Sale Deed</a>
+                    <a href="#">Gift Deed</a>
+
+                </div>
+
+
+                <!-- PERSONAL -->
+                <div class="dropdown-column">
+
+                    <h4>Personal Documents</h4>
+
+                    <a href="#">General Power of Attorney (GPA)</a>
+                    <a href="#">Special Power of Attorney (SPA)</a>
+                    <a href="#">Affidavit Drafting</a>
+                    <a href="#">Will Drafting</a>
+                    <a href="#">Will Registration Assistance</a>
+                    <a href="#">Name Change (Gazette Notification)</a>
+                    <a href="#">Marriage Registration</a>
+                    <a href="#">Legal Heir Certificate</a>
+                    <a href="#">Succession Certificate</a>
+
+                </div>
+
+
+                <!-- LEGAL -->
+                <div class="dropdown-column">
+
+                    <h4>Legal & Other Documents</h4>
+
+                    <a href="#">Terms of Service / Privacy Policy (Website)</a>
+                    <a href="#">ESOP Policy & Implementation Agreement</a>
+                    <a href="#">Apostille / Document Attestation</a>
+                    <a href="#">Police Clearance Certificate (PCC)</a>
+                    <a href="#">RTI Application Drafting</a>
+                    <a href="#">Consumer Complaint Drafting</a>
+                    <a href="#">Cheque Dishonour (Legal Notice u/s 138)</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         LICENSES
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            Licenses
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown">
+
+            <div class="business-dropdown-grid">
+
+                <!-- FOOD & BUSINESS -->
+                <div class="dropdown-column">
+
+                    <h4>Food & Business Licenses</h4>
+
+                    <a href="#">FSSAI Food License Registration (Basic / State / Central)</a>
+                    <a href="#">FSSAI License Renewal</a>
+                    <a href="#">Shop & Establishment Act Registration</a>
+                    <a href="#">Trade License</a>
+                    <a href="#">Factory License</a>
+                    <a href="#">Labour License</a>
+
+                </div>
+
+
+                <!-- IMPORT EXPORT -->
+                <div class="dropdown-column">
+
+                    <h4>Import, Export & MSME</h4>
+
+                    <a href="#">Import Export Code (IEC) Registration</a>
+                    <a href="#">IEC Modification / Surrender</a>
+                    <a href="#">MSME / Udyog Aadhaar Registration</a>
+                    <a href="#">APEDA Registration</a>
+                    <a href="#">Barcode Registration</a>
+
+                </div>
+
+
+                <!-- CERTIFICATIONS -->
+                <div class="dropdown-column">
+
+                    <h4>Certifications</h4>
+
+                    <a href="#">ISO Certification</a>
+                    <a href="#">ISI Certification</a>
+                    <a href="#">BIS Registration</a>
+                    <a href="#">Halal Certification</a>
+
+                </div>
+
+
+                <!-- REGULATORY -->
+                <div class="dropdown-column">
+
+                    <h4>Regulatory Licenses</h4>
+
+                    <a href="#">OSP (Other Service Provider) License</a>
+                    <a href="#">Drug License</a>
+                    <a href="#">Pollution Control Certificate (NOC)</a>
+                    <a href="#">Fire Safety License (NOC)</a>
+                    <a href="#">Professional Tax Registration</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         FINANCE
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            Finance
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown dropdown-right">
+
+            <div class="business-dropdown-grid">
+
+                <!-- CALCULATORS 1 -->
+                <div class="dropdown-column">
+
+                    <h4>Business Calculators</h4>
+
+                    <a href="#">GST Calculator</a>
+                    <a href="#">TDS Calculator</a>
+                    <a href="#">HRA Calculator</a>
+                    <a href="#">Gratuity Calculator</a>
+                    <a href="#">HSN Code Finder</a>
+                    <a href="#">Business Setup Cost Calculator</a>
+                    <a href="#">Income Tax Calculator</a>
+                    <a href="#">Salary Calculator</a>
+
+                </div>
+
+
+                <!-- CALCULATORS 2 -->
+                <div class="dropdown-column">
+
+                    <h4>Investment Calculators</h4>
+
+                    <a href="#">SIP Calculator</a>
+                    <a href="#">NPS Calculator</a>
+                    <a href="#">EPF Calculator</a>
+                    <a href="#">PPF Calculator</a>
+                    <a href="#">Simple & Compound Interest Calculator</a>
+                    <a href="#">Retirement Planning Calculator</a>
+                    <a href="#">RD Calculator</a>
+                    <a href="#">Mutual Fund Calculator</a>
+                    <a href="#">Lumpsum Calculator</a>
+
+                </div>
+
+
+                <!-- FUNDRAISING -->
+                <div class="dropdown-column">
+
+                    <h4>Equity & Instruments</h4>
+
+                    <a href="#">CCD (Compulsorily Convertible Debentures) Issuance</a>
+                    <a href="#">Convertible Notes</a>
+                    <a href="#">Equity Shares Issuance</a>
+                    <a href="#">Preference Shares Issuance</a>
+                    <a href="#">Valuation Report for Share Issuance</a>
+
+                </div>
+
+
+                <!-- INVESTMENT SUPPORT -->
+                <div class="dropdown-column">
+
+                    <h4>Investment Support</h4>
+
+                    <a href="#">ESOP Design & Implementation</a>
+                    <a href="#">Due Diligence Support</a>
+                    <a href="#">Investor Term Sheet Review</a>
+                    <a href="#">Angel / Seed Investment Legal Support</a>
+                    <a href="#">Venture Capital Funding Legal Support</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         EXPERTS
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            Experts
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown dropdown-right">
+
+            <div class="business-dropdown-grid">
+
+                <!-- LAWYER -->
+                <div class="dropdown-column">
+
+                    <h4>Talk to a Lawyer</h4>
+
+                    <a href="#">Online Lawyer Consultation</a>
+                    <a href="#">Family Law – Divorce, Alimony, Child Custody</a>
+                    <a href="#">Domestic Violence Cases</a>
+                    <a href="#">Adoption Legal Support</a>
+                    <a href="#">Property Disputes & Eviction Cases</a>
+                    <a href="#">Criminal Law Defense</a>
+                    <a href="#">Cyber Crime Legal Support</a>
+                    <a href="#">Labour & Employment Disputes</a>
+                    <a href="#">Wrongful Termination Claims</a>
+                    <a href="#">Consumer Disputes</a>
+                    <a href="#">Contract Breach Disputes</a>
+                    <a href="#">Debt Recovery</a>
+                    <a href="#">Cheque Bounce / Dishonour Cases</a>
+                    <a href="#">Writ Petitions</a>
+                    <a href="#">Arbitration & Mediation</a>
+                    <a href="#">Banking & Finance Legal Advisory</a>
+                    <a href="#">Real Estate Legal Advisory</a>
+                    <a href="#">Startup & Corporate Legal Advisory</a>
+                    <a href="#">Divorce (Legal Assistance)</a>
+
+                </div>
+
+
+                <!-- CA -->
+                <div class="dropdown-column">
+
+                    <h4>Talk to a CA</h4>
+
+                    <a href="#">CA Consultation – Accounting & Taxation</a>
+                    <a href="#">Tax Planning & Advisory</a>
+                    <a href="#">GST Advisory & Consultation</a>
+                    <a href="#">Income Tax Notice Reply / Assessment Support</a>
+                    <a href="#">Transfer Pricing Documentation</a>
+                    <a href="#">Income Tax Audit (Section 44AB)</a>
+                    <a href="#">GST Audit Support</a>
+                    <a href="#">Advance Tax Computation & Payment</a>
+                    <a href="#">Financial Statement Preparation</a>
+                    <a href="#">Payroll Compliance Advisory</a>
+
+                </div>
+
+
+                <!-- CS -->
+                <div class="dropdown-column">
+
+                    <h4>Talk to a CS</h4>
+
+                    <a href="#">Company Secretary (CS) Consultation</a>
+                    <a href="#">ROC Annual Filing Advisory</a>
+                    <a href="#">Board Resolution Drafting</a>
+                    <a href="#">Minutes of Meetings (AGM / EGM)</a>
+                    <a href="#">Director KYC (DIR-3 KYC)</a>
+                    <a href="#">Appointment / Resignation of Director</a>
+                    <a href="#">Changes in Company Structure (Name, Address, MOA/AOA)</a>
+                    <a href="#">Increase in Authorized Share Capital</a>
+                    <a href="#">Conversion of Business Structure</a>
+                    <a href="#">Appointment of Statutory Auditor</a>
+
+                </div>
+
+
+                <!-- IP LAWYER -->
+                <div class="dropdown-column">
+
+                    <h4>Talk to an IP Lawyer</h4>
+
+                    <a href="#">Trademark Infringement Advisory</a>
+                    <a href="#">Copyright Infringement Advisory</a>
+                    <a href="#">Patent Infringement Advisory</a>
+                    <a href="#">Design Infringement Advisory</a>
+                    <a href="#">IP Litigation & Infringement Cases</a>
+                    <a href="#">Trademark Objection Reply</a>
+                    <a href="#">Trademark Opposition Reply</a>
+                    <a href="#">Trademark Rectification</a>
+                    <a href="#">Well-Known Trademark Application</a>
+                    <a href="#">Patent Drafting & Strategy</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         INTERNATIONAL
+    ========================== -->
+    <div class="nav-item">
+
+        <button class="nav-link">
+            International
+            <span class="arrow"></span>
+        </button>
+
+        <div class="business-dropdown dropdown-right">
+
+            <div class="business-dropdown-grid">
+
+                <!-- GLOBAL SETUP -->
+                <div class="dropdown-column">
+
+                    <h4>Global Business Setup</h4>
+
+                    <a href="#">International Business Setup & Incorporation</a>
+                    <a href="#">Foreign Subsidiary Company Setup in India</a>
+
+                </div>
+
+
+                <!-- AMERICAS / EUROPE -->
+                <div class="dropdown-column">
+
+                    <h4>Americas & Europe</h4>
+
+                    <a href="#">USA Company Registration</a>
+                    <a href="#">UK Company Registration</a>
+                    <a href="#">Netherlands Company Registration</a>
+                    <a href="#">Canada Company Registration</a>
+
+                </div>
+
+
+                <!-- ASIA / MIDDLE EAST -->
+                <div class="dropdown-column">
+
+                    <h4>Asia & Middle East</h4>
+
+                    <a href="#">Singapore Company Registration</a>
+                    <a href="#">UAE Company Registration</a>
+
+                </div>
+
+
+                <!-- FOREIGN COMPLIANCE -->
+                <div class="dropdown-column">
+
+                    <h4>Foreign Compliance</h4>
+
+                    <a href="#">RBI Compliance for Foreign Investment (FDI / FPI)</a>
+                    <a href="#">FCRA Registration</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+</nav>
+
+<!-- =========================
+     NAVBAR ACTIONS
+========================= -->
+
+<div class="nav-actions">
+
+    <!-- SEARCH -->
+    <button
+        class="nav-search-btn"
+        id="openSearch"
+        aria-label="Search services"
+    >
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+        >
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20L16.5 16.5"></path>
+        </svg>
+
+    </button>
+
+
+    <!-- LOGIN -->
+    <a href="login.php" class="login-btn">
+        Login
+    </a>
+
+</div>
+
+
+        <!-- Mobile Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="search-overlay" id="searchOverlay">
+
+    <div class="search-modal">
+
+
+        <!-- SEARCH TOP -->
+
+        <div class="search-modal-top">
+
+            <div class="modal-search-box">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                >
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="M20 20L16.5 16.5"></path>
+                </svg>
+
+
+                <input
+                    type="text"
+                    id="globalServiceSearch"
+                    placeholder="Search GST, Trademark, Company Registration..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                class="close-search"
+                id="closeSearch"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="search-modal-content">
+
+
+            <!-- TRENDING -->
+
+            <div class="search-section">
+
+                <span class="search-small-title">
+                    Trending
+                </span>
+
+
+                <div class="trending-services">
+
+                    <button data-search="Private Limited Company">
+                        Private Limited Company
+                    </button>
+
+                    <button data-search="GST Registration">
+                        GST Registration
+                    </button>
+
+                    <button data-search="Trademark Registration">
+                        Trademark Registration
+                    </button>
+
+                    <button data-search="Income Tax Return">
+                        Income Tax Return
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOP SERVICES -->
+
+            <div class="search-section">
+
+                <div class="search-section-title">
+                    Top Services
+                </div>
+
+
+                <!-- INCORPORATION -->
+
+                <div class="search-category">
+
+                    <div class="search-category-heading blue">
+                        Incorporation
+                    </div>
+
+                    <div class="top-service-grid">
+
+                        <button data-search="Private Limited Company">
+                            <strong>Private Limited Company</strong>
+                            <span>Register a private limited company</span>
+                        </button>
+
+
+                        <button data-search="LLP Registration">
+                            <strong>LLP Registration</strong>
+                            <span>Start a limited liability partnership</span>
+                        </button>
+
+
+                        <button data-search="One Person Company">
+                            <strong>One Person Company</strong>
+                            <span>Single-owner company registration</span>
+                        </button>
+
+
+                        <button data-search="Partnership Firm">
+                            <strong>Partnership Firm</strong>
+                            <span>Register your partnership business</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IP -->
+
+                <div class="search-category">
+
+                    <div class="search-category-heading purple">
+                        Intellectual Property
+                    </div>
+
+                    <div class="top-service-grid">
+
+                        <button data-search="Trademark Registration">
+                            <strong>Trademark Registration</strong>
+                            <span>Protect your brand identity</span>
+                        </button>
+
+
+                        <button data-search="Copyright Registration">
+                            <strong>Copyright Registration</strong>
+                            <span>Protect original creative works</span>
+                        </button>
+
+
+                        <button data-search="Patent">
+                            <strong>Patent Filing</strong>
+                            <span>Protect your invention</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TAX -->
+
+                <div class="search-category">
+
+                    <div class="search-category-heading green">
+                        Tax & Compliance
+                    </div>
+
+                    <div class="top-service-grid">
+
+                        <button data-search="GST Registration">
+                            <strong>GST Registration</strong>
+                            <span>Register your business under GST</span>
+                        </button>
+
+
+                        <button data-search="Income Tax Return">
+                            <strong>Income Tax Return</strong>
+                            <span>ITR filing and assistance</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- LIVE SEARCH RESULTS -->
+
+            <div
+                class="global-search-results"
+                id="globalSearchResults"
+            ></div>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="search-modal-footer">
+
+            <span>LAWXYGEN</span>
+
+            <small>
+                Press ESC to close
+            </small>
+
+        </div>
+
+    </div>
+
+</div>

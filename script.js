@@ -1,1361 +1,683 @@
-/* =========================================================
-   LAWXYGEN SERVICE DATA
-   Hero ke liye selected important services
-   Complete Excel list later separate services-data.js mein
-   ========================================================= */
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
 
-const serviceCategories = {
+const navMenu =
+    document.querySelector(".nav-menu");
 
-    business: {
-        categoryLabel: "BUSINESS SETUP",
-        status: "Popular",
+const navItems =
+    document.querySelectorAll(".nav-item");
 
-        services: [
-            {
-                title:
-                    "Private Limited Company Registration",
 
-                description:
-                    "Complete incorporation support including name approval, documentation and company registration guidance.",
+if (mobileMenuBtn && navMenu) {
 
-                includes: [
-                    "Name approval support",
-                    "Incorporation documents",
-                    "Filing assistance"
-                ],
-
-                shortTitle:
-                    "Private Limited Company",
-
-                shortLabel:
-                    "Incorporation"
-            },
-
-            {
-                title:
-                    "Limited Liability Partnership Registration",
-
-                description:
-                    "Set up an LLP with structured documentation, partner details and registration assistance.",
-
-                includes: [
-                    "Partner documentation",
-                    "LLP agreement support",
-                    "Registration filing"
-                ],
-
-                shortTitle:
-                    "LLP Registration",
-
-                shortLabel:
-                    "Business structure"
-            },
-
-            {
-                title:
-                    "One Person Company Registration",
-
-                description:
-                    "Incorporation support designed for a single founder who wants a registered company structure.",
-
-                includes: [
-                    "Founder documentation",
-                    "Nominee guidance",
-                    "Company filing"
-                ],
-
-                shortTitle:
-                    "OPC Registration",
-
-                shortLabel:
-                    "Single founder"
-            }
-        ]
-    },
-
-
-    tax: {
-        categoryLabel: "TAX & COMPLIANCE",
-        status: "Essential",
-
-        services: [
-            {
-                title:
-                    "New GST Registration",
-
-                description:
-                    "GST registration assistance for eligible businesses, professionals and online sellers.",
-
-                includes: [
-                    "Eligibility review",
-                    "Document checklist",
-                    "Application filing"
-                ],
-
-                shortTitle:
-                    "GST Registration",
-
-                shortLabel:
-                    "Tax registration"
-            },
-
-            {
-                title:
-                    "GST Return Filing",
-
-                description:
-                    "Regular GST return support to help businesses remain filing and deadline ready.",
-
-                includes: [
-                    "Return preparation",
-                    "Filing support",
-                    "Compliance review"
-                ],
-
-                shortTitle:
-                    "GST Return Filing",
-
-                shortLabel:
-                    "Ongoing compliance"
-            },
-
-            {
-                title:
-                    "Income Tax Return Filing",
-
-                description:
-                    "Income tax return preparation and filing support for individuals and businesses.",
-
-                includes: [
-                    "Tax information review",
-                    "Return preparation",
-                    "Online filing"
-                ],
-
-                shortTitle:
-                    "Income Tax Return",
-
-                shortLabel:
-                    "Tax filing"
-            }
-        ]
-    },
-
-
-    ip: {
-        categoryLabel: "TRADEMARK & IP",
-        status: "Protection",
-
-        services: [
-            {
-                title:
-                    "Trademark Registration",
-
-                description:
-                    "Protect your business name, logo or brand through structured trademark registration support.",
-
-                includes: [
-                    "Trademark search",
-                    "Class selection",
-                    "Application filing"
-                ],
-
-                shortTitle:
-                    "Trademark Registration",
-
-                shortLabel:
-                    "Brand protection"
-            },
-
-            {
-                title:
-                    "Trademark Search",
-
-                description:
-                    "Review similar existing trademarks before submitting a new brand application.",
-
-                includes: [
-                    "Database search",
-                    "Similarity review",
-                    "Initial guidance"
-                ],
-
-                shortTitle:
-                    "Trademark Search",
-
-                shortLabel:
-                    "Availability check"
-            },
-
-            {
-                title:
-                    "Copyright Registration",
-
-                description:
-                    "Registration support for eligible creative, literary, artistic and digital works.",
-
-                includes: [
-                    "Work classification",
-                    "Document support",
-                    "Application filing"
-                ],
-
-                shortTitle:
-                    "Copyright Registration",
-
-                shortLabel:
-                    "Creative protection"
-            }
-        ]
-    },
-
-
-    documents: {
-        categoryLabel: "LEGAL DOCUMENTS",
-        status: "Drafting",
-
-        services: [
-            {
-                title:
-                    "Non-Disclosure Agreement",
-
-                description:
-                    "A professionally structured confidentiality agreement for business discussions and information sharing.",
-
-                includes: [
-                    "Confidentiality terms",
-                    "Party information",
-                    "Purpose-based drafting"
-                ],
-
-                shortTitle:
-                    "Non-Disclosure Agreement",
-
-                shortLabel:
-                    "Confidentiality"
-            },
-
-            {
-                title:
-                    "Founder Agreement",
-
-                description:
-                    "Document founder roles, responsibilities, ownership and working arrangements clearly.",
-
-                includes: [
-                    "Founder responsibilities",
-                    "Ownership terms",
-                    "Exit provisions"
-                ],
-
-                shortTitle:
-                    "Founder Agreement",
-
-                shortLabel:
-                    "Startup documentation"
-            },
-
-            {
-                title:
-                    "Employment Agreement",
-
-                description:
-                    "Define employee responsibilities, compensation, confidentiality and employment terms.",
-
-                includes: [
-                    "Employment terms",
-                    "Confidentiality clause",
-                    "Responsibilities"
-                ],
-
-                shortTitle:
-                    "Employment Agreement",
-
-                shortLabel:
-                    "HR documentation"
-            }
-        ]
-    },
-
-
-    licences: {
-        categoryLabel: "LICENCES & CERTIFICATIONS",
-        status: "Registration",
-
-        services: [
-            {
-                title:
-                    "FSSAI Food License",
-
-                description:
-                    "Food business registration and licence assistance based on business type and operational scale.",
-
-                includes: [
-                    "Licence selection",
-                    "Document support",
-                    "Application filing"
-                ],
-
-                shortTitle:
-                    "FSSAI Food License",
-
-                shortLabel:
-                    "Food business"
-            },
-
-            {
-                title:
-                    "Import Export Code Registration",
-
-                description:
-                    "IEC registration support for businesses planning to import or export goods and services.",
-
-                includes: [
-                    "Business review",
-                    "Document checklist",
-                    "IEC application"
-                ],
-
-                shortTitle:
-                    "Import Export Code",
-
-                shortLabel:
-                    "International trade"
-            },
-
-            {
-                title:
-                    "MSME Registration",
-
-                description:
-                    "Registration assistance for eligible micro, small and medium enterprises.",
-
-                includes: [
-                    "Eligibility review",
-                    "Business details",
-                    "Online registration"
-                ],
-
-                shortTitle:
-                    "MSME Registration",
-
-                shortLabel:
-                    "Business recognition"
-            }
-        ]
-    },
-
-
-    experts: {
-        categoryLabel: "EXPERT CONSULTATION",
-        status: "Consultation",
-
-        services: [
-            {
-                title:
-                    "Online Lawyer Consultation",
-
-                description:
-                    "Discuss your legal question with an appropriate professional through a scheduled consultation.",
-
-                includes: [
-                    "Issue review",
-                    "Professional consultation",
-                    "Next-step guidance"
-                ],
-
-                shortTitle:
-                    "Lawyer Consultation",
-
-                shortLabel:
-                    "Legal guidance"
-            },
-
-            {
-                title:
-                    "Chartered Accountant Consultation",
-
-                description:
-                    "Get professional support for taxation, accounting and financial compliance questions.",
-
-                includes: [
-                    "Tax consultation",
-                    "Accounting guidance",
-                    "Compliance support"
-                ],
-
-                shortTitle:
-                    "CA Consultation",
-
-                shortLabel:
-                    "Tax and accounts"
-            },
-
-            {
-                title:
-                    "Company Secretary Consultation",
-
-                description:
-                    "Professional guidance for corporate filings, governance and company compliance matters.",
-
-                includes: [
-                    "Corporate compliance",
-                    "ROC guidance",
-                    "Governance support"
-                ],
-
-                shortTitle:
-                    "CS Consultation",
-
-                shortLabel:
-                    "Corporate compliance"
-            }
-        ]
-    }
-};
-
-
-/* =========================================================
-   SERVICE EXPLORER
-   ========================================================= */
-
-const serviceCategoryButtons =
-    document.querySelectorAll(".service-category");
-
-const servicePreviewButtons =
-    document.querySelectorAll(".service-preview-item");
-
-const quickCategoryButtons =
-    document.querySelectorAll("[data-quick-category]");
-
-const serviceNumber =
-    document.getElementById("serviceNumber");
-
-const serviceType =
-    document.getElementById("serviceType");
-
-const serviceTitle =
-    document.getElementById("serviceTitle");
-
-const serviceStatus =
-    document.getElementById("serviceStatus");
-
-const serviceDescription =
-    document.getElementById("serviceDescription");
-
-const serviceIncludes =
-    document.getElementById("serviceIncludes");
-
-const previewTitleOne =
-    document.getElementById("previewTitleOne");
-
-const previewTitleTwo =
-    document.getElementById("previewTitleTwo");
-
-const previewTitleThree =
-    document.getElementById("previewTitleThree");
-
-
-let activeCategory = "business";
-let activeServiceIndex = 0;
-
-
-/* Show active service */
-
-function showService(categoryName, serviceIndex) {
-
-    const category =
-        serviceCategories[categoryName];
-
-    if (!category) {
-        return;
-    }
-
-    const selectedService =
-        category.services[serviceIndex];
-
-    if (!selectedService) {
-        return;
-    }
-
-    activeCategory =
-        categoryName;
-
-    activeServiceIndex =
-        serviceIndex;
-
-
-    /* Main content */
-
-    serviceNumber.textContent =
-        String(serviceIndex + 1).padStart(2, "0");
-
-    serviceType.textContent =
-        category.categoryLabel;
-
-    serviceTitle.textContent =
-        selectedService.title;
-
-    serviceStatus.textContent =
-        category.status;
-
-    serviceDescription.textContent =
-        selectedService.description;
-
-
-    /* Included items */
-
-    serviceIncludes.innerHTML = "";
-
-    selectedService.includes.forEach(
-        function (includedItem) {
-
-            const itemElement =
-                document.createElement("span");
-
-            itemElement.textContent =
-                includedItem;
-
-            serviceIncludes.appendChild(
-                itemElement
-            );
-        }
-    );
-
-
-    /* Preview titles */
-
-    previewTitleOne.textContent =
-        category.services[0].shortTitle;
-
-    previewTitleTwo.textContent =
-        category.services[1].shortTitle;
-
-    previewTitleThree.textContent =
-        category.services[2].shortTitle;
-
-
-    /* Category button states */
-
-    serviceCategoryButtons.forEach(
-        function (button) {
-
-            const isSelected =
-                button.dataset.category ===
-                categoryName;
-
-            button.classList.toggle(
-                "active",
-                isSelected
-            );
-
-            button.setAttribute(
-                "aria-selected",
-                isSelected
-            );
-        }
-    );
-
-
-    /* Preview button states and small labels */
-
-    servicePreviewButtons.forEach(
-        function (button, index) {
-
-            button.classList.toggle(
-                "active",
-                index === serviceIndex
-            );
-
-            const smallLabel =
-                button.querySelector("small");
-
-            if (smallLabel) {
-                smallLabel.textContent =
-                    category.services[index].shortLabel;
-            }
-        }
-    );
-
-}
-
-
-/* Category selection */
-
-serviceCategoryButtons.forEach(
-    function (button) {
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                showService(
-                    button.dataset.category,
-                    0
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* Preview selection */
-
-servicePreviewButtons.forEach(
-    function (button) {
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                showService(
-                    activeCategory,
-                    Number(button.dataset.serviceIndex)
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* Quick buttons */
-
-quickCategoryButtons.forEach(
-    function (button) {
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                showService(
-                    button.dataset.quickCategory,
-                    0
-                );
-
-                document
-                    .getElementById("services")
-                    .scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-
-            }
-        );
-
-    }
-);
-
-
-/* Start default service */
-
-showService("business", 0);
-
-
-/* =========================================================
-   COMPLETE SEARCH DATA
-   Later Excel list will replace/extend this array
-   ========================================================= */
-
-/* Complete Excel service list */
-
-const searchableServices =
-    Array.isArray(window.LAWXYGEN_SERVICES)
-        ? window.LAWXYGEN_SERVICES
-        : [];
-
-
-/* =========================================================
-   SEARCH MODAL
-   ========================================================= */
-
-const serviceSearchModal =
-    document.getElementById("serviceSearchModal");
-
-const serviceSearchInput =
-    document.getElementById("serviceSearchInput");
-
-const searchResults =
-    document.getElementById("searchResults");
-
-const closeSearchModalButton =
-    document.getElementById("closeSearchModal");
-
-const openSearchButtons = [
-    document.getElementById("openHeroSearch"),
-    document.getElementById("browseAllButton"),
-    document.getElementById("exploreServicesButton")
-];
-
-
-/* Render search results */
-
-function renderSearchResults(searchValue) {
-
-    const cleanSearchValue =
-        searchValue.trim().toLowerCase();
-
-
-    const matchingServices =
-        searchableServices.filter(
-            function (service) {
-
-                const serviceName =
-                    service.name.toLowerCase();
-
-                const serviceCategory =
-                    service.category.toLowerCase();
-
-                return (
-                    serviceName.includes(cleanSearchValue) ||
-                    serviceCategory.includes(cleanSearchValue)
-                );
-
-            }
-        );
-
-
-    searchResults.innerHTML = "";
-
-
-    if (matchingServices.length === 0) {
-
-        searchResults.innerHTML = `
-            <p class="no-search-results">
-                No matching service found.
-            </p>
-        `;
-
-        return;
-    }
-
-
-    matchingServices.forEach(
-        function (service) {
-
-            const resultButton =
-                document.createElement("button");
-
-            resultButton.type =
-                "button";
-
-            resultButton.className =
-                "search-result-button";
-
-            resultButton.innerHTML = `
-                <div class="search-result-copy">
-
-                    <strong>
-                        ${service.name}
-                    </strong>
-
-                    <small>
-                        ${service.category}
-                    </small>
-
-                </div>
-
-                <span>→</span>
-            `;
-
-            searchResults.appendChild(
-                resultButton
-            );
-
-        }
-    );
-
-}
-
-/* Open modal */
-
-function openSearchModal() {
-
-    serviceSearchModal.classList.add(
-        "open"
-    );
-
-    serviceSearchModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    document.body.style.overflow =
-        "hidden";
-
-    serviceSearchInput.value =
-        "";
-
-    renderSearchResults("");
-
-    setTimeout(
+    mobileMenuBtn.addEventListener(
+        "click",
         function () {
-            serviceSearchInput.focus();
-        },
-        100
+
+            const isOpen =
+                navMenu.classList.toggle("active");
+
+            mobileMenuBtn.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            document.body.style.overflow =
+                isOpen ? "hidden" : "";
+
+        }
     );
 
 }
 
 
-/* Close modal */
+navItems.forEach(function (item) {
+
+    const button =
+        item.querySelector(".nav-link");
+
+
+    if (!button) {
+        return;
+    }
+
+
+    button.addEventListener(
+        "click",
+        function () {
+
+            if (window.innerWidth <= 1250) {
+
+                /*
+                    Close other menus first
+                */
+
+                navItems.forEach(
+                    function (otherItem) {
+
+                        if (otherItem !== item) {
+
+                            otherItem
+                                .classList
+                                .remove("open");
+
+                        }
+
+                    }
+                );
+
+
+                item.classList.toggle("open");
+
+            }
+
+        }
+    );
+
+});
+
+
+
+
+const openSearch =
+    document.getElementById("openSearch");
+
+const closeSearch =
+    document.getElementById("closeSearch");
+
+const searchOverlay =
+    document.getElementById("searchOverlay");
+
+const globalServiceSearch =
+    document.getElementById("globalServiceSearch");
+
+const globalSearchResults =
+    document.getElementById("globalSearchResults");
+
+
+
+
+let globalServices = [];
+
+
+document
+    .querySelectorAll(
+        ".business-dropdown .dropdown-column a"
+    )
+    .forEach(function (link) {
+
+        const serviceName =
+            link.textContent.trim();
+
+
+        /*
+            View All link ko search me
+            include nahi karna
+        */
+
+        if (
+            serviceName !== ""
+            &&
+            !link.classList.contains(
+                "view-all-service"
+            )
+        ) {
+
+            globalServices.push(
+                serviceName
+            );
+
+        }
+
+    });
+
+
+
+
+globalServices =
+    [...new Set(globalServices)];
+
+
+globalServices.sort(
+    function (a, b) {
+
+        return a.localeCompare(b);
+
+    }
+);
+
+if (
+    openSearch
+    &&
+    searchOverlay
+    &&
+    globalServiceSearch
+) {
+
+    openSearch.addEventListener(
+        "click",
+        function () {
+
+            searchOverlay
+                .classList
+                .add("active");
+
+
+            document.body.style.overflow =
+                "hidden";
+
+
+            setTimeout(
+                function () {
+
+                    globalServiceSearch.focus();
+
+                },
+                100
+            );
+
+        }
+    );
+
+}
 
 function closeSearchModal() {
 
-    serviceSearchModal.classList.remove(
-        "open"
-    );
+    if (!searchOverlay) {
+        return;
+    }
 
-    serviceSearchModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+
+    searchOverlay
+        .classList
+        .remove("active");
+
 
     document.body.style.overflow =
         "";
 
+
+    if (globalServiceSearch) {
+
+        globalServiceSearch.value =
+            "";
+
+    }
+
+
+    if (globalSearchResults) {
+
+        globalSearchResults.innerHTML =
+            "";
+
+        globalSearchResults
+            .classList
+            .remove("active");
+
+    }
+
 }
 
 
-openSearchButtons.forEach(
-    function (button) {
 
-        if (!button) {
-            return;
+if (closeSearch) {
+
+    closeSearch.addEventListener(
+        "click",
+        closeSearchModal
+    );
+
+}
+
+if (searchOverlay) {
+
+    searchOverlay.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                searchOverlay
+            ) {
+
+                closeSearchModal();
+
+            }
+
         }
+    );
 
-        button.addEventListener(
-            "click",
-            openSearchModal
-        );
+}
 
-    }
-);
-
-
-closeSearchModalButton.addEventListener(
-    "click",
-    closeSearchModal
-);
-
-
-serviceSearchInput.addEventListener(
-    "input",
-    function () {
-
-        renderSearchResults(
-            serviceSearchInput.value
-        );
-
-    }
-);
-
-
-serviceSearchModal.addEventListener(
-    "click",
-    function (event) {
-
-        if (event.target === serviceSearchModal) {
-            closeSearchModal();
-        }
-
-    }
-);
-
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-const mobileMenuButton =
-    document.getElementById("mobileMenuButton");
-
-const mobileNavigation =
-    document.getElementById("mobileNavigation");
-
-
-mobileMenuButton.addEventListener(
-    "click",
-    function () {
-
-        const menuIsOpen =
-            mobileNavigation.classList.toggle(
-                "open"
-            );
-
-        mobileMenuButton.classList.toggle(
-            "open",
-            menuIsOpen
-        );
-
-        mobileMenuButton.setAttribute(
-            "aria-expanded",
-            menuIsOpen
-        );
-
-    }
-);
-
-
-/* =========================================================
-   ESCAPE KEY
-   ========================================================= */
 
 document.addEventListener(
     "keydown",
     function (event) {
 
-        if (event.key !== "Escape") {
-            return;
+        if (event.key === "Escape") {
+
+            closeSearchModal();
+
         }
-
-        closeSearchModal();
-
-        mobileNavigation.classList.remove(
-            "open"
-        );
-
-        mobileMenuButton.classList.remove(
-            "open"
-        );
-
-        mobileMenuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
 
     }
 );
 
+function searchServices(value) {
 
-/* =========================================================
-   LIVE CANVAS VFX BACKGROUND
-   ========================================================= */
-
-const canvas =
-    document.getElementById("heroCanvas");
-
-const context =
-    canvas.getContext("2d");
+    if (!globalSearchResults) {
+        return;
+    }
 
 
-if (canvas && context) {
-
-    let canvasWidth = 0;
-    let canvasHeight = 0;
-    let pixelRatio = 1;
-    let animationFrame = null;
-
-    const pointer = {
-        x: 0,
-        y: 0,
-        targetX: 0,
-        targetY: 0
-    };
+    const query =
+        value
+            .trim()
+            .toLowerCase();
 
 
-    /* Light particles */
-
-    const particles = [];
-
-    const particleCount =
-        window.innerWidth < 700 ? 16 : 31;
+    globalSearchResults.innerHTML =
+        "";
 
 
-    function createParticles() {
+    /*
+        Empty search
+    */
 
-        particles.length = 0;
+    if (query === "") {
 
-        for (
-            let index = 0;
-            index < particleCount;
-            index += 1
-        ) {
+        globalSearchResults
+            .classList
+            .remove("active");
 
-            particles.push({
-                x: Math.random(),
-                y: Math.random(),
-
-                radius:
-                    Math.random() * 1.4 + 0.35,
-
-                speedX:
-                    (Math.random() - 0.5) * 0.000035,
-
-                speedY:
-                    (Math.random() - 0.5) * 0.000025,
-
-                opacity:
-                    Math.random() * 0.25 + 0.07,
-
-                warm:
-                    Math.random() > 0.82
-            });
-
-        }
+        return;
 
     }
 
 
-    function resizeCanvas() {
 
-        const rectangle =
-            canvas.getBoundingClientRect();
+    /*
+        Find matching services
+    */
 
-        canvasWidth =
-            rectangle.width;
+    const matches =
+        globalServices
+            .filter(
+                function (service) {
 
-        canvasHeight =
-            rectangle.height;
+                    return service
+                        .toLowerCase()
+                        .includes(query);
 
-        pixelRatio =
-            Math.min(
-                window.devicePixelRatio || 1,
-                1.5
-            );
+                }
+            )
+            .slice(0, 25);
 
-        canvas.width =
-            Math.round(
-                canvasWidth * pixelRatio
-            );
 
-        canvas.height =
-            Math.round(
-                canvasHeight * pixelRatio
-            );
 
-        context.setTransform(
-            pixelRatio,
-            0,
-            0,
-            pixelRatio,
-            0,
-            0
-        );
+    /*
+        Nothing found
+    */
+
+    if (matches.length === 0) {
+
+        const noResult =
+            document.createElement("div");
+
+
+        noResult.className =
+            "global-result";
+
+
+        noResult.textContent =
+            "No matching services found";
+
+
+        globalSearchResults
+            .appendChild(noResult);
+
+
+        globalSearchResults
+            .classList
+            .add("active");
+
+
+        return;
 
     }
 
 
-    /* Draw moving light beam */
 
-    function drawLightBeam(
-        time,
-        verticalPosition,
-        amplitude,
-        speed,
-        colour,
-        opacity
-    ) {
+    /*
+        Create result buttons
+    */
 
-        context.beginPath();
+    matches.forEach(
+        function (service) {
 
-        for (
-            let x = -80;
-            x <= canvasWidth + 80;
-            x += 16
-        ) {
-
-            const wave =
-                Math.sin(
-                    x * 0.006 +
-                    time * speed
+            const button =
+                document.createElement(
+                    "button"
                 );
 
-            const secondWave =
-                Math.sin(
-                    x * 0.013 -
-                    time * speed * 0.45
-                ) * 0.3;
 
-            const y =
-                canvasHeight * verticalPosition +
-                (wave + secondWave) *
-                amplitude +
-                pointer.y * 11;
+            button.type =
+                "button";
 
-            const movedX =
-                x + pointer.x * 14;
 
-            if (x === -80) {
-                context.moveTo(movedX, y);
-            } else {
-                context.lineTo(movedX, y);
-            }
+            button.className =
+                "global-result";
 
-        }
 
-        const gradient =
-            context.createLinearGradient(
-                0,
-                0,
-                canvasWidth,
-                0
+            button.textContent =
+                service;
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    globalServiceSearch.value =
+                        service;
+
+
+                    /*
+                        Later yahan service page
+                        open karenge:
+
+                        window.location.href =
+                        "service.php?slug=...";
+                    */
+
+                }
             );
 
-        gradient.addColorStop(
-            0,
-            `rgba(${colour}, 0)`
-        );
 
-        gradient.addColorStop(
-            0.25,
-            `rgba(${colour}, ${opacity})`
-        );
-
-        gradient.addColorStop(
-            0.68,
-            `rgba(${colour}, ${opacity})`
-        );
-
-        gradient.addColorStop(
-            1,
-            `rgba(${colour}, 0)`
-        );
-
-        context.strokeStyle =
-            gradient;
-
-        context.lineWidth =
-            0.8;
-
-        context.stroke();
-
-    }
-
-
-    function drawParticles(deltaTime) {
-
-        particles.forEach(
-            function (particle) {
-
-                particle.x +=
-                    particle.speedX *
-                    deltaTime;
-
-                particle.y +=
-                    particle.speedY *
-                    deltaTime;
-
-                if (particle.x < -0.05) {
-                    particle.x = 1.05;
-                }
-
-                if (particle.x > 1.05) {
-                    particle.x = -0.05;
-                }
-
-                if (particle.y < -0.05) {
-                    particle.y = 1.05;
-                }
-
-                if (particle.y > 1.05) {
-                    particle.y = -0.05;
-                }
-
-                const x =
-                    particle.x * canvasWidth +
-                    pointer.x * 18;
-
-                const y =
-                    particle.y * canvasHeight +
-                    pointer.y * 12;
-
-                const colour =
-                    particle.warm
-                        ? "239, 157, 85"
-                        : "111, 179, 232";
-
-                context.beginPath();
-
-                context.arc(
-                    x,
-                    y,
-                    particle.radius,
-                    0,
-                    Math.PI * 2
-                );
-
-                context.fillStyle =
-                    `rgba(${colour}, ${particle.opacity})`;
-
-                context.fill();
-
-            }
-        );
-
-    }
-
-
-    let previousTime =
-        performance.now();
-
-
-    function animate(currentTime) {
-
-        const deltaTime =
-            Math.min(
-                currentTime - previousTime,
-                40
-            );
-
-        previousTime =
-            currentTime;
-
-        pointer.x +=
-            (pointer.targetX - pointer.x) *
-            0.025;
-
-        pointer.y +=
-            (pointer.targetY - pointer.y) *
-            0.025;
-
-        context.clearRect(
-            0,
-            0,
-            canvasWidth,
-            canvasHeight
-        );
-
-
-        drawLightBeam(
-            currentTime,
-            0.24,
-            27,
-            0.00025,
-            "77, 151, 214",
-            0.13
-        );
-
-        drawLightBeam(
-            currentTime,
-            0.48,
-            43,
-            -0.00018,
-            "45, 125, 196",
-            0.11
-        );
-
-        drawLightBeam(
-            currentTime,
-            0.72,
-            32,
-            0.00014,
-            "239, 157, 85",
-            0.07
-        );
-
-        drawParticles(deltaTime);
-
-
-        animationFrame =
-            window.requestAnimationFrame(
-                animate
-            );
-
-    }
-
-
-    window.addEventListener(
-        "pointermove",
-        function (event) {
-
-            pointer.targetX =
-                event.clientX /
-                window.innerWidth -
-                0.5;
-
-            pointer.targetY =
-                event.clientY /
-                window.innerHeight -
-                0.5;
+            globalSearchResults
+                .appendChild(button);
 
         }
     );
 
 
-    window.addEventListener(
-        "pointerleave",
-        function () {
-
-            pointer.targetX = 0;
-            pointer.targetY = 0;
-
-        }
-    );
-
-
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
-
-
-    createParticles();
-    resizeCanvas();
-
-    animationFrame =
-        window.requestAnimationFrame(
-            animate
-        );
+    globalSearchResults
+        .classList
+        .add("active");
 
 }
 
-/* =========================================================
-   OPEN SEARCH FROM NAVBAR AND CATEGORY CARDS
-   ========================================================= */
 
-const searchQueryButtons =
-    document.querySelectorAll(
-        "[data-search-query]"
+if (globalServiceSearch) {
+
+    globalServiceSearch.addEventListener(
+        "input",
+        function () {
+
+            searchServices(
+                globalServiceSearch.value
+            );
+
+        }
     );
 
+}
 
-searchQueryButtons.forEach(
-    function (button) {
+
+document
+    .querySelectorAll(
+        ".search-modal [data-search]"
+    )
+    .forEach(function (button) {
 
         button.addEventListener(
             "click",
             function () {
 
-                const selectedQuery =
-                    button.dataset.searchQuery || "";
-
-                openSearchModal();
+                const value =
+                    button.dataset.search;
 
 
-                setTimeout(
-                    function () {
-
-                        serviceSearchInput.value =
-                            selectedQuery;
-
-                        renderSearchResults(
-                            selectedQuery
-                        );
-
-                    },
-                    40
-                );
+                if (!globalServiceSearch) {
+                    return;
+                }
 
 
-                mobileNavigation.classList.remove(
-                    "open"
-                );
+                globalServiceSearch.value =
+                    value;
 
-                mobileMenuButton.classList.remove(
-                    "open"
-                );
 
-                mobileMenuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+                searchServices(value);
+
+
+                globalServiceSearch.focus();
 
             }
         );
 
+    });
+
+    const openLogin =
+    document.getElementById("openLogin");
+
+const closeLogin =
+    document.getElementById("closeLogin");
+
+const loginOverlay =
+    document.getElementById("loginOverlay");
+
+
+if (openLogin && loginOverlay) {
+
+    openLogin.addEventListener("click", function () {
+
+        loginOverlay.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+}
+
+
+function closeLoginModal() {
+
+    if (!loginOverlay) {
+        return;
+    }
+
+    loginOverlay.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+if (closeLogin) {
+
+    closeLogin.addEventListener(
+        "click",
+        closeLoginModal
+    );
+
+}
+
+
+if (loginOverlay) {
+
+    loginOverlay.addEventListener(
+        "click",
+        function (event) {
+
+            if (event.target === loginOverlay) {
+
+                closeLoginModal();
+
+            }
+
+        }
+    );
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+
+            closeLoginModal();
+
+        }
+
     }
 );
+
+const heroRollTrack =
+    document.getElementById("heroRollTrack");
+
+if (heroRollTrack) {
+
+    const heroRollItems =
+        heroRollTrack.querySelectorAll(".hero-roll-item");
+
+    let heroRollIndex = 0;
+
+
+    function getHeroRollHeight() {
+
+        const firstItem =
+            heroRollTrack.querySelector(".hero-roll-item");
+
+        if (!firstItem) {
+            return 0;
+        }
+
+        return firstItem.getBoundingClientRect().height;
+
+    }
+
+
+    function rollHeroHeading() {
+
+        if (heroRollItems.length < 2) {
+            return;
+        }
+
+
+        heroRollIndex++;
+
+
+        const itemHeight =
+            getHeroRollHeight();
+
+
+        heroRollTrack.style.transform =
+            `translateY(-${heroRollIndex * itemHeight}px)`;
+
+
+        if (
+            heroRollIndex ===
+            heroRollItems.length - 1
+        ) {
+
+            setTimeout(function () {
+
+                heroRollTrack.style.transition =
+                    "none";
+
+
+                heroRollIndex = 0;
+
+
+                heroRollTrack.style.transform =
+                    "translateY(0)";
+
+
+                requestAnimationFrame(function () {
+
+                    requestAnimationFrame(function () {
+
+                        heroRollTrack.style.transition =
+                            "transform 0.75s cubic-bezier(0.65, 0, 0.35, 1)";
+
+                    });
+
+                });
+
+            }, 900);
+
+        }
+
+    }
+
+
+    setInterval(
+        rollHeroHeading,
+        3000
+    );
+
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            heroRollTrack.style.transition =
+                "none";
+
+            heroRollIndex = 0;
+
+            heroRollTrack.style.transform =
+                "translateY(0)";
+
+
+            requestAnimationFrame(function () {
+
+                heroRollTrack.style.transition =
+                    "transform 0.75s cubic-bezier(0.65, 0, 0.35, 1)";
+
+            });
+
+        }
+    );
+
+}
+
+const lawServicesSection =
+    document.querySelector(".law-services");
+
+if (lawServicesSection) {
+
+    const lawServicesObserver =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        lawServicesSection
+                            .classList
+                            .add("is-visible");
+
+                        lawServicesObserver
+                            .unobserve(
+                                lawServicesSection
+                            );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    lawServicesObserver.observe(
+        lawServicesSection
+    );
+
+}

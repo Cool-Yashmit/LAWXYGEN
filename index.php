@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LAWXYGEN</title>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <?php include 'navbar.php'; ?>
+
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-vfx hero-vfx-one"></div>
+        <div class="hero-vfx hero-vfx-two"></div>
+        <div class="hero-vfx hero-vfx-three"></div>
+
+        <div class="hero-grid-effect"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                LAWXYGEN • Breathe Legal Ease
+            </div>
+
+            <h1 class="hero-title">
+                Legal, Tax & Business Services
+            </h1>
+
+            <div class="hero-rolling">
+
+                <div class="hero-roll-track" id="heroRollTrack">
+
+                    <div class="hero-roll-item roll-blue">
+                        Made Simple.
+                    </div>
+
+                    <div class="hero-roll-item roll-purple">
+                        Built for Growth.
+                    </div>
+
+                    <div class="hero-roll-item roll-cyan">
+                        Handled with Clarity.
+                    </div>
+
+                    <div class="hero-roll-item roll-green">
+                        Backed by Experts.
+                    </div>
+
+                    <div class="hero-roll-item roll-blue">
+                        Made Simple.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="hero-description">
+                One place for business registration, taxation, compliance,
+                intellectual property and professional legal support.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#services" class="hero-primary">
+                    Explore Services
+                </a>
+
+                <button type="button" class="hero-secondary">
+                    Talk to an Expert
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="law-services" id="services">
+
+    <div class="law-services-wrap">
+
+        <div class="law-services-intro">
+
+            <span class="law-services-label">
+                Explore Services
+            </span>
+
+            <h2>
+                Everything your business
+                needs, in one place.
+            </h2>
+
+            <p>
+                From starting a company to managing tax,
+                compliance and legal requirements.
+            </p>
+
+            <a href="#" class="law-services-all">
+                Browse all services
+                <span>↗</span>
+            </a>
+
+        </div>
+
+
+        <div class="law-services-grid">
+
+            <a href="#" class="law-service-card law-service-main">
+
+                <div class="law-card-top">
+
+                    <span class="law-service-number">
+                        01
+                    </span>
+
+                    <span class="law-service-icon icon-green">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 21V8l8-5 8 5v13"></path>
+                            <path d="M9 21v-7h6v7"></path>
+                        </svg>
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h3>Business Setup</h3>
+
+                    <p>
+                        Company registration, LLP,
+                        startup setup and business incorporation.
+                    </p>
+
+                </div>
+
+                <span class="law-card-arrow">→</span>
+
+            </a>
+
+
+            <a href="#" class="law-service-card">
+
+                <div class="law-card-top">
+
+                    <span class="law-service-number">
+                        02
+                    </span>
+
+                    <span class="law-service-icon icon-blue">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M6 3h12v18H6z"></path>
+                            <path d="M9 8h6"></path>
+                            <path d="M9 12h6"></path>
+                            <path d="M9 16h3"></path>
+                        </svg>
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h3>Tax & Accounting</h3>
+
+                    <p>
+                        GST, income tax, TDS,
+                        bookkeeping and accounting.
+                    </p>
+
+                </div>
+
+                <span class="law-card-arrow">→</span>
+
+            </a>
+
+
+            <a href="#" class="law-service-card">
+
+                <div class="law-card-top">
+
+                    <span class="law-service-number">
+                        03
+                    </span>
+
+                    <span class="law-service-icon icon-purple">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 20h16"></path>
+                            <path d="M6 17V9"></path>
+                            <path d="M10 17V9"></path>
+                            <path d="M14 17V9"></path>
+                            <path d="M18 17V9"></path>
+                            <path d="M3 7l9-4 9 4"></path>
+                        </svg>
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h3>Compliance</h3>
+
+                    <p>
+                        ROC, labour and ongoing
+                        corporate compliance support.
+                    </p>
+
+                </div>
+
+                <span class="law-card-arrow">→</span>
+
+            </a>
+
+
+            <a href="#" class="law-service-card">
+
+                <div class="law-card-top">
+
+                    <span class="law-service-number">
+                        04
+                    </span>
+
+                    <span class="law-service-icon icon-orange">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="8"></circle>
+                            <path d="M9.5 12.5l1.7 1.7 3.5-4"></path>
+                        </svg>
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h3>IP & Trademarks</h3>
+
+                    <p>
+                        Trademark, copyright,
+                        patent and brand protection.
+                    </p>
+
+                </div>
+
+                <span class="law-card-arrow">→</span>
+
+            </a>
+
+
+            <a href="#" class="law-service-card law-service-wide">
+
+                <div class="law-card-top">
+
+                    <span class="law-service-number">
+                        05
+                    </span>
+
+                    <span class="law-service-icon icon-teal">
+
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M7 3h8l4 4v14H7z"></path>
+                            <path d="M15 3v5h5"></path>
+                            <path d="M10 13h6"></path>
+                            <path d="M10 17h4"></path>
+                        </svg>
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h3>Legal Documents & Licenses</h3>
+
+                    <p>
+                        Agreements, contracts, business licenses
+                        and professional legal assistance.
+                    </p>
+
+                </div>
+
+                <span class="law-card-arrow">→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
