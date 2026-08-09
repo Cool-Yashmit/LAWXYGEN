@@ -1,56 +1,28 @@
-# LAWXYGEN Node.js
+# LAWXYGEN - Node.js + Cloudflare Workers
 
-This version migrates the existing LAWXYGEN PHP shell to Node.js + Express + EJS without changing the current homepage design.
+This project keeps the existing EJS source files for development and pre-renders them to static HTML for Cloudflare Workers Static Assets. Express runs inside a Worker for API/backend routes.
 
-## First-time setup
+## First setup
 
 1. Install Node.js LTS.
-2. Open this folder in VS Code.
-3. Open the terminal in this folder.
-4. Run:
+2. Run `npm install`.
+3. Run `npm run dev` for a Cloudflare-local preview.
+4. Open the URL Wrangler prints (normally http://localhost:8787).
 
-```bash
-npm install
-```
+For the classic Node/EJS local server, run `npm run dev:node` and open http://localhost:3000.
 
-5. Start development mode:
+## Cloudflare deployment
 
-```bash
-npm run dev
-```
+The repository must include `wrangler.jsonc`, `src/worker.mjs`, `build.js`, `views`, and `public`.
 
-6. Open:
+In Cloudflare Workers Builds, use:
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
 
-```text
-http://localhost:3000
-```
+Or simply use deploy command `npm run deploy` with no separate build command.
 
-## Normal use later
+The `dist` folder is generated automatically and does not need to be edited manually.
 
-Every time you work on the project, open the project folder and run:
+## Test backend
 
-```bash
-npm run dev
-```
-
-Stop the server with Ctrl+C.
-
-## Production command
-
-```bash
-npm start
-```
-
-## Project structure
-
-- `server.js` - Express server
-- `routes/pages.js` - page routes
-- `views/index.ejs` - homepage
-- `views/partials/navbar.ejs` - reusable navbar
-- `public/css/style.css` - current website CSS
-- `public/js/script.js` - current frontend JavaScript
-- `public/assets/images/` - images
-
-## Backend roadmap
-
-The database and authentication packages are intentionally not installed yet. Next backend stages can add MySQL, login/register, services, admin dashboard, orders and payments without changing the Node foundation.
+After deployment, open `/api/health` to confirm Express is running inside Cloudflare Workers.
