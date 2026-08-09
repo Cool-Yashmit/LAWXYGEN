@@ -830,124 +830,441 @@ if (
 }
 
 const lawFlowCanvas =
-    document.getElementById(
-        "lawFlowCanvas"
-    );
-
+    document.getElementById("lawFlowCanvas");
 
 if (lawFlowCanvas) {
 
-    const lawFlowContext =
-        lawFlowCanvas.getContext(
-            "2d"
-        );
+    const ctx =
+        lawFlowCanvas.getContext("2d");
+
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+
+    let time = 0;
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let targetX = 0;
+    let targetY = 0;
+
+    const particles = [];
 
 
-    let lawFlowWidth = 0;
-    let lawFlowHeight = 0;
-    let lawFlowDpr = 1;
-
-    let lawFlowTime = 0;
-
-    let lawPointerX = 0;
-    let lawPointerY = 0;
-
-    let lawTargetX = 0;
-    let lawTargetY = 0;
-
-
-    function lawResizeCanvas() {
+    function resizeLawFlow() {
 
         const rect =
-            lawFlowCanvas
-                .getBoundingClientRect();
+            lawFlowCanvas.getBoundingClientRect();
 
+        width = rect.width;
+        height = rect.height;
 
-        lawFlowDpr =
-            Math.min(
-                window.devicePixelRatio || 1,
-                1.7
-            );
-
-
-        lawFlowWidth =
-            rect.width;
-
-
-        lawFlowHeight =
-            rect.height;
-
+        dpr = Math.min(
+            window.devicePixelRatio || 1,
+            1.6
+        );
 
         lawFlowCanvas.width =
-            Math.floor(
-                lawFlowWidth *
-                lawFlowDpr
-            );
-
+            Math.floor(width * dpr);
 
         lawFlowCanvas.height =
-            Math.floor(
-                lawFlowHeight *
-                lawFlowDpr
-            );
+            Math.floor(height * dpr);
 
+        ctx.setTransform(
+            dpr,
+            0,
+            0,
+            dpr,
+            0,
+            0
+        );
 
-        lawFlowContext
-            .setTransform(
-                lawFlowDpr,
-                0,
-                0,
-                lawFlowDpr,
-                0,
-                0
-            );
+        createParticles();
 
     }
 
 
-    function lawDrawRibbon(
-        centerY,
-        amplitude,
-        frequency,
-        phase,
-        width,
-        opacity,
-        colorOne,
-        colorTwo
+    function createParticles() {
+
+        particles.length = 0;
+
+        const isMobile =
+            width < 650;
+
+        const count =
+            isMobile
+                ? 90
+                : 190;
+
+
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
+
+            particles.push({
+
+                x:
+                    Math.random() *
+                    width,
+
+                y:
+                    Math.random() *
+                    height,
+
+                size:
+                    Math.random() *
+                    1.15 +
+                    0.25,
+
+                alpha:
+                    Math.random() *
+                    0.24 +
+                    0.035,
+
+                speed:
+                    Math.random() *
+                    0.08 +
+                    0.015,
+
+                phase:
+                    Math.random() *
+                    Math.PI *
+                    2
+
+            });
+
+        }
+
+    }
+
+
+    function drawParticles() {
+
+        ctx.save();
+
+        ctx.globalCompositeOperation =
+            "screen";
+
+
+        particles.forEach(
+            function (particle) {
+
+                particle.phase +=
+                    particle.speed *
+                    0.04;
+
+
+                const pulse =
+                    0.45 +
+                    Math.sin(
+                        particle.phase
+                    ) *
+                    0.35;
+
+
+                ctx.globalAlpha =
+                    particle.alpha *
+                    pulse;
+
+
+                ctx.fillStyle =
+                    "rgba(125, 214, 255, 1)";
+
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    particle.x,
+                    particle.y,
+                    particle.size,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fill();
+
+            }
+        );
+
+
+        ctx.restore();
+
+    }
+
+
+    function getFlowY(
+        x,
+        offset,
+        amplitude
     ) {
 
+        const nx =
+            x /
+            Math.max(
+                width,
+                1
+            );
+
+
+        const waveOne =
+            Math.sin(
+                nx * 5.2 +
+                time * 0.58 +
+                offset
+            ) *
+            amplitude;
+
+
+        const waveTwo =
+            Math.sin(
+                nx * 11.5 -
+                time * 0.26 +
+                offset * 1.7
+            ) *
+            amplitude *
+            0.22;
+
+
+        const mouseShift =
+            mouseY *
+            24 *
+            Math.sin(
+                nx *
+                Math.PI
+            );
+
+
+        return (
+            height * 0.57 +
+            waveOne +
+            waveTwo +
+            mouseShift
+        );
+
+    }
+
+
+    function drawSoftBloom() {
+
+        const centerX =
+            width *
+            (
+                0.48 +
+                mouseX *
+                0.04
+            );
+
+
+        const centerY =
+            height *
+            (
+                0.58 +
+                mouseY *
+                0.035
+            );
+
+
+        const radius =
+            Math.max(
+                width,
+                height
+            ) *
+            0.55;
+
+
         const gradient =
-            lawFlowContext
-                .createLinearGradient(
-                    0,
-                    0,
-                    lawFlowWidth,
-                    lawFlowHeight
-                );
+            ctx.createRadialGradient(
+                centerX,
+                centerY,
+                0,
+                centerX,
+                centerY,
+                radius
+            );
 
 
         gradient.addColorStop(
             0,
-            colorOne
+            "rgba(36, 165, 255, .11)"
         );
 
 
         gradient.addColorStop(
-            0.48,
-            colorTwo
+            0.28,
+            "rgba(28, 110, 220, .065)"
+        );
+
+
+        gradient.addColorStop(
+            0.7,
+            "rgba(5, 45, 100, .018)"
         );
 
 
         gradient.addColorStop(
             1,
-            colorOne
+            "rgba(0,0,0,0)"
         );
 
 
-        lawFlowContext.beginPath();
+        ctx.fillStyle =
+            gradient;
 
 
-        const segments = 90;
+        ctx.fillRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+    }
+
+
+    function drawFlowBand() {
+
+        ctx.save();
+
+        ctx.globalCompositeOperation =
+            "screen";
+
+
+        const layers = 46;
+
+
+        for (
+            let layer = 0;
+            layer < layers;
+            layer++
+        ) {
+
+            const normalized =
+                layer /
+                layers;
+
+
+            const offset =
+                (
+                    normalized -
+                    0.5
+                ) *
+                height *
+                0.18;
+
+
+            ctx.beginPath();
+
+
+            const segments =
+                120;
+
+
+            for (
+                let i = 0;
+                i <= segments;
+                i++
+            ) {
+
+                const x =
+                    (
+                        i /
+                        segments
+                    ) *
+                    width;
+
+
+                const y =
+                    getFlowY(
+                        x,
+                        normalized * 3,
+                        height * 0.115
+                    ) +
+                    offset;
+
+
+                if (i === 0) {
+
+                    ctx.moveTo(
+                        x,
+                        y
+                    );
+
+                } else {
+
+                    ctx.lineTo(
+                        x,
+                        y
+                    );
+
+                }
+
+            }
+
+
+            const centerStrength =
+                1 -
+                Math.abs(
+                    normalized -
+                    0.5
+                ) *
+                2;
+
+
+            ctx.lineWidth =
+                1.1 +
+                centerStrength *
+                2.1;
+
+
+            ctx.globalAlpha =
+                0.025 +
+                centerStrength *
+                0.10;
+
+
+            ctx.strokeStyle =
+                normalized < 0.48
+                    ? "rgba(30, 116, 255, 1)"
+                    : "rgba(76, 210, 255, 1)";
+
+
+            ctx.shadowBlur =
+                10 +
+                centerStrength *
+                32;
+
+
+            ctx.shadowColor =
+                normalized < 0.5
+                    ? "rgba(25, 121, 255, .8)"
+                    : "rgba(67, 206, 255, .85)";
+
+
+            ctx.stroke();
+
+        }
+
+
+        ctx.restore();
+
+    }
+
+
+    function drawCoreGlow() {
+
+        ctx.save();
+
+        ctx.globalCompositeOperation =
+            "screen";
+
+
+        ctx.beginPath();
+
+
+        const segments = 120;
 
 
         for (
@@ -961,298 +1278,109 @@ if (lawFlowCanvas) {
                     i /
                     segments
                 ) *
-                lawFlowWidth;
-
-
-            const normalized =
-                x /
-                Math.max(
-                    lawFlowWidth,
-                    1
-                );
-
-
-            const bend =
-                Math.sin(
-                    normalized *
-                    frequency +
-                    phase +
-                    lawPointerX *
-                    0.8
-                ) *
-                amplitude;
-
-
-            const secondBend =
-                Math.sin(
-                    normalized *
-                    frequency *
-                    0.48 -
-                    phase *
-                    0.65
-                ) *
-                amplitude *
-                0.35;
-
-
-            const pointerLift =
-                lawPointerY *
-                24 *
-                Math.sin(
-                    normalized *
-                    Math.PI
-                );
+                width;
 
 
             const y =
-                centerY +
-                bend +
-                secondBend +
-                pointerLift;
+                getFlowY(
+                    x,
+                    1.35,
+                    height * 0.105
+                );
 
 
             if (i === 0) {
 
-                lawFlowContext
-                    .moveTo(
-                        x,
-                        y
-                    );
+                ctx.moveTo(
+                    x,
+                    y
+                );
 
             } else {
 
-                lawFlowContext
-                    .lineTo(
-                        x,
-                        y
-                    );
+                ctx.lineTo(
+                    x,
+                    y
+                );
 
             }
 
         }
 
 
-        lawFlowContext.strokeStyle =
-            gradient;
+        ctx.strokeStyle =
+            "rgba(132, 229, 255, .72)";
 
 
-        lawFlowContext.lineWidth =
-            width;
+        ctx.lineWidth = 1.4;
+
+        ctx.shadowBlur = 38;
+
+        ctx.shadowColor =
+            "rgba(52, 186, 255, 1)";
 
 
-        lawFlowContext.lineCap =
-            "round";
+        ctx.globalAlpha = 0.62;
+
+        ctx.stroke();
 
 
-        lawFlowContext.globalAlpha =
-            opacity;
-
-
-        lawFlowContext.shadowBlur =
-            width * 1.35;
-
-
-        lawFlowContext.shadowColor =
-            colorTwo;
-
-
-        lawFlowContext.stroke();
+        ctx.restore();
 
     }
 
 
-    function lawDrawGlow() {
+    function animateLawFlow() {
 
-        const x =
-            lawFlowWidth *
+        time += 0.012;
+
+
+        mouseX +=
             (
-                0.5 +
-                lawPointerX *
-                0.08
-            );
-
-
-        const y =
-            lawFlowHeight *
-            (
-                0.48 +
-                lawPointerY *
-                0.06
-            );
-
-
-        const radius =
-            Math.max(
-                lawFlowWidth,
-                lawFlowHeight
-            ) *
-            0.52;
-
-
-        const glow =
-            lawFlowContext
-                .createRadialGradient(
-                    x,
-                    y,
-                    0,
-                    x,
-                    y,
-                    radius
-                );
-
-
-        glow.addColorStop(
-            0,
-            "rgba(30, 151, 255, 0.12)"
-        );
-
-
-        glow.addColorStop(
-            0.45,
-            "rgba(16, 91, 174, 0.05)"
-        );
-
-
-        glow.addColorStop(
-            1,
-            "rgba(0, 0, 0, 0)"
-        );
-
-
-        lawFlowContext.globalAlpha = 1;
-
-
-        lawFlowContext.fillStyle =
-            glow;
-
-
-        lawFlowContext.fillRect(
-            0,
-            0,
-            lawFlowWidth,
-            lawFlowHeight
-        );
-
-    }
-
-
-    function lawAnimateFlow() {
-
-        lawFlowTime += 0.0045;
-
-
-        lawPointerX +=
-            (
-                lawTargetX -
-                lawPointerX
+                targetX -
+                mouseX
             ) *
             0.035;
 
 
-        lawPointerY +=
+        mouseY +=
             (
-                lawTargetY -
-                lawPointerY
+                targetY -
+                mouseY
             ) *
             0.035;
 
 
-        lawFlowContext.clearRect(
+        ctx.clearRect(
             0,
             0,
-            lawFlowWidth,
-            lawFlowHeight
+            width,
+            height
         );
 
 
-        lawFlowContext
-            .save();
+        drawSoftBloom();
 
+        drawParticles();
 
-        lawFlowContext.globalCompositeOperation =
-            "screen";
+        drawFlowBand();
 
-
-        lawDrawGlow();
-
-
-        lawDrawRibbon(
-            lawFlowHeight * 0.28,
-            lawFlowHeight * 0.13,
-            7.2,
-            lawFlowTime * 1.3,
-            Math.max(
-                70,
-                lawFlowHeight * 0.115
-            ),
-            0.20,
-            "rgba(0, 84, 180, 0.15)",
-            "rgba(45, 178, 255, 0.62)"
-        );
-
-
-        lawDrawRibbon(
-            lawFlowHeight * 0.48,
-            lawFlowHeight * 0.17,
-            6.1,
-            lawFlowTime * 0.95 + 1.7,
-            Math.max(
-                100,
-                lawFlowHeight * 0.16
-            ),
-            0.16,
-            "rgba(0, 56, 135, 0.12)",
-            "rgba(25, 132, 255, 0.52)"
-        );
-
-
-        lawDrawRibbon(
-            lawFlowHeight * 0.68,
-            lawFlowHeight * 0.12,
-            8.4,
-            lawFlowTime * 1.15 + 3.1,
-            Math.max(
-                55,
-                lawFlowHeight * 0.09
-            ),
-            0.15,
-            "rgba(0, 121, 195, 0.10)",
-            "rgba(77, 207, 255, 0.44)"
-        );
-
-
-        lawDrawRibbon(
-            lawFlowHeight * 0.54,
-            lawFlowHeight * 0.08,
-            10.2,
-            -lawFlowTime * 0.8 + 4.2,
-            Math.max(
-                24,
-                lawFlowHeight * 0.037
-            ),
-            0.22,
-            "rgba(36, 115, 238, 0.08)",
-            "rgba(118, 221, 255, 0.5)"
-        );
-
-
-        lawFlowContext
-            .restore();
+        drawCoreGlow();
 
 
         requestAnimationFrame(
-            lawAnimateFlow
+            animateLawFlow
         );
 
     }
 
 
-    lawResizeCanvas();
+    resizeLawFlow();
 
 
     window.addEventListener(
         "resize",
-        lawResizeCanvas
+        resizeLawFlow
     );
 
 
@@ -1262,53 +1390,52 @@ if (lawFlowCanvas) {
         ).matches
     ) {
 
-        lawFlowCanvas
-            .parentElement
-            .addEventListener(
-                "pointermove",
-                function (event) {
-
-                    const rect =
-                        lawFlowCanvas
-                            .getBoundingClientRect();
+        const hero =
+            lawFlowCanvas.parentElement;
 
 
-                    lawTargetX =
-                        (
-                            event.clientX -
-                            rect.left
-                        ) /
-                        rect.width -
-                        0.5;
+        hero.addEventListener(
+            "pointermove",
+            function (event) {
+
+                const rect =
+                    hero.getBoundingClientRect();
 
 
-                    lawTargetY =
-                        (
-                            event.clientY -
-                            rect.top
-                        ) /
-                        rect.height -
-                        0.5;
-
-                }
-            );
+                targetX =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width -
+                    0.5;
 
 
-        lawFlowCanvas
-            .parentElement
-            .addEventListener(
-                "pointerleave",
-                function () {
+                targetY =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height -
+                    0.5;
 
-                    lawTargetX = 0;
-                    lawTargetY = 0;
+            }
+        );
 
-                }
-            );
+
+        hero.addEventListener(
+            "pointerleave",
+            function () {
+
+                targetX = 0;
+                targetY = 0;
+
+            }
+        );
 
     }
 
 
-    lawAnimateFlow();
+    animateLawFlow();
 
 }

@@ -5902,3 +5902,124 @@ font-family: Georgia, Times New Roman, Times, serif;
     }
 
 }
+
+.law-flow-hero {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #062748 0%,
+            #03182d 36%,
+            #010b17 72%,
+            #010712 100%
+        );
+
+    min-height: calc(100svh - 68px);
+}
+
+.law-flow-vignette {
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 10%,
+            rgba(0, 8, 18, 0.12) 48%,
+            rgba(0, 5, 12, 0.7) 100%
+        );
+}
+
+.law-flow-content {
+    max-width: 900px;
+}
+
+.law-flow-title {
+    max-width: 850px;
+
+    font-size: clamp(
+        50px,
+        5.6vw,
+        78px
+    );
+
+    line-height: 0.99;
+
+    letter-spacing: -4px;
+
+    font-weight: 550;
+
+    text-shadow:
+        0 0 40px rgba(63, 184, 255, 0.055);
+}
+
+.law-flow-title span {
+    background:
+        linear-gradient(
+            90deg,
+            #7dd4ff 0%,
+            #a8e6ff 28%,
+            #43b7ff 58%,
+            #d4f4ff 100%
+        );
+
+    background-size: 180% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.law-flow-description {
+    max-width: 580px;
+
+    color:
+        rgba(209, 229, 244, 0.58);
+}
+
+.law-flow-badge {
+    background:
+        rgba(6, 28, 50, 0.46);
+
+    border-color:
+        rgba(117, 207, 255, 0.14);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 8px 30px rgba(0,0,0,.12);
+}
+
+.law-flow-primary {
+    box-shadow:
+        0 10px 35px rgba(27, 153, 255, 0.18),
+        0 0 0 1px rgba(255,255,255,.04);
+}
+
+.law-flow-secondary {
+    background:
+        rgba(6, 34, 60, 0.42);
+
+    border-color:
+        rgba(112, 198, 255, 0.14);
+}
+
+.law-flow-bottom {
+    background:
+        rgba(3, 25, 44, 0.28);
+
+    border-color:
+        rgba(113, 195, 247, 0.08);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025),
+        0 20px 60px rgba(0, 10, 25, .08);
+}
+
+@media (max-width: 600px) {
+
+    .law-flow-title {
+        font-size: clamp(
+            39px,
+            11.5vw,
+            49px
+        );
+
+        letter-spacing: -2.5px;
+    }
+
+}
