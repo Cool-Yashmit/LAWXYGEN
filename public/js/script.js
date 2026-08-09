@@ -885,114 +885,162 @@ if (lawFlowCanvas) {
     }
 
 
-    function createParticles() {
+function createParticles() {
 
-        particles.length = 0;
+    particles.length = 0;
 
-        const isMobile =
-            width < 650;
+    const isMobile =
+        width < 650;
 
-        const count =
-            isMobile
-                ? 90
-                : 190;
+    const count =
+        isMobile
+            ? 75
+            : 175;
 
 
-        for (
-            let i = 0;
-            i < count;
-            i++
-        ) {
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
 
-            particles.push({
+        const depth =
+            Math.random();
 
-                x:
-                    Math.random() *
-                    width,
 
-                y:
-                    Math.random() *
-                    height,
+        particles.push({
 
-                size:
-                    Math.random() *
-                    1.15 +
-                    0.25,
+            x:
+                Math.random() *
+                width,
 
-                alpha:
-                    Math.random() *
-                    0.24 +
-                    0.035,
+            y:
+                Math.random() *
+                height,
 
-                speed:
-                    Math.random() *
-                    0.08 +
-                    0.015,
+            size:
+                0.25 +
+                depth *
+                1.15,
 
-                phase:
-                    Math.random() *
-                    Math.PI *
-                    2
+            alpha:
+                0.025 +
+                depth *
+                0.18,
 
-            });
+            speed:
+                0.01 +
+                depth *
+                0.06,
 
-        }
+            depth:
+                depth,
+
+            phase:
+                Math.random() *
+                Math.PI *
+                2
+
+        });
 
     }
+
+}
 
 
     function drawParticles() {
 
-        ctx.save();
+    ctx.save();
 
-        ctx.globalCompositeOperation =
-            "screen";
-
-
-        particles.forEach(
-            function (particle) {
-
-                particle.phase +=
-                    particle.speed *
-                    0.04;
+    ctx.globalCompositeOperation =
+        "screen";
 
 
-                const pulse =
-                    0.45 +
-                    Math.sin(
-                        particle.phase
-                    ) *
-                    0.35;
+    particles.forEach(
+        function (particle) {
+
+            particle.phase +=
+                particle.speed *
+                0.04;
 
 
-                ctx.globalAlpha =
-                    particle.alpha *
-                    pulse;
+            const pulse =
+                0.55 +
+                Math.sin(
+                    particle.phase
+                ) *
+                0.25;
 
 
-                ctx.fillStyle =
-                    "rgba(125, 214, 255, 1)";
+            const driftX =
+                Math.sin(
+                    particle.phase *
+                    0.7
+                ) *
+                particle.depth *
+                2;
 
 
-                ctx.beginPath();
+            const driftY =
+                Math.cos(
+                    particle.phase *
+                    0.5
+                ) *
+                particle.depth *
+                1.5;
 
-                ctx.arc(
-                    particle.x,
-                    particle.y,
-                    particle.size,
-                    0,
-                    Math.PI * 2
-                );
 
-                ctx.fill();
+            ctx.globalAlpha =
+                particle.alpha *
+                pulse;
+
+
+            if (
+                particle.depth >
+                0.72
+            ) {
+
+                ctx.shadowBlur = 7;
+
+                ctx.shadowColor =
+                    "rgba(74, 195, 255, .6)";
+
+            } else {
+
+                ctx.shadowBlur = 0;
 
             }
-        );
 
 
-        ctx.restore();
+            ctx.fillStyle =
+                particle.depth > 0.6
+                    ? "rgba(138, 225, 255, 1)"
+                    : "rgba(73, 160, 220, 1)";
 
-    }
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                particle.x +
+                driftX,
+                particle.y +
+                driftY,
+                particle.size,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fill();
+
+        }
+    );
+
+
+    ctx.restore();
+
+}
 
 
     function getFlowY(
@@ -1329,6 +1377,139 @@ if (lawFlowCanvas) {
 
     }
 
+    function drawUpperArc() {
+
+    ctx.save();
+
+    ctx.globalCompositeOperation =
+        "screen";
+
+
+    ctx.beginPath();
+
+
+    const segments =
+        100;
+
+
+    for (
+        let i = 0;
+        i <= segments;
+        i++
+    ) {
+
+        const x =
+            (
+                i /
+                segments
+            ) *
+            width;
+
+
+        const nx =
+            x /
+            Math.max(
+                width,
+                1
+            );
+
+
+        const y =
+            height * 0.32 +
+            Math.sin(
+                nx * 4.8 +
+                time * 0.23 +
+                1.4
+            ) *
+            height *
+            0.055 +
+            Math.sin(
+                nx * 9.2 -
+                time * 0.16
+            ) *
+            height *
+            0.018;
+
+
+        if (i === 0) {
+
+            ctx.moveTo(
+                x,
+                y
+            );
+
+        } else {
+
+            ctx.lineTo(
+                x,
+                y
+            );
+
+        }
+
+    }
+
+
+    const arcGradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            width,
+            0
+        );
+
+
+    arcGradient.addColorStop(
+        0,
+        "rgba(33, 126, 214, 0)"
+    );
+
+
+    arcGradient.addColorStop(
+        0.22,
+        "rgba(61, 169, 235, .25)"
+    );
+
+
+    arcGradient.addColorStop(
+        0.5,
+        "rgba(96, 210, 255, .14)"
+    );
+
+
+    arcGradient.addColorStop(
+        0.78,
+        "rgba(61, 169, 235, .25)"
+    );
+
+
+    arcGradient.addColorStop(
+        1,
+        "rgba(33, 126, 214, 0)"
+    );
+
+
+    ctx.strokeStyle =
+        arcGradient;
+
+
+    ctx.lineWidth = 1;
+
+    ctx.globalAlpha = 0.3;
+
+    ctx.shadowBlur = 15;
+
+    ctx.shadowColor =
+        "rgba(54, 178, 255, .55)";
+
+
+    ctx.stroke();
+
+
+    ctx.restore();
+
+}
+
 
     function animateLawFlow() {
 
@@ -1362,6 +1543,8 @@ if (lawFlowCanvas) {
         drawSoftBloom();
 
         drawParticles();
+
+        drawUpperArc();
 
         drawFlowBand();
 
