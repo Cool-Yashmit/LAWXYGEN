@@ -1,0 +1,21 @@
+{
+  "name": "lawxygen",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LAWXYGEN Node.js + Express + EJS website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

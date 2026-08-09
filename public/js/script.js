@@ -386,7 +386,7 @@ function searchServices(value) {
                         open karenge:
 
                         window.location.href =
-                        "service.php?slug=...";
+                        "/services/service-slug";
                     */
 
                 }
