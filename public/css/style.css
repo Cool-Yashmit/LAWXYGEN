@@ -6023,3 +6023,142 @@ font-family: Georgia, Times New Roman, Times, serif;
     }
 
 }
+
+@media (max-width: 600px) {
+
+    .law-flow-hero {
+        width: 100%;
+        min-height: calc(100svh - 72px);
+        height: auto;
+
+        padding: 42px 14px 24px;
+
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+    .law-flow-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .law-flow-badge {
+        margin-bottom: 17px;
+
+        padding: 6px 10px;
+
+        font-size: 7.5px;
+    }
+
+    .law-flow-title {
+        max-width: 390px;
+
+        margin: 0 auto;
+
+        font-size: clamp(36px, 10.5vw, 45px);
+
+        line-height: 1;
+
+        letter-spacing: -2.3px;
+    }
+
+    .law-flow-title span {
+        margin-top: 4px;
+    }
+
+    .law-flow-description {
+        max-width: 390px;
+
+        margin-top: 17px;
+
+        font-size: 10.8px;
+
+        line-height: 1.55;
+    }
+
+    .law-flow-words {
+        margin-top: 15px;
+
+        gap: 7px;
+
+        font-size: 7.8px;
+    }
+
+    .law-flow-words i {
+        width: 3px;
+        height: 3px;
+    }
+
+    .law-flow-actions {
+        width: 100%;
+
+        margin-top: 21px;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+    .law-flow-primary,
+    .law-flow-secondary {
+        width: 100%;
+        max-width: none;
+
+        height: 43px;
+
+        padding: 0 10px;
+
+        font-size: 10px;
+    }
+
+    .law-flow-bottom {
+        width: 100%;
+
+        margin-top: 25px;
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+        border-radius: 10px;
+    }
+
+    .law-flow-bottom span {
+        min-width: 0;
+        min-height: 42px;
+
+        padding: 6px 4px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 2px;
+
+        font-size: 7px;
+
+        line-height: 1.2;
+
+        text-align: center;
+    }
+
+    .law-flow-bottom span:nth-child(1),
+    .law-flow-bottom span:nth-child(2) {
+        border-bottom: none;
+    }
+
+    .law-flow-bottom span:nth-child(2)::after {
+        display: block;
+    }
+
+    .law-flow-bottom strong {
+        font-size: 7.5px;
+    }
+
+    .law-flow-scroll {
+        display: none;
+    }
+
+}
