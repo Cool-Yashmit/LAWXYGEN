@@ -6472,3 +6472,32 @@ font-family: Georgia, Times New Roman, Times, serif;
     }
 
 }
+
+.law-flow-canvas {
+    opacity: 0.98;
+}
+
+.law-flow-noise {
+    opacity: 0.035;
+}
+
+.law-flow-hero {
+    background:
+        radial-gradient(
+            ellipse at 50% 48%,
+            #062846 0%,
+            #03182d 38%,
+            #010b18 72%,
+            #010711 100%
+        );
+}
+
+.law-flow-vignette {
+    background:
+        radial-gradient(
+            ellipse at 50% 52%,
+            transparent 12%,
+            rgba(0, 7, 16, 0.06) 47%,
+            rgba(0, 5, 13, 0.64) 100%
+        );
+}

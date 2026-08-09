@@ -843,11 +843,16 @@ if (lawFlowCanvas) {
 
     let time = 0;
 
-    let mouseX = 0;
-    let mouseY = 0;
+    let pointerX = 0;
+    let pointerY = 0;
 
-    let targetX = 0;
-    let targetY = 0;
+    let targetPointerX = 0;
+    let targetPointerY = 0;
+
+    let pointerStrength = 0;
+    let targetPointerStrength = 0;
+
+    let frameId = null;
 
     const particles = [];
 
@@ -880,173 +885,133 @@ if (lawFlowCanvas) {
             0
         );
 
+        if (!pointerX && !pointerY) {
+            pointerX = width * 0.5;
+            pointerY = height * 0.5;
+            targetPointerX = pointerX;
+            targetPointerY = pointerY;
+        }
+
         createParticles();
 
     }
 
 
-function createParticles() {
+    function createParticles() {
 
-    particles.length = 0;
+        particles.length = 0;
 
-    const isMobile =
-        width < 650;
+        const isMobile =
+            width < 650;
 
-    const count =
-        isMobile
-            ? 75
-            : 175;
+        const count =
+            isMobile
+                ? 65
+                : 155;
 
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
 
-    for (
-        let i = 0;
-        i < count;
-        i++
-    ) {
+            const depth =
+                Math.random();
 
-        const depth =
-            Math.random();
+            particles.push({
 
+                x:
+                    Math.random() *
+                    width,
 
-        particles.push({
+                y:
+                    Math.random() *
+                    height,
 
-            x:
-                Math.random() *
-                width,
+                size:
+                    0.2 +
+                    depth *
+                    1.05,
 
-            y:
-                Math.random() *
-                height,
+                alpha:
+                    0.025 +
+                    depth *
+                    0.14,
 
-            size:
-                0.25 +
-                depth *
-                1.15,
+                depth:
+                    depth,
 
-            alpha:
-                0.025 +
-                depth *
-                0.18,
+                phase:
+                    Math.random() *
+                    Math.PI *
+                    2,
 
-            speed:
-                0.01 +
-                depth *
-                0.06,
+                drift:
+                    0.003 +
+                    Math.random() *
+                    0.008
 
-            depth:
-                depth,
+            });
 
-            phase:
-                Math.random() *
-                Math.PI *
-                2
-
-        });
+        }
 
     }
 
-}
 
+    function pointerInfluence(
+        x,
+        y
+    ) {
 
-    function drawParticles() {
+        if (
+            pointerStrength <= 0.001
+        ) {
+            return 0;
+        }
 
-    ctx.save();
+        const dx =
+            x -
+            pointerX;
 
-    ctx.globalCompositeOperation =
-        "screen";
+        const dy =
+            y -
+            pointerY;
 
-
-    particles.forEach(
-        function (particle) {
-
-            particle.phase +=
-                particle.speed *
-                0.04;
-
-
-            const pulse =
-                0.55 +
-                Math.sin(
-                    particle.phase
+        const radius =
+            Math.max(
+                180,
+                Math.min(
+                    width,
+                    height
                 ) *
-                0.25;
-
-
-            const driftX =
-                Math.sin(
-                    particle.phase *
-                    0.7
-                ) *
-                particle.depth *
-                2;
-
-
-            const driftY =
-                Math.cos(
-                    particle.phase *
-                    0.5
-                ) *
-                particle.depth *
-                1.5;
-
-
-            ctx.globalAlpha =
-                particle.alpha *
-                pulse;
-
-
-            if (
-                particle.depth >
-                0.72
-            ) {
-
-                ctx.shadowBlur = 7;
-
-                ctx.shadowColor =
-                    "rgba(74, 195, 255, .6)";
-
-            } else {
-
-                ctx.shadowBlur = 0;
-
-            }
-
-
-            ctx.fillStyle =
-                particle.depth > 0.6
-                    ? "rgba(138, 225, 255, 1)"
-                    : "rgba(73, 160, 220, 1)";
-
-
-            ctx.beginPath();
-
-
-            ctx.arc(
-                particle.x +
-                driftX,
-                particle.y +
-                driftY,
-                particle.size,
-                0,
-                Math.PI * 2
+                0.34
             );
 
+        const distanceSquared =
+            dx * dx +
+            dy * dy;
 
-            ctx.fill();
+        const influence =
+            Math.exp(
+                -distanceSquared /
+                (
+                    2 *
+                    radius *
+                    radius
+                )
+            );
 
-        }
-    );
+        return (
+            influence *
+            pointerStrength
+        );
+
+    }
 
 
-    ctx.restore();
-
-}
-
-
-    function getFlowY(
+    function getBaseFlowY(
         x,
-        offset,
-        amplitude
+        layerOffset
     ) {
 
         const nx =
@@ -1056,74 +1021,98 @@ function createParticles() {
                 1
             );
 
-
-        const waveOne =
+        const mainWave =
             Math.sin(
-                nx * 5.2 +
-                time * 0.58 +
-                offset
+                nx * 5.25 +
+                time * 0.38 +
+                layerOffset
             ) *
-            amplitude;
+            height *
+            0.105;
 
-
-        const waveTwo =
+        const detailWave =
             Math.sin(
-                nx * 11.5 -
-                time * 0.26 +
-                offset * 1.7
+                nx * 10.5 -
+                time * 0.16 +
+                layerOffset * 1.4
             ) *
-            amplitude *
-            0.22;
-
-
-        const mouseShift =
-            mouseY *
-            24 *
-            Math.sin(
-                nx *
-                Math.PI
-            );
-
+            height *
+            0.021;
 
         return (
-            height * 0.57 +
-            waveOne +
-            waveTwo +
-            mouseShift
+            height * 0.59 +
+            mainWave +
+            detailWave
         );
 
     }
 
 
-    function drawSoftBloom() {
+    function getFlowY(
+        x,
+        layerOffset
+    ) {
+
+        const baseY =
+            getBaseFlowY(
+                x,
+                layerOffset
+            );
+
+        const influence =
+            pointerInfluence(
+                x,
+                baseY
+            );
+
+        const pull =
+            (
+                pointerY -
+                baseY
+            ) *
+            influence *
+            0.18;
+
+        const ripple =
+            Math.sin(
+                (
+                    x -
+                    pointerX
+                ) *
+                0.012 +
+                time *
+                1.2
+            ) *
+            influence *
+            7;
+
+        return (
+            baseY +
+            pull +
+            ripple
+        );
+
+    }
+
+
+    function drawAmbientLight() {
 
         const centerX =
             width *
-            (
-                0.48 +
-                mouseX *
-                0.04
-            );
-
+            0.5;
 
         const centerY =
             height *
-            (
-                0.58 +
-                mouseY *
-                0.035
-            );
-
+            0.48;
 
         const radius =
             Math.max(
                 width,
                 height
             ) *
-            0.55;
+            0.72;
 
-
-        const gradient =
+        const glow =
             ctx.createRadialGradient(
                 centerX,
                 centerY,
@@ -1133,34 +1122,28 @@ function createParticles() {
                 radius
             );
 
-
-        gradient.addColorStop(
+        glow.addColorStop(
             0,
-            "rgba(36, 165, 255, .11)"
+            "rgba(24, 125, 220, 0.09)"
         );
 
-
-        gradient.addColorStop(
-            0.28,
-            "rgba(28, 110, 220, .065)"
+        glow.addColorStop(
+            0.35,
+            "rgba(10, 78, 160, 0.045)"
         );
 
-
-        gradient.addColorStop(
+        glow.addColorStop(
             0.7,
-            "rgba(5, 45, 100, .018)"
+            "rgba(3, 33, 79, 0.018)"
         );
 
-
-        gradient.addColorStop(
+        glow.addColorStop(
             1,
-            "rgba(0,0,0,0)"
+            "rgba(0, 0, 0, 0)"
         );
-
 
         ctx.fillStyle =
-            gradient;
-
+            glow;
 
         ctx.fillRect(
             0,
@@ -1172,43 +1155,237 @@ function createParticles() {
     }
 
 
-    function drawFlowBand() {
+    function drawPointerGlow() {
+
+        if (
+            pointerStrength <
+            0.01
+        ) {
+            return;
+        }
+
+        const radius =
+            Math.max(
+                190,
+                Math.min(
+                    width,
+                    height
+                ) *
+                0.28
+            );
+
+        const glow =
+            ctx.createRadialGradient(
+                pointerX,
+                pointerY,
+                0,
+                pointerX,
+                pointerY,
+                radius
+            );
+
+        glow.addColorStop(
+            0,
+            `rgba(
+                83,
+                203,
+                255,
+                ${0.10 * pointerStrength}
+            )`
+        );
+
+        glow.addColorStop(
+            0.22,
+            `rgba(
+                42,
+                155,
+                255,
+                ${0.065 * pointerStrength}
+            )`
+        );
+
+        glow.addColorStop(
+            0.58,
+            `rgba(
+                21,
+                92,
+                205,
+                ${0.025 * pointerStrength}
+            )`
+        );
+
+        glow.addColorStop(
+            1,
+            "rgba(0,0,0,0)"
+        );
 
         ctx.save();
 
         ctx.globalCompositeOperation =
             "screen";
 
+        ctx.fillStyle =
+            glow;
 
-        const layers = 46;
+        ctx.fillRect(
+            0,
+            0,
+            width,
+            height
+        );
 
+        ctx.restore();
+
+    }
+
+
+    function drawParticles() {
+
+        ctx.save();
+
+        ctx.globalCompositeOperation =
+            "screen";
+
+        particles.forEach(
+            function (particle) {
+
+                particle.phase +=
+                    particle.drift;
+
+                const pulse =
+                    0.55 +
+                    Math.sin(
+                        particle.phase
+                    ) *
+                    0.3;
+
+                const influence =
+                    pointerInfluence(
+                        particle.x,
+                        particle.y
+                    );
+
+                const dx =
+                    particle.x -
+                    pointerX;
+
+                const dy =
+                    particle.y -
+                    pointerY;
+
+                const distance =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy
+                    ) || 1;
+
+                const push =
+                    influence *
+                    particle.depth *
+                    7;
+
+                const offsetX =
+                    (
+                        dx /
+                        distance
+                    ) *
+                    push;
+
+                const offsetY =
+                    (
+                        dy /
+                        distance
+                    ) *
+                    push;
+
+                ctx.globalAlpha =
+                    particle.alpha *
+                    pulse;
+
+                if (
+                    particle.depth >
+                    0.76
+                ) {
+
+                    ctx.shadowBlur = 6;
+
+                    ctx.shadowColor =
+                        "rgba(87, 206, 255, .55)";
+
+                } else {
+
+                    ctx.shadowBlur = 0;
+
+                }
+
+                ctx.fillStyle =
+                    particle.depth >
+                    0.58
+                        ? "rgba(154, 226, 255, 1)"
+                        : "rgba(65, 151, 215, 1)";
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    particle.x +
+                    offsetX,
+                    particle.y +
+                    offsetY,
+                    particle.size,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fill();
+
+            }
+        );
+
+        ctx.restore();
+
+    }
+
+
+    function drawPlasmaBody() {
+
+        ctx.save();
+
+        ctx.globalCompositeOperation =
+            "screen";
+
+        const broadLayers =
+            width < 650
+                ? 15
+                : 22;
 
         for (
             let layer = 0;
-            layer < layers;
+            layer < broadLayers;
             layer++
         ) {
 
             const normalized =
                 layer /
-                layers;
+                (
+                    broadLayers -
+                    1
+                );
 
-
-            const offset =
+            const layerPosition =
                 (
                     normalized -
                     0.5
-                ) *
-                height *
-                0.18;
+                );
 
+            const offset =
+                layerPosition *
+                height *
+                0.17;
 
             ctx.beginPath();
 
-
             const segments =
-                120;
-
+                100;
 
             for (
                 let i = 0;
@@ -1223,15 +1400,13 @@ function createParticles() {
                     ) *
                     width;
 
-
                 const y =
                     getFlowY(
                         x,
-                        normalized * 3,
-                        height * 0.115
+                        normalized *
+                        2.7
                     ) +
                     offset;
-
 
                 if (i === 0) {
 
@@ -1251,6 +1426,125 @@ function createParticles() {
 
             }
 
+            const center =
+                1 -
+                Math.abs(
+                    layerPosition
+                ) *
+                2;
+
+            ctx.strokeStyle =
+                normalized <
+                0.5
+                    ? "rgba(31, 113, 255, 1)"
+                    : "rgba(66, 198, 255, 1)";
+
+            ctx.lineWidth =
+                18 +
+                center *
+                28;
+
+            ctx.globalAlpha =
+                0.012 +
+                center *
+                0.026;
+
+            ctx.shadowBlur =
+                38 +
+                center *
+                45;
+
+            ctx.shadowColor =
+                normalized <
+                0.5
+                    ? "rgba(21, 108, 255, .65)"
+                    : "rgba(67, 202, 255, .72)";
+
+            ctx.stroke();
+
+        }
+
+        ctx.restore();
+
+    }
+
+
+    function drawSilkStrands() {
+
+        ctx.save();
+
+        ctx.globalCompositeOperation =
+            "screen";
+
+        const strands =
+            width < 650
+                ? 20
+                : 34;
+
+        for (
+            let layer = 0;
+            layer < strands;
+            layer++
+        ) {
+
+            const normalized =
+                layer /
+                (
+                    strands -
+                    1
+                );
+
+            const offset =
+                (
+                    normalized -
+                    0.5
+                ) *
+                height *
+                0.145;
+
+            ctx.beginPath();
+
+            const segments =
+                120;
+
+            for (
+                let i = 0;
+                i <= segments;
+                i++
+            ) {
+
+                const x =
+                    (
+                        i /
+                        segments
+                    ) *
+                    width;
+
+                const y =
+                    getFlowY(
+                        x,
+                        normalized *
+                        2.9
+                    ) +
+                    offset;
+
+                if (i === 0) {
+
+                    ctx.moveTo(
+                        x,
+                        y
+                    );
+
+                } else {
+
+                    ctx.lineTo(
+                        x,
+                        y
+                    );
+
+                }
+
+            }
 
             const centerStrength =
                 1 -
@@ -1260,41 +1554,63 @@ function createParticles() {
                 ) *
                 2;
 
+            const gradient =
+                ctx.createLinearGradient(
+                    0,
+                    0,
+                    width,
+                    0
+                );
 
-            ctx.lineWidth =
-                1.1 +
-                centerStrength *
-                2.1;
+            gradient.addColorStop(
+                0,
+                "rgba(38, 107, 255, .15)"
+            );
 
+            gradient.addColorStop(
+                0.27,
+                "rgba(43, 154, 255, .72)"
+            );
 
-            ctx.globalAlpha =
-                0.025 +
-                centerStrength *
-                0.10;
+            gradient.addColorStop(
+                0.52,
+                "rgba(135, 227, 255, .9)"
+            );
 
+            gradient.addColorStop(
+                0.76,
+                "rgba(54, 175, 255, .72)"
+            );
+
+            gradient.addColorStop(
+                1,
+                "rgba(24, 101, 218, .08)"
+            );
 
             ctx.strokeStyle =
-                normalized < 0.48
-                    ? "rgba(30, 116, 255, 1)"
-                    : "rgba(76, 210, 255, 1)";
+                gradient;
 
+            ctx.lineWidth =
+                0.55 +
+                centerStrength *
+                0.75;
+
+            ctx.globalAlpha =
+                0.07 +
+                centerStrength *
+                0.13;
 
             ctx.shadowBlur =
-                10 +
+                8 +
                 centerStrength *
-                32;
-
+                14;
 
             ctx.shadowColor =
-                normalized < 0.5
-                    ? "rgba(25, 121, 255, .8)"
-                    : "rgba(67, 206, 255, .85)";
-
+                "rgba(66, 190, 255, .65)";
 
             ctx.stroke();
 
         }
-
 
         ctx.restore();
 
@@ -1308,12 +1624,9 @@ function createParticles() {
         ctx.globalCompositeOperation =
             "screen";
 
-
         ctx.beginPath();
 
-
-        const segments = 120;
-
+        const segments = 130;
 
         for (
             let i = 0;
@@ -1328,14 +1641,11 @@ function createParticles() {
                 ) *
                 width;
 
-
             const y =
                 getFlowY(
                     x,
-                    1.35,
-                    height * 0.105
+                    1.25
                 );
-
 
             if (i === 0) {
 
@@ -1355,182 +1665,142 @@ function createParticles() {
 
         }
 
+        const core =
+            ctx.createLinearGradient(
+                0,
+                0,
+                width,
+                0
+            );
+
+        core.addColorStop(
+            0,
+            "rgba(47, 131, 255, .15)"
+        );
+
+        core.addColorStop(
+            0.24,
+            "rgba(66, 188, 255, .72)"
+        );
+
+        core.addColorStop(
+            0.5,
+            "rgba(181, 240, 255, .95)"
+        );
+
+        core.addColorStop(
+            0.76,
+            "rgba(66, 188, 255, .72)"
+        );
+
+        core.addColorStop(
+            1,
+            "rgba(47, 131, 255, .12)"
+        );
 
         ctx.strokeStyle =
-            "rgba(132, 229, 255, .72)";
+            core;
 
-
-        ctx.lineWidth = 1.4;
-
-        ctx.shadowBlur = 38;
-
-        ctx.shadowColor =
-            "rgba(52, 186, 255, 1)";
-
+        ctx.lineWidth = 1.15;
 
         ctx.globalAlpha = 0.62;
 
-        ctx.stroke();
+        ctx.shadowBlur = 34;
 
+        ctx.shadowColor =
+            "rgba(64, 196, 255, 1)";
+
+        ctx.stroke();
 
         ctx.restore();
 
     }
 
-    function drawUpperArc() {
 
-    ctx.save();
+    function drawUpperMist() {
 
-    ctx.globalCompositeOperation =
-        "screen";
+        ctx.save();
 
-
-    ctx.beginPath();
-
-
-    const segments =
-        100;
-
-
-    for (
-        let i = 0;
-        i <= segments;
-        i++
-    ) {
+        ctx.globalCompositeOperation =
+            "screen";
 
         const x =
-            (
-                i /
-                segments
-            ) *
-            width;
-
-
-        const nx =
-            x /
-            Math.max(
-                width,
-                1
-            );
-
+            width * 0.56;
 
         const y =
-            height * 0.32 +
-            Math.sin(
-                nx * 4.8 +
-                time * 0.23 +
-                1.4
+            height * 0.28;
+
+        const radius =
+            Math.max(
+                width,
+                height
             ) *
-            height *
-            0.055 +
-            Math.sin(
-                nx * 9.2 -
-                time * 0.16
-            ) *
-            height *
-            0.018;
+            0.42;
 
-
-        if (i === 0) {
-
-            ctx.moveTo(
+        const haze =
+            ctx.createRadialGradient(
                 x,
-                y
+                y,
+                0,
+                x,
+                y,
+                radius
             );
 
-        } else {
+        haze.addColorStop(
+            0,
+            "rgba(50, 169, 255, .045)"
+        );
 
-            ctx.lineTo(
-                x,
-                y
-            );
+        haze.addColorStop(
+            0.4,
+            "rgba(23, 105, 205, .018)"
+        );
 
-        }
+        haze.addColorStop(
+            1,
+            "rgba(0,0,0,0)"
+        );
+
+        ctx.fillStyle =
+            haze;
+
+        ctx.fillRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+        ctx.restore();
 
     }
 
 
-    const arcGradient =
-        ctx.createLinearGradient(
-            0,
-            0,
-            width,
-            0
-        );
-
-
-    arcGradient.addColorStop(
-        0,
-        "rgba(33, 126, 214, 0)"
-    );
-
-
-    arcGradient.addColorStop(
-        0.22,
-        "rgba(61, 169, 235, .25)"
-    );
-
-
-    arcGradient.addColorStop(
-        0.5,
-        "rgba(96, 210, 255, .14)"
-    );
-
-
-    arcGradient.addColorStop(
-        0.78,
-        "rgba(61, 169, 235, .25)"
-    );
-
-
-    arcGradient.addColorStop(
-        1,
-        "rgba(33, 126, 214, 0)"
-    );
-
-
-    ctx.strokeStyle =
-        arcGradient;
-
-
-    ctx.lineWidth = 1;
-
-    ctx.globalAlpha = 0.3;
-
-    ctx.shadowBlur = 15;
-
-    ctx.shadowColor =
-        "rgba(54, 178, 255, .55)";
-
-
-    ctx.stroke();
-
-
-    ctx.restore();
-
-}
-
-
     function animateLawFlow() {
 
-        time += 0.012;
+        time += 0.009;
 
-
-        mouseX +=
+        pointerX +=
             (
-                targetX -
-                mouseX
+                targetPointerX -
+                pointerX
             ) *
-            0.035;
+            0.055;
 
-
-        mouseY +=
+        pointerY +=
             (
-                targetY -
-                mouseY
+                targetPointerY -
+                pointerY
             ) *
-            0.035;
+            0.055;
 
+        pointerStrength +=
+            (
+                targetPointerStrength -
+                pointerStrength
+            ) *
+            0.055;
 
         ctx.clearRect(
             0,
@@ -1539,21 +1809,24 @@ function createParticles() {
             height
         );
 
+        drawAmbientLight();
 
-        drawSoftBloom();
+        drawUpperMist();
 
         drawParticles();
 
-        drawUpperArc();
+        drawPointerGlow();
 
-        drawFlowBand();
+        drawPlasmaBody();
+
+        drawSilkStrands();
 
         drawCoreGlow();
 
-
-        requestAnimationFrame(
-            animateLawFlow
-        );
+        frameId =
+            requestAnimationFrame(
+                animateLawFlow
+            );
 
     }
 
@@ -1574,33 +1847,38 @@ function createParticles() {
     ) {
 
         const hero =
-            lawFlowCanvas.parentElement;
-
+            lawFlowCanvas
+                .parentElement;
 
         hero.addEventListener(
             "pointermove",
             function (event) {
 
                 const rect =
-                    hero.getBoundingClientRect();
+                    hero
+                        .getBoundingClientRect();
+
+                targetPointerX =
+                    event.clientX -
+                    rect.left;
+
+                targetPointerY =
+                    event.clientY -
+                    rect.top;
+
+                targetPointerStrength =
+                    1;
+
+            }
+        );
 
 
-                targetX =
-                    (
-                        event.clientX -
-                        rect.left
-                    ) /
-                    rect.width -
-                    0.5;
+        hero.addEventListener(
+            "pointerenter",
+            function () {
 
-
-                targetY =
-                    (
-                        event.clientY -
-                        rect.top
-                    ) /
-                    rect.height -
-                    0.5;
+                targetPointerStrength =
+                    1;
 
             }
         );
@@ -1610,13 +1888,37 @@ function createParticles() {
             "pointerleave",
             function () {
 
-                targetX = 0;
-                targetY = 0;
+                targetPointerStrength =
+                    0;
 
             }
         );
 
     }
+
+
+    document.addEventListener(
+        "visibilitychange",
+        function () {
+
+            if (
+                document.hidden
+            ) {
+
+                if (frameId) {
+                    cancelAnimationFrame(
+                        frameId
+                    );
+                }
+
+            } else {
+
+                animateLawFlow();
+
+            }
+
+        }
+    );
 
 
     animateLawFlow();
