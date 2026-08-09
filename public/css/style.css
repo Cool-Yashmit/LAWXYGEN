@@ -5114,3 +5114,791 @@ font-family: Georgia, Times New Roman, Times, serif;
     }
 
 }
+
+.law-flow-hero {
+    position: relative;
+
+    width: 100%;
+    min-height: calc(100svh - 68px);
+
+    padding: 82px 24px 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            145deg,
+            #010916 0%,
+            #021426 42%,
+            #021b33 100%
+        );
+
+    margin-bottom: 46px;
+}
+
+
+.law-flow-canvas {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -5;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+.law-flow-noise {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -3;
+
+    pointer-events: none;
+
+    opacity: 0.05;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+
+    mix-blend-mode: soft-light;
+}
+
+
+.law-flow-vignette {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 25%,
+            rgba(0, 8, 18, 0.18) 65%,
+            rgba(0, 5, 13, 0.68) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(2, 12, 24, 0.12),
+            rgba(1, 7, 15, 0.35)
+        );
+}
+
+
+.law-flow-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    animation:
+        lawFlowIntro
+        0.9s cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+
+.law-flow-badge {
+    width: fit-content;
+
+    margin: 0 auto 23px;
+
+    padding: 7px 11px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    border:
+        1px solid
+        rgba(125, 203, 255, 0.16);
+
+    border-radius: 999px;
+
+    background:
+        rgba(8, 43, 72, 0.35);
+
+    backdrop-filter:
+        blur(18px);
+
+    color:
+        rgba(213, 235, 250, 0.7);
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.8px;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05);
+}
+
+
+.law-flow-badge span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #50c8ff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(80, 200, 255, 0.08),
+        0 0 16px
+        rgba(80, 200, 255, 0.75);
+}
+
+
+.law-flow-title {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    font-family:
+        'Inter',
+        sans-serif;
+
+    font-size:
+        clamp(
+            52px,
+            6.3vw,
+            88px
+        );
+
+    font-weight: 600;
+
+    line-height: 0.98;
+
+    letter-spacing: -5px;
+
+    color: #ffffff;
+
+    text-wrap: balance;
+}
+
+
+.law-flow-title span {
+    display: block;
+
+    margin-top: 7px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8cd9ff 0%,
+            #ffffff 38%,
+            #47b9ff 67%,
+            #a5e8ff 100%
+        );
+
+    background-size: 180% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation:
+        lawFlowTextShine
+        8s ease-in-out infinite;
+}
+
+
+.law-flow-description {
+    max-width: 610px;
+
+    margin:
+        25px auto
+        0;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.75;
+
+    color:
+        rgba(205, 227, 244, 0.65);
+}
+
+
+.law-flow-words {
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(155, 212, 246, 0.65);
+}
+
+
+.law-flow-words i {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        #38b9ff;
+
+    box-shadow:
+        0 0 12px
+        rgba(56, 185, 255, 0.65);
+}
+
+
+.law-flow-actions {
+    margin-top: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.law-flow-primary,
+.law-flow-secondary {
+    position: relative;
+
+    height: 46px;
+
+    padding: 0 19px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 9px;
+
+    font-family:
+        'Inter',
+        sans-serif;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.law-flow-primary {
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.9);
+
+    background: #ffffff;
+
+    color: #05345b;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 132, 255, 0.22);
+}
+
+
+.law-flow-primary::before {
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+    left: -65%;
+
+    width: 42%;
+    height: 340%;
+
+    transform:
+        rotate(20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(73, 183, 255, 0.3),
+            transparent
+        );
+
+    animation:
+        lawButtonSweep
+        4.5s ease-in-out infinite;
+}
+
+
+.law-flow-primary svg {
+    position: relative;
+
+    width: 14px;
+    height: 14px;
+
+    stroke-width: 1.7;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.law-flow-primary:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 15px 42px
+        rgba(0, 132, 255, 0.3);
+}
+
+
+.law-flow-primary:hover svg {
+    transform:
+        translateX(3px);
+}
+
+
+.law-flow-secondary {
+    border:
+        1px solid
+        rgba(148, 207, 247, 0.17);
+
+    background:
+        rgba(11, 53, 86, 0.36);
+
+    backdrop-filter:
+        blur(18px);
+
+    color:
+        rgba(239, 249, 255, 0.9);
+}
+
+
+.law-flow-secondary:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(148, 207, 247, 0.28);
+
+    background:
+        rgba(18, 67, 103, 0.5);
+}
+
+
+.law-flow-bottom {
+    width: min(
+        100%,
+        720px
+    );
+
+    margin:
+        47px auto
+        0;
+
+    padding:
+        16px 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    border:
+        1px solid
+        rgba(152, 210, 248, 0.09);
+
+    border-radius: 12px;
+
+    background:
+        rgba(6, 34, 57, 0.25);
+
+    backdrop-filter:
+        blur(16px);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.025);
+}
+
+
+.law-flow-bottom span {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    font-size: 9px;
+
+    color:
+        rgba(181, 211, 232, 0.48);
+}
+
+
+.law-flow-bottom span:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    right: 0;
+
+    width: 1px;
+    height: 17px;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        rgba(163, 215, 249, 0.09);
+}
+
+
+.law-flow-bottom strong {
+    font-weight: 500;
+
+    color:
+        rgba(224, 241, 252, 0.75);
+}
+
+
+.law-flow-scroll {
+    position: absolute;
+
+    left: 50%;
+    bottom: 17px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 8px;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(178, 212, 234, 0.32);
+}
+
+
+.law-flow-scroll span {
+    width: 18px;
+    height: 1px;
+
+    overflow: hidden;
+
+    background:
+        rgba(131, 200, 242, 0.18);
+}
+
+
+.law-flow-scroll span::after {
+    content: "";
+
+    display: block;
+
+    width: 8px;
+    height: 1px;
+
+    background:
+        #4cc7ff;
+
+    animation:
+        lawScrollLine
+        2s ease-in-out infinite;
+}
+
+
+@keyframes lawFlowIntro {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes lawFlowTextShine {
+
+    0%,
+    100% {
+        background-position:
+            0% 50%;
+    }
+
+    50% {
+        background-position:
+            100% 50%;
+    }
+
+}
+
+
+@keyframes lawButtonSweep {
+
+    0%,
+    65% {
+        left: -65%;
+    }
+
+    100% {
+        left: 135%;
+    }
+
+}
+
+
+@keyframes lawScrollLine {
+
+    0% {
+        transform:
+            translateX(-10px);
+    }
+
+    50% {
+        transform:
+            translateX(20px);
+    }
+
+    100% {
+        transform:
+            translateX(-10px);
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .law-flow-hero {
+        min-height: auto;
+
+        padding:
+            90px 20px
+            75px;
+
+        margin-bottom: 32px;
+    }
+
+
+    .law-flow-title {
+        max-width: 700px;
+
+        font-size:
+            clamp(
+                46px,
+                9vw,
+                70px
+            );
+
+        letter-spacing: -3.7px;
+    }
+
+
+    .law-flow-scroll {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .law-flow-hero {
+        padding:
+            72px 16px
+            58px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .law-flow-badge {
+        margin-bottom: 19px;
+
+        font-size: 7.5px;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    .law-flow-title {
+        max-width: 400px;
+
+        font-size:
+            clamp(
+                40px,
+                12vw,
+                54px
+            );
+
+        line-height: 1.01;
+
+        letter-spacing: -2.7px;
+    }
+
+
+    .law-flow-title span {
+        margin-top: 4px;
+    }
+
+
+    .law-flow-description {
+        max-width: 390px;
+
+        margin-top: 19px;
+
+        font-size: 11.5px;
+
+        line-height: 1.7;
+    }
+
+
+    .law-flow-words {
+        max-width: 330px;
+
+        margin:
+            19px auto
+            0;
+
+        gap: 8px;
+
+        font-size: 8.5px;
+    }
+
+
+    .law-flow-actions {
+        width: 100%;
+
+        margin-top: 25px;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .law-flow-primary,
+    .law-flow-secondary {
+        width: 100%;
+        max-width: 380px;
+
+        height: 45px;
+    }
+
+
+    .law-flow-bottom {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 0;
+
+        margin-top: 35px;
+
+        padding: 0;
+
+        overflow: hidden;
+    }
+
+
+    .law-flow-bottom span {
+        min-height: 42px;
+
+        padding: 0 8px;
+    }
+
+
+    .law-flow-bottom span:nth-child(1),
+    .law-flow-bottom span:nth-child(2) {
+        border-bottom:
+            1px solid
+            rgba(163, 215, 249, 0.08);
+    }
+
+
+    .law-flow-bottom span:nth-child(2)::after {
+        display: none;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .law-flow-hero *,
+    .law-flow-hero *::before,
+    .law-flow-hero *::after {
+        animation:
+            none !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
