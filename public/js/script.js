@@ -681,3 +681,150 @@ if (lawServicesSection) {
     );
 
 }
+
+const lxHeroWord =
+    document.getElementById("lxHeroWord");
+
+if (lxHeroWord) {
+
+    const lxHeroWords = [
+        "Start.",
+        "Protect.",
+        "Comply.",
+        "Grow."
+    ];
+
+    let lxHeroWordIndex = 0;
+
+
+    setInterval(function () {
+
+        lxHeroWord.classList.add(
+            "lx-word-out"
+        );
+
+
+        setTimeout(function () {
+
+            lxHeroWordIndex =
+                (
+                    lxHeroWordIndex + 1
+                ) %
+                lxHeroWords.length;
+
+
+            lxHeroWord.textContent =
+                lxHeroWords[
+                    lxHeroWordIndex
+                ];
+
+
+            lxHeroWord.classList.remove(
+                "lx-word-out"
+            );
+
+
+            lxHeroWord.classList.add(
+                "lx-word-in"
+            );
+
+
+            requestAnimationFrame(
+                function () {
+
+                    requestAnimationFrame(
+                        function () {
+
+                            lxHeroWord
+                                .classList
+                                .remove(
+                                    "lx-word-in"
+                                );
+
+                        }
+                    );
+
+                }
+            );
+
+        }, 250);
+
+    }, 2300);
+
+}
+
+
+const lxHeroVisual =
+    document.getElementById(
+        "lxHeroVisual"
+    );
+
+
+if (
+    lxHeroVisual &&
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
+) {
+
+    lxHeroVisual.addEventListener(
+        "pointermove",
+        function (event) {
+
+            const rect =
+                lxHeroVisual
+                    .getBoundingClientRect();
+
+
+            const x =
+                (
+                    event.clientX -
+                    rect.left
+                ) /
+                rect.width -
+                0.5;
+
+
+            const y =
+                (
+                    event.clientY -
+                    rect.top
+                ) /
+                rect.height -
+                0.5;
+
+
+            lxHeroVisual.style.setProperty(
+                "--lx-x",
+                `${x * 8}px`
+            );
+
+
+            lxHeroVisual.style.setProperty(
+                "--lx-y",
+                `${y * 8}px`
+            );
+
+        }
+    );
+
+
+    lxHeroVisual.addEventListener(
+        "pointerleave",
+        function () {
+
+            lxHeroVisual.style.setProperty(
+                "--lx-x",
+                "0px"
+            );
+
+
+            lxHeroVisual.style.setProperty(
+                "--lx-y",
+                "0px"
+            );
+
+        }
+    );
+
+}
